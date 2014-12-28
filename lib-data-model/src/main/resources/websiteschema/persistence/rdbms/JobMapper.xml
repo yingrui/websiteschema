@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="websiteschema.persistence.rdbms.JobMapper">
+
+<!--    <cache />-->
+    <sql id='jobColumns'>j.id id, j.jobType jobType, j.configure configure, j.wrapperId wrapperId, j.createTime createTime, j.createUser createUser, j.updateTime updateTime, j.lastUpdateUser lastUpdateUser</sql>
+    
+    <select id="getTotalResults" resultType="long">
+        select count(0) from Job j
+        left join Schedule s on s.jobId = j.id
+        left join StartURL u on s.startURLId = u.id
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                u.siteId like CONCAT('%','${match}','%' )
+            </if>
+            <if test="user != null">
+                and j.createUser like CONCAT('%','${user}','%' )
+            </if>
+            <if test="jobType != null">
+                and j.jobType=#{jobType}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getJobs" parameterType="java.util.Map" resultType="websiteschema.model.domain.Job">
+        select
+        <include refid="jobColumns"/>
+        from Job j
+        left join Schedule s on s.jobId = j.id
+        left join StartURL u on s.startURLId = u.id
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                u.siteId like CONCAT('%','${match}','%' )
+            </if>
+            <if test="user != null">
+                and j.createUser like CONCAT('%','${user}','%' )
+            </if>
+            <if test="jobType != null">
+                and j.jobType=#{jobType}
+            </if>
+        </trim>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        limit #{start}, #{limit}
+    </select>
+
+    <!-- 查询记录，根据Id -->
+    <select id="getById" parameterType="long" resultType="websiteschema.model.domain.Job">
+        select * from Job
+        where id = #{id}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="websiteschema.model.domain.Job"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into Job (jobType, configure, wrapperId, createTime, createUser, updateTime, lastUpdateUser)
+        values (#{jobType},#{configure},#{wrapperId},#{createTime},#{createUser},#{updateTime},#{lastUpdateUser})
+    </insert>
+
+    <!-- 更新任务状态记录 -->
+    <update id="update" parameterType="websiteschema.model.domain.Job">
+        update Job set
+        jobType = #{jobType},
+        configure = #{configure},
+        wrapperId = #{wrapperId},
+        createTime = #{createTime},
+        createUser = #{createUser},
+        updateTime = #{updateTime},
+        lastUpdateUser = #{lastUpdateUser}
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="websiteschema.model.domain.Job" >
+        delete from Job
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteById" parameterType="long" >
+        delete from Job
+        where id = #{id}
+    </delete>
+    
+</mapper>  

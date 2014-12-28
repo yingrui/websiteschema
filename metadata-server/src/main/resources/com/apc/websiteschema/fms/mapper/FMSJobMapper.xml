@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.apc.websiteschema.fms.mapper.FMSJobMapper">
+
+    <sql id='columnjob'>j.id id, j.biz_job jobname,j.channel_name name, j.channel_url url,j.status status, j.fetch_type fetchType, j.source_id sourceId, s.source_url site_url, s.source_name source, j.last_modify_time updateTime, j.create_time createTime, u.user_name createUser</sql>
+
+    <select id="getTotalResults" resultType="long" parameterType="java.util.Map">
+        select count(*)
+        from JOB_INFO j
+        left join USER_INFO u on u.user_id = j.create_user
+        left join SOURCE_INFO s on s.source_id = j.source_id
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                j.biz_job like CONCAT(CONCAT('%','${match}'),'%' )
+            </if>
+            <if test="source != null">
+                and s.source_name like CONCAT(CONCAT('%','${source}'),'%' )
+            </if>
+        </trim>
+
+    </select>
+
+    <select id="getFMSJobs" parameterType="java.util.Map" resultType="com.apc.websiteschema.fms.FMSJob">
+        select * from ( select row_.*, rownum rownum_ from (
+        select
+        <include refid="columnjob"/>
+            from JOB_INFO j
+            left join USER_INFO u on u.user_id = j.create_user
+            left join SOURCE_INFO s on s.source_id = j.source_id
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                j.biz_job like CONCAT(CONCAT('%','${match}'),'%' )
+            </if>
+            <if test="source != null">
+                and s.source_name like CONCAT(CONCAT('%','${source}'),'%' )
+            </if>
+        </trim>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        ) row_ where rownum &lt;= (#{start}+#{limit}) ) where rownum_ &gt; #{start}
+    </select>
+
+    <!-- 查询记录，根据Id -->
+    <select id="getById" parameterType="long" resultType="com.apc.websiteschema.fms.FMSJob">
+        select
+        <include refid="columnjob"/>
+        from JOB_INFO j
+        left join USER_INFO u on u.user_id = j.create_user
+        left join SOURCE_INFO s on s.source_id = j.source_id
+        where j.id = #{id}
+    </select>
+
+</mapper>

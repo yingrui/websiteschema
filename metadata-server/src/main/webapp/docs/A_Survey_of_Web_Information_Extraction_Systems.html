@@ -1,0 +1,276 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title>A Survey of Web Information Extraction Systems</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../style/book.css">
+    </head>
+    <body>
+        <h3>Web信息抽取系统</h3>
+        <p>　　什么是Web抽取系统，如何评价抽取系统？如何系统的认识一个信息抽取系统，这必将全面的影响我们原先对所谓的爬虫、蜘蛛的看法。</p>
+        <div class="quote">
+            <center id="paper-title"><h3><a href="http://in2.csie.ncu.edu.tw/~chia/pub/iesurvey2006.pdf">Web信息抽取系统综述</a></h3></center>
+            <p><b>作者：</b><span id="author"><a href="http://in2.csie.ncu.edu.tw/~chia/"><b>Chia-Hui Chang</b></a>, <b>Mohammed Kayed</b>, <b>Moheb Ramzy Girgis</b>, <b>Khaled Shaalan</b></span></p>
+            <p><b>摘要：</b><span id="abstract">Internet存储了大量有用的信息，但是这些信息的格式不同，这使得从不同来源抽取出相关信息变得困难。因而，信息抽取系统在将网页转换成机器可读数据的能力，主要是指程序的鲁棒性和灵活性，就成为了衡量该系统的主要指标。虽然已经开发出了很多方法用于网络信息抽取，但是作者有限的努力只能比较其中数种，而且这些方法因为抽取任务的不同，也只有很少一部分结果可以进行比较。本文调研了主要的网络数据抽取方法，并在方法的适用领域、自动化程度和采用技术等三个维度进行综合的比较研究。第一个维度的标准解释了为什么有的信息抽取系统不能处理一些结构特殊的网站，第二个维度的标准基于系统采用的技术，对抽取系统进行了分类。第三个维度的标准衡量了抽取系统的自动化程度。我们相信这些标准可以很好的衡量不同的信息抽取方法。</span></p>
+            <p><b>关键词：</b><span id="keywords"><b>信息抽取</b>，<b>Web挖掘</b>，<b>抽取器</b>，<b>抽取器生成</b></span></p>
+        </div>
+        <p>　　在摘要中明确提出了要从适应性，自动化程度和使用的方法来评价一个信息抽取系统，那么我们来看，一个信息抽取系统面临的是什么问题，他的产生背景是什么呢？</p>
+        <div class="quote">
+            <p>　　万维网的爆炸性增长和流行，在因特网上产生了大量的信息。然而，由于网络资源的特异性以及缺乏固定结构，访问这些资源的主要方法被限制为浏览和搜索。一些智能的网络挖掘应用，例如价格比较机器人，需要对数据格式的维护付出进行大量的维护成本。为了能够将网页转换成结构化数据，人们已经在<b>信息抽取（Information Extraction IE）</b>领域付出了巨大的努力。不同于<b>信息检索（Information Retrieval IR）</b>仅考虑如何从文档集中找出相关文档，IE必须生成结构化数据用于其他数据处理，这对于许多Web挖掘和搜索应用都是决定性的。</p>
+        </div>
+        <p>　　文中描述了Web IE是很多网络挖掘和搜索工具等应用的关键技术，就像目前的团购网站，新闻搜索，价格搜索等等。那么我们接着来看Prof.Chang是怎么定义一个IE任务呢。</p>
+        <div class="quote">
+            <p>　　通常，一个IE任务由输入和其抽取目标两部分组成。输入可以是无结构的文档，可能是自由文本，也可能是网络上的半结构化文档，就像表格、项目清单或者列表。抽取目标可以被形式化为具有一定关联关系的k元组（k是一个记录的属性的数量），也可以被形式化为一个复杂对象，其具有树形结构或者嵌套有其它复杂对象。并且很多IE任务中，一个抽取目标的属性可能允许没有值或者有多值。更为复杂的问题还包括：在输入文档中，不同属性之间的排列组合顺序，以及一些印刷错误等。</p>
+        </div>
+        <p>　　既然一个IE任务是将输入转换成结构化的数据，那么接下来我们将要定义什么是信息抽取系统和抽取器了，请看接下两段：</p>
+        <div class="quote">
+            <p>　　<b>抽取器</b>(Wrapper或者Extractor)被定义为：实现IE任务的计算机程序。抽取器最初被定义为信息集成系统（Information Integration System）的一个组件，他是一个特定的查询接口，用来以固定的方式访问不同的信息源。通常情况下，在一个信息集成系统中，抽取器是一个程序，它将各种信息源（如：数据库，网络资源）转换成通用信息源，使得信息集成系统可以直接访问各种数据而不需要改变其原有的查询机制。举例如下：当某信息源为Web服务器，一个抽取器必须通过HTTP协议查询此Web服务器并抽取和收集网页上的数据，最终将这些数据和其它信息源上的数据集成在一起。</p>
+            <p>　　<b>抽取器生成系统</b>(Wrapper Induction WI System 或者 Information Extraction IE System)是一种被设计来生成抽取器程序的程序。一个抽取器通常表现为一个模式匹配的过程，或者是一种有限状态机，它依赖固定的规则执行IE任务。针对特定任务开发设计的一个WI系统，主要依赖于任务的数据类型，领域特点和应用场景。为了最大化系统的重用性和最小化系统的维护成本，设计一个可以训练的WI系统一直是信息理解、机器学习、数据挖掘等研究领域的重要课题。</p>
+        </div>
+        <p>　　现在我们知道了，一个抽取器生成系统，又称信息抽取系统，主要是被设计来生成采集器，而采集器通常是依照规则运行的程序，所以生成的采集器，通常就是生成一些规则，或者配置。因为这篇论文是介绍Web IE系统的，Prof.Chang接着又说明了Web IE系统和传统IE系统的不同特点，那让我们接着来看一看吧。</p>
+        <div class="quote">
+            <p>　　Web IE任务和传统的IE任务有很大的不同，传统的IE任务致力于从自由文本中抽取出信息，然而相反的，Web IE系统处理的在线文档通常都是半结构文档，并且绝大部分是由服务端程序自动生成的。其结果是，传统IE系统主要借助NLP技术实现，例如词法分析和语法分析技术，而Web IE技术通常应用机器学习和模式挖掘等技术去查找文档中的符号标记或者层次结构等模板信息。</p>
+        </div>
+        <p>　　我们进一步知道了Web IE系统的特点，但是我个人相信，传统IE系统中的使用的NLP技术，对Web IE来说，也是同样需要的，例如从新闻的正文中抽取出作者、来源等信息。接下来让我们了解一下在2006年，信息抽取系统的状况吧。当时许多基于机器学习和模式挖掘技术的IE系统都已经被开发出来了。</p>
+        <div class="quote">
+            <p>　　<a href="http://en.wikipedia.org/wiki/Message_Understanding_Conference">消息理解会议</a>（Message Understanding Conference MUC）最初推进了IE系统的发展。其时有5个主要任务与text IE有关，包括命名实体识别、指代消减和指定元素、关系和情景识别。MUC在IE领域发展的时候，推动了研究人员将IE方法分为了两种不同的方法：MUC方法和后MUC方法。其代表分别有，MUC方法：AutoSolg、LIEP、PALKA、HASTEN、CRYSTAL；后MUC方法：WHISK、RAPIER、SRV、WIEN、SoftMealy、STALKER。</p>
+            <p>　　Hsu和Dung将抽取器分为4类，包括：使用通用编程语言编写的抽取器、特殊设计的领域编程语言或工具、启发式抽取器和抽取器生成系统。Chang依照这种分类，再结合用户观点对相应WI系统进行比较，再根据这些系统的自动化程度，也归纳了4种分类：程序员依赖的信息抽取系统、需要标注语料基于机器学习的信息抽取系统、不需要标注语料的无监督信息抽取系统，半监督的信息抽取系统</p>
+            <p>　　Muslea维护了RISE网站（Repository of Online Information Sources Used in Information Extraction Tasks 在线信息抽取任务的信息源数据库）。按照IE任务的输入文档和抽取器规则，将信息抽取系统分为3类：第一类包括所有按照符号标记为模式对自由文本进行抽取的系统。第二类为以剔除规则为主的，并主要针对HTML文档的信息抽取系统。第三类也是针对在线文档，但是同时包含剔除规则和符号标记。</p>
+        </div>
+        <p>　　PS：我忍不住要在这里插上一句，我们发现，居然有人按照抽取器规则和输入文档类型就对抽取器归了3类。到目前为止，我们是否可以认为：所有的抽取规则仅限于基于符号标注和剔除规则两种呢？剩下的抽取器就是那些自己写代码，一个程序针对一种网页的抽取器呢？</p>
+        <div class="quote">
+            <p>　　Laender提出了按照抽取系统生成抽取器的技术来对信息抽取系统进行分类。其中包含几个维度有：开发抽取器使用的语言（例如：Minerva，TSIMMIS，WebOQL）、与HTML语言相关（例如：W4F，XWrap，RoadRunner）、基于NLP技术（例如：WHISK，RAPIER，SRV）、以生成抽取器为主的（例如：WIEN，SoftMealy，STALKER）、基于模型的（例如：NoDoSE，DEByE）、基于本体的（例如：BYU）。Laender从7个方面对这些系统和工具进行了对比：自动化程度、支持复杂对象、文本内容、GUI友善度、XML输出、支持非HTML信息源和适应能力。</p>
+            <p>　　Sarawagi将HTML抽取器依照抽取任务的不同将IE系统分为3类。第一类是记录级别的抽取器，抽取系统发现网页上每条记录的边界，然后由页面上抽取出记录列表。第二类是页面级别的抽取器，每个目标页面有多种记录。第三类是网站级别的抽取器，目的是将整个网站转录入一个本地数据库。</p>
+            <p>　　Kuhlins和Tredwell按照商用和非商用能力对IE系统进行了归类，并按照系统的输出方法、接口类型、网络采集能力和界面化人机接口对抽取系统进行了对比。</p>
+            <p>　　本篇综述将按照3个主要维度评价IE系统。第一是依据输入文本的不同，主要考虑的是IE任务的难度。第二是依据抓取器使用的技术进行分类，例如使用正则表达式、逻辑规则、有限状态机、概率模型等等。第三是根据程序员的参与程度，学习曲线或者无监督自学习等方面，主要考虑系统的自动化程度。</p>
+        </div>
+        <p>　　其后则整篇文章都在介绍各种被Prof.Chang选择的抽取器，我想打乱一下原文的讲解顺序，首先将其针对输入类型而进行对比的结果翻译并列举出来，然后再选择几个有代表性的抽取器进行稍微详细的介绍。</p>
+        <div class="quote">
+            <center><h4>表1：基于IE任务适用范围的对比分析</h4></center>
+            <table align="center" border="1">
+                <tr>
+                    <th rowspan="2"/><th rowspan="2">名称</th><th rowspan="2">页面类型</th><th rowspan="2">非HTML页面</th><th rowspan="2">数据等级</th><th colspan="3">抽取目标数据模型的限制</th><th colspan="2">字段的格式变化</th><th rowspan="2" style="width:5.5em;">能否进一步抽取属性</th>
+                </tr>
+                <tr>
+                    <td>空值/多值</td><td>字段顺序不定</td><td>嵌套复杂对象</td><td>一个字段多种格式</td><td>多种字段统一格式</td>
+                </tr>
+                <!-- 手工配置 -->
+                <tr>
+                    <th rowspan="5"><span style="width:1.5em; float:right;">手工配置</span></th><td>Minerva</td><td>半结构化</td><td>支持</td><td>记录级别</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Both</td><td>By Order</td><td>支持</td>
+                </tr>
+                <tr>
+                    <td>TSIMMIS</td><td>半结构化</td><td>支持</td><td>记录级别</td><td>Yes</td><td>No</td><td>Yes</td><td>Disj</td><td>By Order</td><td>不支持</td>
+                </tr>
+                <tr>
+                    <td>WebOQL</td><td>半结构化</td><td>不支持</td><td>记录级别</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Disj</td><td>By Order</td><td>不支持</td>
+                </tr>
+                <tr>
+                    <td>W4F</td><td>结构化</td><td>不支持</td><td>记录级别</td><td>Yes</td><td>Yes</td><td>Yes</td><td>SP</td><td>By Order</td><td>支持</td>
+                </tr>
+                <tr>
+                    <td>XWRAP</td><td>结构化</td><td>不支持</td><td>记录级别</td><td>Yes</td><td>No</td><td>Yes</td><td>SP</td><td>By Order</td><td>支持</td>
+                </tr>
+                <!-- 有监督机器学习 -->
+                <tr>
+                    <th rowspan="8"><span style="width:1.5em; float:right;">监督学习</span></th><td>RAPIER</td><td>自由文本</td><td>支持</td><td>字段级别</td><td>Yes</td><td>--</td><td>--</td><td>Disj</td><td>More constraints</td><td>支持</td>
+                </tr>
+                <tr>
+                    <td>SRV</td><td>自由文本</td><td>支持</td><td>字段级别</td><td>Yes</td><td>--</td><td>--</td><td>Disj</td><td>More constraints</td><td>支持</td>
+                </tr>
+                <tr>
+                    <td>WHISK</td><td>自由文本</td><td>支持</td><td>记录级别</td><td>Yes</td><td>Yes</td><td>No</td><td>Disj</td><td>By Order</td><td>支持</td>
+                </tr>
+                <tr>
+                    <td>NoDoSE</td><td>半结构化</td><td>支持</td><td>页面/记录</td><td>Yes</td><td>Limited</td><td>Yes</td><td>No</td><td>By Order</td><td>不支持</td>
+                </tr>
+                <tr>
+                    <td>DEByE</td><td>半结构化</td><td>支持</td><td>记录级别</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Disj</td><td>More constraints</td><td>不支持</td>
+                </tr>
+                <tr>
+                    <td>WIEN</td><td>半结构化</td><td>支持</td><td>字段级别</td><td>No</td><td>No</td><td>Limited</td><td>No</td><td>By Order</td><td>不支持</td>
+                </tr>
+                <tr>
+                    <td>STALKER</td><td>半结构化</td><td>支持</td><td>字段级别</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Both</td><td>More constraints</td><td>不支持</td>
+                </tr>
+                <tr>
+                    <td>SoftMealy</td><td>半结构化</td><td>支持</td><td>字段级别</td><td>Yes</td><td>Limited</td><td>Multi Pass</td><td>Disj</td><td>By Order/Single Pass</td><td>支持</td>
+                </tr>
+                <!-- 半监督自动信息抽取系统 -->
+                <tr>
+                    <th rowspan="2"><span style="width:1.5em; float:right;">半监督</span></th><td>IEPAD</td><td>模板化</td><td>有限</td><td>记录级别</td><td>Yes</td><td>Limited</td><td>Limited</td><td>Both</td><td>By Order</td><td>支持</td>
+                </tr>
+                <tr>
+                    <td>OLERA</td><td>模板化</td><td>有限</td><td>记录级别</td><td>Yes</td><td>Limited</td><td>Limited</td><td>Both</td><td>By Order</td><td>支持</td>
+                </tr>
+                <!-- 无监督自动信息抽取系统 -->
+                <tr>
+                    <th rowspan="4"><span style="width:1.5em; float:right;">无监督</span></th><td>DeLa</td><td>模板化</td><td>有限</td><td>记录级别</td><td>Yes</td><td>Limited</td><td>Yes</td><td>Both</td><td>By Order</td><td>不支持</td>
+                </tr>
+                <tr>
+                    <td>RoadRunner</td><td>模板化</td><td>有限</td><td>页面级别</td><td>Yes</td><td>No</td><td>Yes</td><td>No</td><td>By Order</td><td>不支持</td>
+                </tr>
+                <tr>
+                    <td>EXALG</td><td>模板化</td><td>有限</td><td>页面级别</td><td>Yes</td><td>No</td><td>Yes</td><td>Both</td><td>By Order</td><td>不支持</td>
+                </tr>
+                <tr>
+                    <td>DEPTA</td><td>模板化</td><td>不支持</td><td>记录级别</td><td>Yes</td><td>No</td><td>Limited</td><td>Disj</td><td>By Order</td><td>不支持</td>
+                </tr>
+            </table>
+        </div>
+        <p>　　这篇综述中按照IE系统处理的输入数据，将这些输入数据分为：结构化、半结构化和自由文本三类，这对应其在综述中评价IE任务的难度为：简单、中等和困难。</p>
+        <div class="quote">
+            <p>　　其中，手工配置和有监督的抽取系统主要是被设计来抽取多个不同网站的数据，而半监督和无监督抽取系统则主要被设计来对有固定模板的结构化数据进行抽取。后者的这些IE系统都必须针对使用固定模板的网站，而前者则主要包含一些由符号标记构成的抽取规则。通过融合了结构化数据中的一些特征，无监督IE系统体现了相当高的自动化程度，但是其对非结构化数据的扩展能力却受到了限制。</p>
+        </div>
+        <p>　　以下虽非原话引用，但也是基本传达了综述中提到的基本意思：</p>
+        <p>　　<b>非HTML页面</b>：是指对HTML类型的输入数据的支持，主要指自由文本。我们看到目前自动化程度较低的系统大都可以同时支持非HTML类型的数据，而自动化程度较高的系统很难处理自由文本。</p>
+        <p>　　<b>任务等级</b>在这里被分为四个级别，它们由低至高为：字段级别、记录级别、页面级别和网站级别。这和之前所说了多个一个字段级别，这意味着一个抽取任务的目标仅是一个字段而已。</p>
+        <p>　　<b>抽取目标的数据模型</b>按照复杂度被分为4种，分别是：允许空值字段、允许多值字段、不确定字段顺序、嵌套复杂数据模型。因为允许空值和多值通常都能够同时支持，所以在表1中被合并为同一列。</p>
+        <p>　　由于数据<b>字段的格式</b>可以是变化的，这里将一个字段的格式分为：一个字段可能有多种格式和多个字段合用一种格式两类。这第一类字段，因为其格式不定，所以多数系统采用设定分割符的方式进行抽取，在表中使用Disj表示，而有的系统又忽略了格式问题，因为虽然格式不同，但是不同字段的顺序可能是一样的，所以如果依赖字段的顺序来解决这一问题的系统，在表中使用SP表示，如果两种都采用的则使用Both表示。第二类字段通常就可以按照顺序进行抽取了，但是因为有的数据可能会缺失，所以有的系统可以添加更多的限制条件来保证抽取结果的正确性，这里使用Add Constraints表示可以配置更多限制条件，By Order表示完全依赖字段的顺序。</p>
+        <p>　　<b>能否进一步抽取属性</b>是因为有的字段的值还需要进一步转换，例如日期字段，作者字段。更详细一些，某标签的文本可能是“作者：张三”，这时候，系统需要能够对这个属性做进一步抽取，仅抽取出张三即可。</p>
+        <div class="quote">
+            <center><h4>表2：基于使用的技术进行的对比分析</h4></center>
+            <table align="center" border="1">
+                <tr>
+                    <th>系统名称</th><th>扫描方法</th><th>抽取规则</th><th>应用特征</th><th>学习算法</th><th>数据结构确认方式</th>
+                </tr>
+                <tr>
+                    <td>Minerva</td><td>Single</td><td>Regular exp.</td><td>HTML tags/Literal words</td><td>None</td><td>Manually</td>
+                </tr>
+                <tr>
+                    <td>TSIMMIS</td><td>Single</td><td>Regular exp.</td><td>HTML tags/Literal words</td><td>None</td><td>Manually</td>
+                </tr>
+                <tr>
+                    <td>WebOQL</td><td>Single</td><td>Regular exp.</td><td>Hypertree</td><td>None</td><td>Manually</td>
+                </tr>
+                <tr>
+                    <td>W4F</td><td>Single</td><td>Regular exp.</td><td>DOM tree path addressing</td><td>None</td><td>Tag Level</td>
+                </tr>
+                <tr>
+                    <td>XWRAP</td><td>Single</td><td>Context-Free</td><td>DOM tree</td><td>None</td><td>Tag Level</td>
+                </tr>
+                <tr>
+                    <td>RAPIER</td><td>Multiple</td><td>Logic rules</td><td>Syntactic/Semantic</td><td>ILP(bottom-up)</td><td>Word Level</td>
+                </tr>
+                <tr>
+                    <td>SRV</td><td>Multiple</td><td>Logic rules</td><td>Syntactic/Semantic</td><td>ILP(bottom-up)</td><td>Word Level</td>
+                </tr>
+                <tr>
+                    <td>WHISK</td><td>Single</td><td>Regular exp.</td><td>Syntactic/Semantic</td><td>Set covering(top-down)</td><td>Word Level</td>
+                </tr>
+                <tr>
+                    <td>NoDoSE</td><td>Single</td><td>Regular exp.</td><td>HTML tags/Literal words</td><td>Data Modeling</td><td>Word Level</td>
+                </tr>
+                <tr>
+                    <td>DEByE</td><td>Multiple</td><td>Regular exp.</td><td>HTML tags/Literal words</td><td>Data Modeling</td><td>Word Level</td>
+                </tr>
+                <tr>
+                    <td>WIEN</td><td>Single</td><td>Regular exp.</td><td>HTML tags/Literal words</td><td>Ad-hoc(bottom-up)</td><td>Word Level</td>
+                </tr>
+                <tr>
+                    <td>STALKER</td><td>Multiple</td><td>Regular exp.</td><td>HTML tags/Literal words</td><td>Ad-hoc(bottom-up)</td><td>Word Level</td>
+                </tr>
+                <tr>
+                    <td>SoftMealy</td><td>Both</td><td>Regular exp.</td><td>HTML tags/Literal words</td><td>Ad-hoc(bottom-up)</td><td>Word Level</td>
+                </tr>
+                <tr>
+                    <td>IEPAD</td><td>Single</td><td>Regular exp.</td><td>HTML tags</td><td>Pattern Mining, String Alignment</td><td>Multi-Level</td>
+                </tr>
+                <tr>
+                    <td>OLERA</td><td>Single</td><td>Regular exp.</td><td>HTML tags</td><td>String Alignment</td><td>Multi-Level</td>
+                </tr>
+                <tr>
+                    <td>DeLa</td><td>Single</td><td>Regular exp.</td><td>HTML tags</td><td>Pattern Mining</td><td>Tag Level</td>
+                </tr>
+                <tr>
+                    <td>RoadRunner</td><td>Single</td><td>Regular exp.</td><td>HTML tags</td><td>String Alignment</td><td>Tag Level</td>
+                </tr>
+                <tr>
+                    <td>EXALG</td><td>Single</td><td>Regular exp.</td><td>HTML tags/Literal words</td><td style="width:10em;">Equivalent Class and Role Differentiation by DOM tree path</td><td>Word Level</td>
+                </tr>
+                <tr>
+                    <td>DEPTA</td><td>Single</td><td>Tag Tree</td><td>HTML tags tree/HTML tags</td><td style="width:10em;">Pattern Mining, String comparison, Partial tree alignment</td><td>Tag Level</td>
+                </tr>
+            </table>
+        </div>
+        <p>　　<b>扫描次数</b>是指系统在抽取的过程中需要对输入文档进行扫描的次数。大多数系统都是一次扫描，抽取出多个相应的记录和字段。但为什么有的系统需要多次扫描呢？这是因为多次扫描更加灵活，更能适应复杂对象的抽取，在SRV和Papier中每个字段适用一个抽取规则，如果要从一篇文档中抽取多个数据，则必须要对同一篇文档扫描多次。当然，扫描一次要比扫描多次更加快速。</p>
+        <p>　　<b>抽取规则</b>有好几个类型。主要是基于正则表达式的，正则表达式非常适合于半结构化数据，尤其是有固定模板的结构化数据。有的系统还使用了一阶逻辑，这是因为在自由文本的抽取中，需要使用结合很多特征来作判断，于是一阶逻辑就成为了识别分割符、切割位置等信息的判别方法。另外Context-free和Tag-tree两种抽取规则还请自行参考相应的系统。</p>
+        <p>　　<b>使用特征</b>：由于早期的IE系统都被设计来抽取非结构化文档，所以大多系统都使用了HTML标签和字符串作为切割规则。在基于模板的网页中，使用DOM树的XPath现在已经成为能够代表信息的特别的特征。在基于自由文本的IE系统中，词性标注、Word-Net等语义计算方法，都被采用作为更多的特征。另外还有一些系统将通过训练获取的统计信息作为特征使用，用来生成抽取器。</p>
+        <p>　　<b>学习算法</b>：一些手工编写抽取器的系统是不需要抽取器的，另外的算法我们在这里也不做介绍。</p>
+        <p>　　<b>数据结构的确认方式</b>：一些手工编写抽取器的系统也是不需要为每个抽取信息确定字段的，一些系统按照文档的标签进行抽取，就是tag-level的抽取规则，也就是通过标签的位置来确定了数据的结构。另外还有一些系统通过字符串作为抽取器的分割符，这些是word-level的。</p>
+        <div class="quote">
+            <center><h4>表3：对比IE系统的自动化程度</h4></center>
+            <table align="center" border="1">
+                <tr>
+                    <th>系统名称</th><th>对用户的要求</th><th>数据采集</th><th>输出格式</th><th>适用范围</th><th>限制</th>
+                </tr>
+                <tr>
+                    <td>Minerva</td><td>需要编程</td><td>不支持</td><td>XML</td><td>高</td><td>无限制</td>
+                </tr>
+                <tr>
+                    <td>TSIMMIS</td><td>需要编程</td><td>不支持</td><td>Text</td><td>高</td><td>无限制</td>
+                </tr>
+                <tr>
+                    <td>WebOQL</td><td>需要编程</td><td>不支持</td><td>Text</td><td>高</td><td>无限制</td>
+                </tr>
+                <tr>
+                    <td>W4F</td><td>需要编程</td><td>支持</td><td>XML</td><td>中</td><td>无限制</td>
+                </tr>
+                <tr>
+                    <td>XWRAP</td><td>需要编程</td><td>支持</td><td>XML</td><td>中</td><td>无限制</td>
+                </tr>
+                <tr>
+                    <td>RAPIER</td><td>需要标记</td><td>不支持</td><td>Text</td><td>中</td><td>无限制</td>
+                </tr>
+                <tr>
+                    <td>SRV</td><td>需要标记</td><td>不支持</td><td>Text</td><td>中</td><td>无限制</td>
+                </tr>
+                <tr>
+                    <td>WHISK</td><td>需要标记</td><td>不支持</td><td>Text</td><td>中</td><td>无限制</td>
+                </tr>
+                <tr>
+                    <td>NoDoSE</td><td>需要标记</td><td>不支持</td><td>XML, OEM</td><td>中</td><td>无限制</td>
+                </tr>
+                <tr>
+                    <td>DEByE</td><td>需要标记</td><td>支持</td><td>XML, SQL DB</td><td>中</td><td>无限制</td>
+                </tr>
+                <tr>
+                    <td>WIEN</td><td>需要标记</td><td>不支持</td><td>Text</td><td>中</td><td>无限制</td>
+                </tr>
+                <tr>
+                    <td>STALKER</td><td>需要标记</td><td>不支持</td><td>Text</td><td>中</td><td>无限制</td>
+                </tr>
+                <tr>
+                    <td>SoftMealy</td><td>需要标记</td><td>支持</td><td>XML, SQL DB</td><td>中</td><td>无限制</td>
+                </tr>
+                <tr>
+                    <td>IEPAD</td><td>后标记，模式选择</td><td>不支持</td><td>Text</td><td>低</td><td>需要训练数据</td>
+                </tr>
+                <tr>
+                    <td>OLERA</td><td>部分标记</td><td>不支持</td><td>XML</td><td>低</td><td>无限制</td>
+                </tr>
+                <tr>
+                    <td>DeLa</td><td>模式选择</td><td>支持</td><td>Text</td><td>低</td><td>需要训练数据</td>
+                </tr>
+                <tr>
+                    <td>RoadRunner</td><td>模式选择</td><td>支持</td><td>XML</td><td>低</td><td>需要训练数据</td>
+                </tr>
+                <tr>
+                    <td>EXALG</td><td>模式选择</td><td>不支持</td><td>Text</td><td>低</td><td>需要训练数据</td>
+                </tr>
+                <tr>
+                    <td>DEPTA</td><td>模式选择</td><td>不支持</td><td>XML</td><td>低</td><td>需要训练数据</td>
+                </tr>
+            </table>
+        </div>
+        <p>　　<b>对用户的要求</b>：一些手工编写抽取器的系统需要用户具备一定的编程能力，而其他的系统相应的需要用户参与语料标记、模式选择，或者两者同时需要。</p>
+        <p>　　<b>数据采集</b>是指有的系统只专注于信息抽取，而不提供数据采集的支持。<b>输出格式</b>一列表明了抽取程序是如何和其他系统集成的。<b>适用性</b>表明了程序的应用范围。通常是指程序可以适用各种类型的输入文档。</p>
+        <p>　　<b>限制条件</b>是指有的系统需要目标页面做为训练数据。</p>
+        <h3>小结</h3>
+        <p>　　通过这篇综述，我们基本知道了一些5年前的情况（现在是2011年）。除了知道信息抽取、抽取器、抽取系统的基本概念之外，原来研究信息抽取的大部分人都不想着怎么采集数据，原来一个抽取器可以自己写，也可以通过标记数据，训练出来一个具有启发性的程序，甚至通过输入目标网页，抽取系统可以自己训练抽取器。原来抽取规则主要是正则表达式，其次是DOM Tree。原来好多程序都是通过分割符来进行抽取信息的，原来每个系统都有自己的适用范围，不是什么算法都能随便用的。</p>
+        <center><a href="web_information_extraction.html">返回</a></center>
+    </body>
+</html>

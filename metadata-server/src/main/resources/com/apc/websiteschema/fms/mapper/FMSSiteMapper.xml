@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.apc.websiteschema.fms.mapper.FMSSiteMapper">
+
+    <sql id="column">s.source_id id, s.source_name name, s.source_type_id1 type_id1, t.source_type_name bigKind, s.source_type_id2 type_id2, s.if_core core, s.source_url url</sql>
+
+    <select id="getTotalResults" resultType="long" parameterType="java.util.Map">
+        select count(*)
+        from ( select
+        <include refid="column" />
+        from source_info s
+        left join source_type_info t on t.source_type_id = s.source_type_id1
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            s.status=1
+            <if test="source != null">
+                and s.source_name like CONCAT(CONCAT('%','${source}'),'%' )
+            </if>
+        </trim>
+        ) tmp, source_type_info t2 where tmp.type_id2 = t2.source_type_id
+    </select>
+
+    <select id="getFMSSites" parameterType="java.util.Map" resultType="com.apc.websiteschema.fms.FMSSite">
+        select tmp2.*, t2.source_type_name smallKind from (
+        select tmp.*, rownum rownum_ from (
+        select
+        <include refid="column" />
+        from source_info s
+        left join source_type_info t on t.source_type_id = s.source_type_id1
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            s.status=1
+            <if test="source != null">
+                and s.source_name like CONCAT(CONCAT('%','${source}'),'%' )
+            </if>
+        </trim>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        ) tmp where rownum &lt;=(#{start}+#{limit}) ) tmp2 , source_type_info t2 where rownum_ &gt; #{start} and tmp2.type_id2 = t2.source_type_id
+    </select>
+
+    <!-- 查询记录，根据Id -->
+    <select id="getById" parameterType="long" resultType="com.apc.websiteschema.fms.FMSSite">
+        select tmp.*, t2.source_type_name smallKind from
+        (
+        select
+        <include refid="column" />
+        from source_info s
+        left join source_type_info t on t.source_type_id = s.source_type_id1
+        where s.status=1
+        ) tmp, source_type_info t2 where tmp.type_id2 = t2.source_type_id
+        and id = #{id}
+    </select>
+
+</mapper>

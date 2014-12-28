@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+    <!-- Configurer that replaces ${...} placeholders with values from a properties file -->
+    <!-- (in this case, JDBC-related settings for the dataSource definition below) -->
+    <!--context:property-placeholder location="classpath:jdbc.properties"/-->
+
+<!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="${jdbc-url}" />
+        <property name="username" value="${jdbc-username}" />
+        <property name="password" value="${jdbc-passwd}" />
+    </bean>-->
+
+<!--    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="${jdbc-url}"/>
+        <property name="user" value="${jdbc-username}"/>
+        <property name="password" value="${jdbc-passwd}"/>
+        <property name="acquireIncrement" value="5"/>
+        <property name="idleConnectionTestPeriod" value="2400"/>
+        <property name="checkoutTimeout" value="3000"/>
+        <property name="maxPoolSize" value="80"/>
+        <property name="minPoolSize" value="1"/>
+        <property name="maxIdleTime" value="1800"/>
+        <property name="maxStatements" value="6000"/>
+        <property name="maxConnectionAge" value="7200"/>
+        <property name="debugUnreturnedConnectionStackTraces" value="true"/>
+        <property name="unreturnedConnectionTimeout" value="3000"/>
+        <property name="initialPoolSize" value="5"/>
+    </bean>-->
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="${jdbc-url}"/>
+        <property name="username" value="${jdbc-username}"/>
+        <property name="password" value="${jdbc-passwd}"/>
+        <property name="maxActive" value="80"/>
+        <property name="maxIdle" value="20"/>
+        <property name="maxWait" value="3000"/>
+    </bean>
+
+    <!-- transaction manager, use JtaTransactionManager for global tx -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!--enale component scanning (beware that this does not enable mapper scanning!)-->
+    <context:component-scan base-package="${mapper.scan.package}" />
+
+    <!-- enable autowire -->
+    <context:annotation-config />
+
+    <!-- enable transaction demarcation with annotations -->
+    <tx:annotation-driven />
+
+    <!-- define the SqlSessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="typeAliasesPackage" value="websiteschema.model.domain" />
+    </bean>
+
+    <!-- scan for mappers and let them be autowired -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="websiteschema.persistence.rdbms" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+
+
+<!--    <bean id="oracleDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:oracle:thin:@10.8.0.149:1521:dbpub" />
+        <property name="username" value="fatslim2" />
+        <property name="password" value="fatslim2" />
+    </bean>
+
+    <bean id="oracleTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="oracleDataSource" />
+    </bean>
+
+    <bean id="oracleSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="oracleDataSource" />
+        <property name="typeAliasesPackage" value="com.apc.datahandler.metadata.domain" />
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.apc.datahandler.metadata.persistence" />
+        <property name="sqlSessionFactory" ref="oracleSqlSessionFactory" />
+    </bean>-->
+</beans>

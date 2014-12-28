@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="websiteschema.persistence.rdbms.SiteMapper">
+
+    <cache />
+    
+    <select id="getTotalResults" resultType="long" parameterType="java.util.Map">
+        select count(*) from Site
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                siteId like CONCAT('%','${match}','%' )
+            </if>
+            <if test="siteType != null">
+                and siteType = #{siteType}
+            </if>
+            <if test="siteDomain != null">
+                and siteDomain like CONCAT('%','${siteDomain}','%' )
+            </if>
+        </trim>
+    </select>
+
+    <select id="getSites" parameterType="java.util.Map" resultType="websiteschema.model.domain.Site">
+        select * from Site 
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                siteId like CONCAT('%','${match}','%' )
+            </if>
+            <if test="siteType != null">
+                and siteType = #{siteType}
+            </if>
+            <if test="siteDomain != null">
+                and siteDomain like CONCAT('%','${siteDomain}','%' )
+            </if>
+        </trim>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        limit #{start}, #{limit}
+    </select>
+
+    <!-- 查询记录，根据id -->
+    <select id="getBySiteId" parameterType="long" resultType="websiteschema.model.domain.Site">
+        select * from Site
+        where siteId = #{siteId}
+    </select>
+
+    <!-- 查询记录，根据Name -->
+    <select id="getByName" parameterType="String" resultType="websiteschema.model.domain.Site">
+        select * from Site
+        where siteName = #{siteName}
+    </select>
+
+    <!-- 查询记录，根据Id -->
+    <select id="getById" parameterType="String" resultType="websiteschema.model.domain.Site">
+        select * from Site
+        where id = #{id}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="websiteschema.model.domain.Site"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into Site (siteId, siteDomain, siteName, siteType, parentId, url, createTime, createUser, updateTime, lastUpdateUser)
+        values (#{siteId},#{siteDomain},#{siteName},#{siteType},#{parentId},#{url},#{createTime},#{createUser},#{updateTime},#{lastUpdateUser})
+    </insert>
+
+    <!-- 更新任务状态记录 -->
+    <update id="update" parameterType="websiteschema.model.domain.Site">
+        update Site set
+        siteId = #{siteId},
+        siteDomain = #{siteDomain},
+        siteName = #{siteName},
+        siteType = #{siteType},
+        parentId = #{parentId},
+        url = #{url},
+        createTime = #{createTime},
+        createUser = #{createUser},
+        updateTime = #{updateTime},
+        lastUpdateUser = #{lastUpdateUser}
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="websiteschema.model.domain.Site" >
+        delete from Site
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteBySiteId" parameterType="String" >
+        delete from Site
+        where siteId = #{siteId}
+    </delete>
+    
+</mapper>  

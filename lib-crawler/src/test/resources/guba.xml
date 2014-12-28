@@ -1,0 +1,3198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<title>股吧_财经_新浪网</title>
+
+<meta name="keywords" content="股吧,新浪财经" />
+
+<meta name="description" content="此页面的说明" />
+
+</head>
+
+<body>
+
+<div class="secondaryHeader">
+
+    <div class="sHBorder">
+
+      <div class="sHLogo"><span><a href="http://finance.sina.com.cn/" target="_blank"><img src="http://i1.sinaimg.cn/dy/images/header/2009/standardl2nav_sina_new.gif" alt="新浪网" /></a><a href="http://finance.sina.com.cn/" target="_blank"><img src="http://i1.sinaimg.cn/dy/images/header/2009/standardl2nav_finance.gif" alt="新浪财经" /></a></span></div>
+
+      <div class="sHLinks"><a href="http://finance.sina.com.cn/" target="_blank">新浪财经</a>nbsp;|nbsp;<a href="http://www.sina.com.cn/" target="_blank">新浪首页</a>nbsp;|nbsp;<a href="http://news.sina.com.cn/guide/" target="_blank">新浪导航</a></div>
+
+    </div>
+
+  </div>
+
+      <!-- 标准二级导航_财经 end -->
+
+  <div class="navWrap">
+
+    <div class="guba"><a href="http://guba.sina.com.cn/"><img src="app/www/images/guba.png" alt="新浪财经-股吧" longdesc="http://guba.sina.com.cn/"/></a></div>
+
+  <div class="navSearch">
+
+    <form action="/" method="get" target="_blank" onsubmit="return searchBar(this);" >
+
+      <div class="s1">
+
+        <input type="text" value="" id="key1" name="key1" maxlength="100" style="display:none" />
+
+		<input type="text" value="请输入拼音/代码/名称" id="key2" name="key2" maxlength="100" style="position:relative;" />
+
+		<input type="text" value="" id="key3" name="key3" maxlength="100" style="display:none" />
+
+      </div>
+
+      <input type="submit" class="s2" value="" />
+
+      <input type="radio" name="tb" onclick="showInput(2)" checked="checked" class="s3" />
+
+      <span>进入吧</span>
+
+      <input type="radio" name="tb" onclick="showInput(1)"  class="s3" />
+
+      <span>帖子搜索</span>
+
+      <input type="radio" name="tb" onclick="showInput(3)"  class="s3" />
+
+      <span>按作者搜索</span>
+
+	  <input type="hidden" name="type" />
+
+	  <input type="hidden" name="key" />
+
+	  <input type="hidden" name="s" value="search" />
+
+    </form>
+
+  </div>
+
+  </div>
+
+  <div class="navLogin">
+
+
+	      <a href="/?s=channelchid=1" target="_blank">股吧列表</a> <a href="http://weibo.com/gubashi" target="_blank"><span style="color:red">股吧官方微博</span></a> <a href="http://finance.sina.com.cn/stock/index.shtml" target="_blank">新浪股票</a> </div>  <!-- main -->
+
+  <!-- Part 01 begin -->
+
+  <div class="part_01">
+
+    <div class="p_left">
+
+      <!-- left begin -->
+
+      <div class="tit_01">
+
+        <ul class="menu menu01 clearfix">
+
+          <li id="btn01"><span><s>热门推荐</s></span></li>
+
+          <li id="btn02"><span><s>热门板块</s></span></li>
+
+        </ul>
+
+      </div>
+
+      <div class="pcont01">
+
+        <div class="blk_01  blk_height" id="cont01">
+
+            <div class="blk_tb_01">
+
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_01">
+
+                    <tr>
+
+                        <th scope="col" class="th1">点击</th>
+
+                        <th scope="col" class="th2">回复</th>
+
+                        <th scope="col" class="th3">标题</th>
+
+                        <th scope="col" class="th4">作者</th>
+
+                        <th scope="col" class="th5">最新回复</th>
+
+                    </tr>
+
+                                                            <tr>
+
+                        <td>446</td>
+
+                        <td>5</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=23954bid=1039" target="_blank" class="f14">青山纸业个人建议</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh600103" target="_blank">青山纸业吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=2723032334' target='_blank'>烟雨馨兰</a></div></td>
+
+                        <td>03-03 11:49</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>766</td>
+
+                        <td>13</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=6471bid=2141" target="_blank" class="f14">东方铁塔----静养深闺人未识，拂去泥土始见金</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sz002545" target="_blank">东方铁塔吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=2642659091' target='_blank'>宁可被打死</a></div></td>
+
+                        <td>03-03 11:25</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>495</td>
+
+                        <td>19</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=7505bid=692" target="_blank" class="f14">海螺型材：近一年没在这吧里说了，今天要说两句</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sz000619" target="_blank">海螺型材吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author">113.118.11.*</div></td>
+
+                        <td>03-03 11:25</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>1029</td>
+
+                        <td>15</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=6824bid=1851" target="_blank" class="f14">章源钨业今天的走势你看懂了吗？</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sz002378" target="_blank">章源钨业吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author">123.147.251.*</div></td>
+
+                        <td>03-03 11:27</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>338</td>
+
+                        <td>11</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=11455bid=314" target="_blank" class="f14">方大特钢横盘后继续拉高，短期目标6.78元</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh600507" target="_blank">方大特钢吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author">113.106.218.*</div></td>
+
+                        <td>03-03 11:27</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>273</td>
+
+                        <td>17</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=18926bid=1374" target="_blank" class="f14">本周空中加油后市理应乐观</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh600779" target="_blank">水井坊吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1581557932' target='_blank'>荷叶</a></div></td>
+
+                        <td>03-03 11:46</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>463</td>
+
+                        <td>10</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=17258bid=652" target="_blank" class="f14">海马汽车的价值分析</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sz000572" target="_blank">海马汽车吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author">1.195.77.*</div></td>
+
+                        <td>03-03 11:28</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>508</td>
+
+                        <td>9</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=23906bid=1020" target="_blank" class="f14">客观来看，如果你是庄家，现在会上拉600085吗？</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh600085" target="_blank">同仁堂吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1376637435' target='_blank'>中长线</a></div></td>
+
+                        <td>03-03 11:29</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>1034</td>
+
+                        <td>39</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=3251bid=2318" target="_blank" class="f14">淘气天尊：谨防两会行情“见光死”！</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%CC%D4%C6%F8%CC%EC%D7%F0" target="_blank">淘气天尊吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1617732512' target='_blank'>淘氣天尊</a></div></td>
+
+                        <td>03-03 11:52</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>206</td>
+
+                        <td>10</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=8545bid=1279" target="_blank" class="f14">珠江事业下周或能创新高</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh600684" target="_blank">珠江实业吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author">219.234.151.*</div></td>
+
+                        <td>03-03 03:11</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>180</td>
+
+                        <td>7</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=6817bid=1737" target="_blank" class="f14">南国置业这个庄是个新手，菜鸟</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sz002305" target="_blank">南国置业吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1185176882' target='_blank'>醉里舞步</a></div></td>
+
+                        <td>03-03 09:40</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>19771</td>
+
+                        <td>46</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=31042bid=2260" target="_blank" class="f14">下周最有爆发力的四类潜力股!</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B9%C9%CA%D0%CA%B5%D5%BD" target="_blank">股市实战吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1409871307' target='_blank'>xzy546</a></div></td>
+
+                        <td>03-03 11:53</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>6306</td>
+
+                        <td>32</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=12451bid=2275" target="_blank" class="f14">三月股市行情展望</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B9%C9%CA%D0%B4%F3%B2%CE%BF%BC" target="_blank">股市大参考吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1761714501' target='_blank'>downtown</a></div></td>
+
+                        <td>03-03 11:26</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>1186</td>
+
+                        <td>10</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=6832bid=10313" target="_blank" class="f14">青青稞酒后市预测——跑赢大盘</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sz002646" target="_blank">青青稞酒吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1751629000' target='_blank'>飘零刀客</a></div></td>
+
+                        <td>03-03 09:40</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>625</td>
+
+                        <td>7</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=34426bid=1693" target="_blank" class="f14">中冶与中建的对比</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh601618" target="_blank">中国中冶吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author">119.54.31.*</div></td>
+
+                        <td>03-03 09:39</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>1369</td>
+
+                        <td>11</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=20766bid=1051" target="_blank" class="f14">水电股， 震仓洗盘，主力想干什么</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh600116" target="_blank">三峡水利吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author">119.135.61.*</div></td>
+
+                        <td>03-03 09:38</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>1522</td>
+
+                        <td>15</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=67074bid=1560" target="_blank" class="f14">三浪大涨将让你目瞪口呆</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh601857" target="_blank">中国石油吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1657143777' target='_blank'>东方老山羊</a></div></td>
+
+                        <td>03-03 09:38</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>697</td>
+
+                        <td>9</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=20729bid=68" target="_blank" class="f14">大秦铁路本周或是最后一蹲</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh601006" target="_blank">大秦铁路吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author">182.113.118.*</div></td>
+
+                        <td>03-03 07:14</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>419</td>
+
+                        <td>5</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=35492bid=330" target="_blank" class="f14">对中恒集团操作的思考</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh600252" target="_blank">中恒集团吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author">61.50.236.*</div></td>
+
+                        <td>03-03 03:13</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>659</td>
+
+                        <td>11</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=20299bid=1331" target="_blank" class="f14">苏州高新为何不涨的理由</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh600736" target="_blank">苏州高新吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author">221.214.12.*</div></td>
+
+                        <td>03-03 03:13</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>771</td>
+
+                        <td>7</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=101193bid=1066" target="_blank" class="f14">重啤的价格估计[2]</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh600132" target="_blank">重庆啤酒吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=2291755932' target='_blank'>玉兔侍嫦</a></div></td>
+
+                        <td>03-03 03:13</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>699</td>
+
+                        <td>9</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=23623bid=1559" target="_blank" class="f14">多年研究发现神华集团真实意图</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh601088" target="_blank">中国神华吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=2647540207' target='_blank'>远山长弓</a></div></td>
+
+                        <td>03-03 03:14</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>475</td>
+
+                        <td>4</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=24584bid=240" target="_blank" class="f14">短评贵州茅台与中国船舶</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh600519" target="_blank">贵州茅台吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author">111.78.78.*</div></td>
+
+                        <td>03-03 03:14</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>123</td>
+
+                        <td>6</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=12246bid=482" target="_blank" class="f14">撕开面纱，细数长城资产价值</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sz000006" target="_blank">深振业Ａ吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author">183.38.72.*</div></td>
+
+                        <td>03-03 03:14</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>540</td>
+
+                        <td>9</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=21390bid=1721" target="_blank" class="f14">全面分析网宿科技</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sz300017" target="_blank">网宿科技吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1739830371' target='_blank'>noppoo</a></div></td>
+
+                        <td>03-03 03:48</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>544</td>
+
+                        <td>5</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=3958bid=1025" target="_blank" class="f14">关注希努尔的高送股</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sz002485" target="_blank">希努尔吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1870124424' target='_blank'>Q360</a></div></td>
+
+                        <td>03-03 03:16</td>
+
+                    </tr>
+
+                                    </table>
+
+            </div>
+
+            <!-- 分页 begin -->
+
+            <table cellspacing="0" style="margin:0 auto;">
+
+                <tr>
+
+                  <td><style>
+
+.pagebox { overflow:hidden; zoom:1; font-size:12px; font-family:"宋体", sans-serif; padding:10px 0 }
+
+.pagebox span { float:left; margin-right:4px; overflow:hidden; text-align:center; background:#fff; }
+
+.pagebox span a { display:block; overflow:hidden; zoom:1; _float:left; }
+
+.pagebox span.pagebox_pre_nolink { border:1px #ddd solid; width:53px; height:18px; line-height:18px; text-align:center; color:#999; cursor:default; }
+
+.pagebox span.pagebox_pre { color:#3568b9; height:20px; }
+
+.pagebox span.pagebox_pre a:link, .pagebox span.pagebox_pre a:visited, .pagebox span.pagebox_next a:link, .pagebox span.pagebox_next a:visited { border:1px #9aafe5 solid; color:#3568b9; text-decoration:none; text-align:center; width:53px; cursor:pointer; height:18px; line-height:18px; }
+
+.pagebox span.pagebox_pre a:hover, .pagebox span.pagebox_pre a:active, .pagebox span.pagebox_next a:hover, .pagebox span.pagebox_next a:active { color:#363636; border:1px #2e6ab1 solid; }
+
+.pagebox span.pagebox_num_nonce { padding:0 8px; height:18px; border:solid 1px #528ee1; line-height:18px; color:#00578f; cursor:default; background:#cce8fd; font-weight:bold; }
+
+.pagebox span.pagebox_num { color:#3568b9; height:20px; }
+
+.pagebox span.pagebox_num a:link, .pagebox span.pagebox_num a:visited { border:1px #afadad solid; color:#3568b9; text-decoration:none; padding:0 8px; cursor:pointer; height:18px; line-height:18px; }
+
+.pagebox span.pagebox_num a:hover, .pagebox span.pagebox_num a:active { border:1px #2e6ab1 solid; color:#363636; }
+
+.pagebox span.pagebox_num_ellipsis { color:#393733; width:22px; background:none; line-height:20px; }
+
+.pagebox span.pagebox_next_nolink { border:1px #ddd solid; width:53px; height:18px; line-height:18px; text-align:center; color:#999; cursor:default; }
+
+.pagebox span.pagebox_num_ellipsis { background:none repeat scroll 0 0 transparent; color:#393733; line-height:23px; width:22px; }
+
+	</style><div class="pagebox" id="_function_code_page"><span class="pagebox_num_nonce">1</span><span class="pagebox_num"><a href="javascript:void(0)" onclick="get_rec_page(2, 26)">2</a></span><span class="pagebox_num"><a href="javascript:void(0)" onclick="get_rec_page(3, 26)">3</a></span><span class="pagebox_num"><a href="javascript:void(0)" onclick="get_rec_page(4, 26)">4</a></span><span class="pagebox_num"><a href="javascript:void(0)" onclick="get_rec_page(5, 26)">5</a></span><span class="pagebox_num"><a href="javascript:void(0)" onclick="get_rec_page(6, 26)">6</a></span><span class="pagebox_num"><a href="javascript:void(0)" onclick="get_rec_page(7, 26)">7</a></span><span class="pagebox_num"><a href="javascript:void(0)" onclick="get_rec_page(8, 26)">8</a></span><span class="pagebox_num"><a href="javascript:void(0)" onclick="get_rec_page(9, 26)">9</a></span><span class="pagebox_num"><a href="javascript:void(0)" onclick="get_rec_page(10, 26)">10</a></span><span class="pagebox_num_ellipsis">...</span><span class="pagebox_num"><a href="javascript:void(0)" onclick="get_rec_page(442, 26)">442</a></span><span class="pagebox_next"><a href="javascript:void(0)" onclick="get_rec_page(2, 26)">下一页</a></span></div></td>
+
+                </tr>
+
+            </table>
+
+            <!-- 分页 end -->
+
+        </div>
+
+        <div class="blk_01 blk_height" id="cont02">
+
+            <div  class="blk_tb_01">
+
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_01">
+
+                    <caption>
+
+                    	<input type='hidden' id='selected_forumid' value='9' />
+
+                    	                    	<a href="javascript:void(0)" onclick="filter(1, 26, 9)"
+
+                    	                    	class="hot"
+
+                    	                    	>大盘看点</a>
+
+                    	                    	<a href="javascript:void(0)" onclick="filter(1, 26, 8)"
+
+                    	                    	>有色金属</a>
+
+                    	                    	<a href="javascript:void(0)" onclick="filter(1, 26, 11)"
+
+                    	                    	>煤炭板块</a>
+
+                    	                    	<a href="javascript:void(0)" onclick="filter(1, 26, 7)"
+
+                    	                    	>新股</a>
+
+                    	                    	<a href="javascript:void(0)" onclick="filter(1, 26, 10)"
+
+                    	                    	>高铁概念</a>
+
+                    	                    </caption>
+
+                    <tr>
+
+                        <th scope="col" class="th1">点击</th>
+
+                        <th scope="col" class="th2">回复</th>
+
+                        <th scope="col" class="th3">标题</th>
+
+                        <th scope="col" class="th4">作者</th>
+
+                        <th scope="col" class="th5">最新回复</th>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>1311</td>
+
+                        <td>12</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=7683bid=2235" target="_blank" class="f14">小散晒晒手中的几只股</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B2%DD%B8%F9%B9%C9%C3%F1" target="_blank">草根股民吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=2013563600' target='_blank'>草根精神</a></div></td>
+
+                        <td>03-02 22:31</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>919</td>
+
+                        <td>11</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=2916bid=2318" target="_blank" class="f14">★淘氣天尊★【新浪博客】</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%CC%D4%C6%F8%CC%EC%D7%F0" target="_blank">淘气天尊吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1617732512' target='_blank'>淘氣天尊</a></div></td>
+
+                        <td>03-02 22:32</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>1678</td>
+
+                        <td>14</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=7547bid=2235" target="_blank" class="f14">股票加仓是门技术活</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B2%DD%B8%F9%B9%C9%C3%F1" target="_blank">草根股民吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1714456592' target='_blank'>风险玩家</a></div></td>
+
+                        <td>03-02 22:32</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>1640</td>
+
+                        <td>15</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=7542bid=2235" target="_blank" class="f14">盘中怎样预知股价将要拉升</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B2%DD%B8%F9%B9%C9%C3%F1" target="_blank">草根股民吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1858057514' target='_blank'>随行所欲</a></div></td>
+
+                        <td>03-02 22:33</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>1463</td>
+
+                        <td>30</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=7493bid=2235" target="_blank" class="f14">创业板什么股票是安全的？</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B2%DD%B8%F9%B9%C9%C3%F1" target="_blank">草根股民吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1858057514' target='_blank'>随行所欲</a></div></td>
+
+                        <td>03-02 22:56</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>904</td>
+
+                        <td>9</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=7486bid=2235" target="_blank" class="f14">以分红和股本回报看历来上市的股票</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B2%DD%B8%F9%B9%C9%C3%F1" target="_blank">草根股民吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=2173562922' target='_blank'>yyico158</a></div></td>
+
+                        <td>03-02 22:34</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>1434</td>
+
+                        <td>22</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=2873bid=2318" target="_blank" class="f14">淘气天尊：短期上攻目标2350点不变！</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%CC%D4%C6%F8%CC%EC%D7%F0" target="_blank">淘气天尊吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1617732512' target='_blank'>淘氣天尊</a></div></td>
+
+                        <td>03-02 22:39</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>3382</td>
+
+                        <td>18</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=7469bid=2235" target="_blank" class="f14">这个春季行情能走多远？</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B2%DD%B8%F9%B9%C9%C3%F1" target="_blank">草根股民吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1409871307' target='_blank'>xzy546</a></div></td>
+
+                        <td>03-02 22:56</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>1281</td>
+
+                        <td>14</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=7468bid=2235" target="_blank" class="f14">股市七大忽悠 你信过几个？</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B2%DD%B8%F9%B9%C9%C3%F1" target="_blank">草根股民吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1808753094' target='_blank'>藐视小散</a></div></td>
+
+                        <td>03-01 21:59</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>1306</td>
+
+                        <td>16</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=7452bid=2235" target="_blank" class="f14">你是不是也中了散户亏钱六大怪</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B2%DD%B8%F9%B9%C9%C3%F1" target="_blank">草根股民吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=2565392447' target='_blank'>一跑了之</a></div></td>
+
+                        <td>03-02 22:40</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>1719</td>
+
+                        <td>16</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=2860bid=2318" target="_blank" class="f14">再和淘气研判大盘</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%CC%D4%C6%F8%CC%EC%D7%F0" target="_blank">淘气天尊吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author">113.106.194.*</div></td>
+
+                        <td>01-13 08:37</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>2223</td>
+
+                        <td>8</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=7445bid=2235" target="_blank" class="f14">老股民总结的10只投机股</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B2%DD%B8%F9%B9%C9%C3%F1" target="_blank">草根股民吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=2579660654' target='_blank'>Laughing</a></div></td>
+
+                        <td>03-02 22:41</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>5661</td>
+
+                        <td>31</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=2850bid=2318" target="_blank" class="f14">淘气天尊：2012年股市全攻略（附股）！</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%CC%D4%C6%F8%CC%EC%D7%F0" target="_blank">淘气天尊吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1617732512' target='_blank'>淘氣天尊</a></div></td>
+
+                        <td>03-02 22:55</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>3877</td>
+
+                        <td>18</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=301262bid=9279" target="_blank" class="f14">重啤！重啤！</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh000001" target="_blank">上证指数吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1689123691' target='_blank'>虎年必涨</a></div></td>
+
+                        <td>03-02 22:43</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>264566</td>
+
+                        <td>1093</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=7036bid=2235" target="_blank" class="f14">2011年最悲剧的九大股票，你买过吗？</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B2%DD%B8%F9%B9%C9%C3%F1" target="_blank">草根股民吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1735481177' target='_blank'>sos故事</a></div></td>
+
+                        <td>03-01 21:53</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>4424</td>
+
+                        <td>64</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=7001bid=2235" target="_blank" class="f14">老股民炒股十年：没能跑赢大盘很惭愧</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B2%DD%B8%F9%B9%C9%C3%F1" target="_blank">草根股民吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=2048314952' target='_blank'>我哎炒股</a></div></td>
+
+                        <td>03-02 23:02</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>1658</td>
+
+                        <td>19</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=2772bid=2318" target="_blank" class="f14">淘气天尊：蓄势一周，下周不涨没天理！</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%CC%D4%C6%F8%CC%EC%D7%F0" target="_blank">淘气天尊吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1617732512' target='_blank'>淘氣天尊</a></div></td>
+
+                        <td>03-02 22:49</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>1675</td>
+
+                        <td>28</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=2790bid=2318" target="_blank" class="f14">淘气天尊：政策底下宁死不割肉！</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%CC%D4%C6%F8%CC%EC%D7%F0" target="_blank">淘气天尊吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1617732512' target='_blank'>淘氣天尊</a></div></td>
+
+                        <td>03-02 22:53</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>5980</td>
+
+                        <td>20</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=6920bid=2235" target="_blank" class="f14">后市大盘可能的走势</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B2%DD%B8%F9%B9%C9%C3%F1" target="_blank">草根股民吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author">10.212.12.*</div></td>
+
+                        <td>03-02 22:49</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>2321</td>
+
+                        <td>20</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=6921bid=2235" target="_blank" class="f14">期待股市砸出政策底</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B2%DD%B8%F9%B9%C9%C3%F1" target="_blank">草根股民吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1733396873' target='_blank'>新上海人</a></div></td>
+
+                        <td>03-01 21:48</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>9935</td>
+
+                        <td>36</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=20468bid=2260" target="_blank" class="f14">周一大盘极有可能这么走</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B9%C9%CA%D0%CA%B5%D5%BD" target="_blank">股市实战吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1733397544' target='_blank'>护盘校尉</a></div></td>
+
+                        <td>03-02 22:50</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>9478</td>
+
+                        <td>67</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=6902bid=2235" target="_blank" class="f14">暴跌之后将现短线入市良机</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B2%DD%B8%F9%B9%C9%C3%F1" target="_blank">草根股民吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1733397544' target='_blank'>护盘校尉</a></div></td>
+
+                        <td>03-02 00:55</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>3145</td>
+
+                        <td>23</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=6900bid=2235" target="_blank" class="f14">哪类个股最可能充当反弹的急先锋？</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=%B2%DD%B8%F9%B9%C9%C3%F1" target="_blank">草根股民吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1733397544' target='_blank'>护盘校尉</a></div></td>
+
+                        <td>03-02 22:52</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>118</td>
+
+                        <td>7</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=274711bid=9279" target="_blank" class="f14">郭树清：呼吁投资者多多提供内幕交易线索</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh000001" target="_blank">上证指数吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=1938329314' target='_blank'>楼上滴</a></div></td>
+
+                        <td>12-01 10:07</td>
+
+                    </tr>
+
+                                        <tr>
+
+                        <td>4492</td>
+
+                        <td>341</td>
+
+                        <td>
+
+                        	<a href="/?s=threadtid=272765bid=9279" target="_blank" class="f14">限制大小非减持的有力政策（求总置顶）</a>
+
+                        	                        	[<a class="fblue" href="/?s=barname=sh000001" target="_blank">上证指数吧</a>]
+
+                        	                        </td>
+
+                        <td><div class="author"><a href='/?s=useruid=2366920254' target='_blank'>呜哈哈</a></div></td>
+
+                        <td>03-01 21:53</td>
+
+                    </tr>
+
+                                    </table>
+
+            </div>
+
+            <!-- 分页 begin -->
+
+            <table cellspacing="0" style="margin:0 auto;">
+
+                <tr>
+
+                  <td><div class="pagebox" id="_function_code_page"><span class="pagebox_num_nonce">1</span><span class="pagebox_num"><a href="javascript:void(0)" onclick="filter(2, 26)">2</a></span><span class="pagebox_num"><a href="javascript:void(0)" onclick="filter(3, 26)">3</a></span><span class="pagebox_num"><a href="javascript:void(0)" onclick="filter(4, 26)">4</a></span><span class="pagebox_num"><a href="javascript:void(0)" onclick="filter(5, 26)">5</a></span><span class="pagebox_num"><a href="javascript:void(0)" onclick="filter(6, 26)">6</a></span><span class="pagebox_num"><a href="javascript:void(0)" onclick="filter(7, 26)">7</a></span><span class="pagebox_num"><a href="javascript:void(0)" onclick="filter(8, 26)">8</a></span><span class="pagebox_num"><a href="javascript:void(0)" onclick="filter(9, 26)">9</a></span><span class="pagebox_num"><a href="javascript:void(0)" onclick="filter(10, 26)">10</a></span><span class="pagebox_num_ellipsis">...</span><span class="pagebox_num"><a href="javascript:void(0)" onclick="filter(13, 26)">13</a></span><span class="pagebox_next"><a href="javascript:void(0)" onclick="filter(2, 26)">下一页</a></span></div></td>
+
+                </tr>
+
+            </table>
+
+            <!-- 分页 end -->
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- left end -->
+
+    <div class="p_right">
+
+      <!-- right begin -->
+
+      <div class="tit_02">
+
+        <h2 class="hot">热门股吧排行</h2>
+
+      </div>
+
+      <div class="pcont02">
+
+        <div class="blk_02">
+
+          <ul class="list list_01">
+
+		    		                <li class="no1"><a href="/?s=barname=sh601166" target="_blank">兴业银行</a></li>
+
+            					                <li class="no2"><a href="/?s=barname=sh600312" target="_blank">平高电气</a></li>
+
+            					                <li class="no3"><a href="/?s=barname=sz000670" target="_blank">S*ST天发</a></li>
+
+            					    					    					    					    					    					    					    					    					    					    					    					    					    					    					    					    			          </ul>
+
+          <div class="list_02_c">
+
+            <ul class="list list_02">
+
+		    		    					    					    					                <li class="no4"><a href="/?s=barname=sz002378" target="_blank">章源钨业</a></li>
+
+            					                <li class="no5"><a href="/?s=barname=sz002092" target="_blank">中泰化学</a></li>
+
+            					                <li class="no6"><a href="/?s=barname=sh601398" target="_blank">工商银行</a></li>
+
+            					                <li class="no7"><a href="/?s=barname=sz002400" target="_blank">省广股份</a></li>
+
+            					                <li class="no8"><a href="/?s=barname=sz000726" target="_blank">鲁泰Ａ</a></li>
+
+            					                <li class="no9"><a href="/?s=barname=sz000616" target="_blank">亿城股份</a></li>
+
+            					                <li class="no10"><a href="/?s=barname=sh601668" target="_blank">中国建筑</a></li>
+
+            					                <li class="no11"><a href="/?s=barname=sz000498" target="_blank">*ST丹化</a></li>
+
+            					    					    					    					    					    					    					    					    			            </ul>
+
+            <ul class="list list_02">
+
+		    		    					    					    					    					    					    					    					    					    					    					    					                <li class="no12"><a href="/?s=barname=sz000157" target="_blank">中联重科</a></li>
+
+            					                <li class="no13"><a href="/?s=barname=sz000009" target="_blank">中国宝安</a></li>
+
+            					                <li class="no14"><a href="/?s=barname=sz000917" target="_blank">电广传媒</a></li>
+
+            					                <li class="no15"><a href="/?s=barname=sz000877" target="_blank">天山股份</a></li>
+
+            					                <li class="no16"><a href="/?s=barname=sh600784" target="_blank">鲁银投资</a></li>
+
+            					                <li class="no17"><a href="/?s=barname=sz000587" target="_blank">ST金叶</a></li>
+
+            					                <li class="no18"><a href="/?s=barname=sz000609" target="_blank">绵世股份</a></li>
+
+            					                <li class="no19"><a href="/?s=barname=sz300077" target="_blank">国民技术</a></li>
+
+            			            </ul>
+
+            <div class="clearit"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="space"></div>
+
+      <div class="tit_02">
+
+        <h2>热门主题吧</h2>
+
+      </div>
+
+      <div class="pcont07 nobg">
+
+        <ul class="list list_05 clearfix">
+
+		<li><a href="/?s=barname=sh000001" target="_blank">上证指数</a></li>
+
+	            <li><a href="/?s=barname=%D5%BE%CE%F1%B9%DC%C0%ED" target="_blank">站务管理</a></li>
+
+                <li><a href="/?s=barname=%B9%C9%CA%D0%CA%B5%D5%BD" target="_blank">股市实战</a></li>
+
+                <li><a href="/?s=barname=%BA%EC%CF%DF%BD%CC%D6%F7" target="_blank">红线教主</a></li>
+
+                <li><a href="/?s=barname=%B9%C9%CA%D0%B4%F3%B2%CE%BF%BC" target="_blank">股市大参</a></li>
+
+                <li><a href="/?s=barname=%B2%DD%B8%F9%B9%C9%C3%F1" target="_blank">草根股民</a></li>
+
+                <li><a href="/?s=barname=%BE%FC%B9%A4%B0%E5%BF%E9" target="_blank">军工板块</a></li>
+
+                <li><a href="/?s=barname=%CC%D4%C6%F8%CC%EC%D7%F0" target="_blank">淘气天尊</a></li>
+
+                <li><a href="/?s=barname=%D0%C5%CF%A2%BD%BB%C1%F7" target="_blank">信息交流</a></li>
+
+                <li><a href="/?s=barname=%B1%F2%B8%E7%BF%B4%C5%CC" target="_blank">彬哥看盘</a></li>
+
+                <li><a href="/?s=barname=%B3%AC%B5%F8%B9%C9" target="_blank">超跌股</a></li>
+
+                <li><a href="/?s=barname=%D4%DA%CF%DF%C1%C4%B9%C9" target="_blank">在线聊股</a></li>
+
+                <li><a href="/?s=barname=%B6%CC%CF%DF%B8%DF%CA%D6" target="_blank">短线高手</a></li>
+
+                <li><a href="/?s=barname=%B9%F6%D1%A9%C7%F2%B8%DF%CA%D6%D3%D0%D4%BC" target="_blank">高手有约</a></li>
+
+                <li><a href="/?s=barname=%CA%D7%CF%AF%CE%CA%B6%AD%C3%D8" target="_blank">首席问董</a></li>
+
+                <li><a href="/?s=barname=%C4%DA%C4%BB%B4%AB%CE%C5" target="_blank">内幕传闻</a></li>
+
+        	</ul>
+
+      </div>
+
+      <div class="space"></div>
+
+      <div class='tit_02'>
+
+  <h2>每日一股：<a href='/?s=barname=sh600132' target='_blank'>重庆啤酒</a></h2>
+
+</div>
+
+<div class='pcont02 nobottom' style='padding:10px 15px 0;height:148px;'>
+
+    <a href='/?s=barname=sh600132' target='_blank'>
+
+        <img src='http://image.sinajs.cn/newchart/small/bsh600132.gif' alt='' id='tie_per_day_pic' />
+
+    </a>
+
+</div>
+
+<div class='tit_02'>
+
+  <h2>相关热门帖子</h2>
+
+</div>
+
+<div class='pcont02 nobottom nobg' style='padding:10px 10px 0 10px'>
+
+  <ul class='list list_03'>
+
+  	    <li><a href='/?s=threadtid=79674bid=1066' target='_blank'>罢免黄明贵后重啤就会上涨吗？</a></li>
+
+        <li><a href='/?s=threadtid=73315bid=1066' target='_blank'>重啤，你的未来不是梦</a></li>
+
+        <li><a href='/?s=threadtid=72273bid=1066' target='_blank'>重啤与其它啤酒上市公司估值比较及股价</a></li>
+
+        <li><a href='/?s=threadtid=70234bid=1066' target='_blank'>已经在重啤中深套的散户一定要看</a></li>
+
+        <li><a href='/?s=threadtid=68114bid=1066' target='_blank'>换个角度谈重啤</a></li>
+
+      </ul>
+
+</div>
+
+    </div>
+
+    <div class="p_bot"></div>
+
+  </div>
+
+  <!-- Part 01 end -->
+
+  <!-- Part 02 begin -->
+
+  <div class="part_02">
+
+    <div class="p_left">
+
+      <!-- left begin -->
+
+      <div class="tit_03">
+
+        <h2 class="tH2_01">董秘在线</h2>
+
+      </div>
+
+      <div class="pcont03">
+
+        <div class="blk_tw">
+
+    <a href="http://finance.sina.com.cn/bar/dmzx/sz002277.html" target="_blank" class="twpic">
+
+        <img src="http://www.sinaimg.cn/cj/2010/0428/201042812160.jpg" width="73" height="74" alt="" />
+
+    </a>
+
+    <div class="b_txt">
+
+        <h3 class="tw_h3_01">
+
+            <a href="http://finance.sina.com.cn/stock/s/20100428/11237843096.shtml" target="_blank">陈学文</a>
+
+            <a href="http://finance.sina.com.cn/bar/dmzx/sz002277.html" target="_blank" class="forange">进入董秘在线</a>
+
+        </h3>
+
+        <p>管理学硕士，经济师。任家润多董事会秘书。</p>
+
+    </div>
+
+</div>
+
+<ul class="list list_04">
+
+    <li><a href="http://guba.sina.com.cn/?s=threadbid=1672tid=1255" target="_blank" class="f14">胡董事长是否考虑到一线城市发展？</a></li>
+
+    <li><a href="http://guba.sina.com.cn/?s=threadbid=1672tid=1256" target="_blank" class="f14">募集资金项目转投奥特莱斯初衷在哪？</a></li>
+
+    <li><a href="http://guba.sina.com.cn/?s=threadbid=447tid=1791" target="_blank" class="f14">液晶电视业务情况如何</a></li>
+
+    <li><a href="http://guba.sina.com.cn/?s=threadbid=447tid=1805" target="_blank" class="f14">手机业务上半年情况怎么样</a></li>
+
+    <li><a href="http://guba.sina.com.cn/?s=threadbid=447tid=1806" target="_blank" class="f14">公司液晶模组项目进展如何</a></li>
+
+</ul>
+
+      </div>
+
+    </div>
+
+    <div class="p_middle">
+
+      <!-- middle begin -->
+
+      <div class="tit_03">
+
+        <h2 class="tH2_02">股吧活动推荐</h2>
+
+      </div>
+
+      <div class="pcont03">
+
+        <div class="blk_tw_pic">
+
+    <a href="http://guba.sina.com.cn/?s=barname=%D4%DA%CF%DF%C1%C4%B9%C9" target="_blank">
+
+        <img src="http://www.sinaimg.cn/home/2011/0225/201122517555.png" width="293" height="157" alt="" />
+
+    </a>
+
+    <ul class="list list_04">
+
+        <li><a href="http://guba.sina.com.cn/?s=barname=%C1%B6%BD%F0%CD%B6%D7%CA%D1%A7%D4%BA" target="_blank" class="f14">吧主炼金师每日在线盘中直播</a></li>
+
+        <li><a href="http://guba.sina.com.cn/?s=threadtid=297bid=10180" target="_blank" class="f14">5.25红线教主大盘直播+个股解答</a></li>
+
+    </ul>
+
+</div>
+
+      </div>
+
+      <!-- middle end -->
+
+    </div>
+
+    <div class="p_right">
+
+      <!-- right begin -->
+
+      <div class="tit_02">
+
+        <h2>主力资金流入股票一览</h2>
+
+      </div>
+
+      <div class="pcont04">
+
+        <ul class="menu menu02 clearfix">
+
+          <li id="btn11"><span>增仓</span></li>
+
+          <li id="btn12"><span>减仓</span></li>
+
+          <li id="btn13"><span>5日增仓</span></li>
+
+          <li id="btn14"><span>5日减仓</span></li>
+
+        </ul>
+
+        <div class="cont_02" id="cont11">
+
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_02">
+
+            <tr>
+
+              <th scope="col">名称</th>
+
+              <th scope="col">代码</th>
+
+              <th scope="col">金额（万）</th>
+
+              <th scope="col">股吧</th>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600645/nc.shtml" target="_blank">ST中源</a></td>
+
+              <td>600645</td>
+
+              <td>66275.99</td>
+
+              <td><a href="/?s=barname=sh600645" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600227/nc.shtml" target="_blank">赤天化</a></td>
+
+              <td>600227</td>
+
+              <td>52093.34</td>
+
+              <td><a href="/?s=barname=sh600227" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600961/nc.shtml" target="_blank">株冶集团</a></td>
+
+              <td>600961</td>
+
+              <td>39203.75</td>
+
+              <td><a href="/?s=barname=sh600961" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600010/nc.shtml" target="_blank">包钢股份</a></td>
+
+              <td>600010</td>
+
+              <td>38516.82</td>
+
+              <td><a href="/?s=barname=sh600010" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600111/nc.shtml" target="_blank">包钢稀土</a></td>
+
+              <td>600111</td>
+
+              <td>36721.39</td>
+
+              <td><a href="/?s=barname=sh600111" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sz000751/nc.shtml" target="_blank">锌业股份</a></td>
+
+              <td>000751</td>
+
+              <td>34651.48</td>
+
+              <td><a href="/?s=barname=sz000751" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh601168/nc.shtml" target="_blank">西部矿业</a></td>
+
+              <td>601168</td>
+
+              <td>34533.65</td>
+
+              <td><a href="/?s=barname=sh601168" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600105/nc.shtml" target="_blank">永鼎股份</a></td>
+
+              <td>600105</td>
+
+              <td>33251.25</td>
+
+              <td><a href="/?s=barname=sh600105" target="_blank">进入</a></td>
+
+            </tr>
+
+			          </table>
+
+        </div>
+
+        <div class="cont_02" id="cont12" style="display:none">
+
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_02">
+
+            <tr>
+
+              <th scope="col">名称</th>
+
+              <th scope="col">代码</th>
+
+              <th scope="col">金额（万）</th>
+
+              <th scope="col">股吧</th>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600016/nc.shtml" target="_blank">民生银行</a></td>
+
+              <td>600016</td>
+
+              <td>-25622.27</td>
+
+              <td><a href="/?s=barname=sh600016" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sz002342/nc.shtml" target="_blank">巨力索具</a></td>
+
+              <td>002342</td>
+
+              <td>-14408.33</td>
+
+              <td><a href="/?s=barname=sz002342" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600000/nc.shtml" target="_blank">浦发银行</a></td>
+
+              <td>600000</td>
+
+              <td>-12256.28</td>
+
+              <td><a href="/?s=barname=sh600000" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600372/nc.shtml" target="_blank">ST昌河</a></td>
+
+              <td>600372</td>
+
+              <td>-9950.11</td>
+
+              <td><a href="/?s=barname=sh600372" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh601668/nc.shtml" target="_blank">中国建筑</a></td>
+
+              <td>601668</td>
+
+              <td>-9193.22</td>
+
+              <td><a href="/?s=barname=sh601668" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sz000776/nc.shtml" target="_blank">广发证券</a></td>
+
+              <td>000776</td>
+
+              <td>-8672.49</td>
+
+              <td><a href="/?s=barname=sz000776" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh601002/nc.shtml" target="_blank">晋亿实业</a></td>
+
+              <td>601002</td>
+
+              <td>-8544.59</td>
+
+              <td><a href="/?s=barname=sh601002" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sz002073/nc.shtml" target="_blank">软控股份</a></td>
+
+              <td>002073</td>
+
+              <td>-7953.94</td>
+
+              <td><a href="/?s=barname=sz002073" target="_blank">进入</a></td>
+
+            </tr>
+
+			          </table>
+
+        </div>
+
+        <div class="cont_02" id="cont13" style="display:none">
+
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_02">
+
+            <tr>
+
+              <th scope="col">名称</th>
+
+              <th scope="col">代码</th>
+
+              <th scope="col">金额（万）</th>
+
+              <th scope="col">股吧</th>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600645/nc.shtml" target="_blank">ST中源</a></td>
+
+              <td>600645</td>
+
+              <td>66275.99</td>
+
+              <td><a href="/?s=barname=sh600645" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600010/nc.shtml" target="_blank">包钢股份</a></td>
+
+              <td>600010</td>
+
+              <td>38516.82</td>
+
+              <td><a href="/?s=barname=sh600010" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600227/nc.shtml" target="_blank">赤天化</a></td>
+
+              <td>600227</td>
+
+              <td>52093.34</td>
+
+              <td><a href="/?s=barname=sh600227" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600111/nc.shtml" target="_blank">包钢稀土</a></td>
+
+              <td>600111</td>
+
+              <td>36721.39</td>
+
+              <td><a href="/?s=barname=sh600111" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh601168/nc.shtml" target="_blank">西部矿业</a></td>
+
+              <td>601168</td>
+
+              <td>34533.65</td>
+
+              <td><a href="/?s=barname=sh601168" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600961/nc.shtml" target="_blank">株冶集团</a></td>
+
+              <td>600961</td>
+
+              <td>39203.75</td>
+
+              <td><a href="/?s=barname=sh600961" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sz000751/nc.shtml" target="_blank">锌业股份</a></td>
+
+              <td>000751</td>
+
+              <td>34651.48</td>
+
+              <td><a href="/?s=barname=sz000751" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sz000060/nc.shtml" target="_blank">中金岭南</a></td>
+
+              <td>000060</td>
+
+              <td>21830.74</td>
+
+              <td><a href="/?s=barname=sz000060" target="_blank">进入</a></td>
+
+            </tr>
+
+			          </table>
+
+        </div>
+
+        <div class="cont_02" id="cont14" style="display:none">
+
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_02">
+
+            <tr>
+
+              <th scope="col">名称</th>
+
+              <th scope="col">代码</th>
+
+              <th scope="col">金额（万）</th>
+
+              <th scope="col">股吧</th>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600016/nc.shtml" target="_blank">民生银行</a></td>
+
+              <td>600016</td>
+
+              <td>-25622.27</td>
+
+              <td><a href="/?s=barname=sh600016" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh601299/nc.shtml" target="_blank">中国北车</a></td>
+
+              <td>601299</td>
+
+              <td>-972.63</td>
+
+              <td><a href="/?s=barname=sh601299" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh601766/nc.shtml" target="_blank">中国南车</a></td>
+
+              <td>601766</td>
+
+              <td>8008.66</td>
+
+              <td><a href="/?s=barname=sh601766" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sz002342/nc.shtml" target="_blank">巨力索具</a></td>
+
+              <td>002342</td>
+
+              <td>-14408.33</td>
+
+              <td><a href="/?s=barname=sz002342" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600000/nc.shtml" target="_blank">浦发银行</a></td>
+
+              <td>600000</td>
+
+              <td>-12256.28</td>
+
+              <td><a href="/?s=barname=sh600000" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sz000792/nc.shtml" target="_blank">盐湖钾肥</a></td>
+
+              <td>000792</td>
+
+              <td>-7553.35</td>
+
+              <td><a href="/?s=barname=sz000792" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh600068/nc.shtml" target="_blank">葛洲坝</a></td>
+
+              <td>600068</td>
+
+              <td>-7196.32</td>
+
+              <td><a href="/?s=barname=sh600068" target="_blank">进入</a></td>
+
+            </tr>
+
+			            <tr>
+
+              <td><a href="http://finance.sina.com.cn/realstock/company/sh601002/nc.shtml" target="_blank">晋亿实业</a></td>
+
+              <td>601002</td>
+
+              <td>-8544.59</td>
+
+              <td><a href="/?s=barname=sh601002" target="_blank">进入</a></td>
+
+            </tr>
+
+			          </table>
+
+        </div>
+
+      </div>
+
+      <!-- right end -->
+
+    </div>
+
+    <div class="p_bot"></div>
+
+  </div>
+
+  <!-- Part 02 end -->
+
+  <!-- Part 03 begin -->
+
+  <div class="part_03">
+
+    <div class="p_left">
+
+      <!-- left begin -->
+
+      <div class="tit_03">
+
+        <h2 class="tH2_03">股吧风云榜</h2>
+
+      </div>
+
+      <div class="pcont05 clearfix">
+
+        <div class="blk_03">
+
+          <div class="tit_04">
+
+            <h2>点击榜</h2>
+
+            <ul class="menu03 clearfix">
+
+              <li id="btn21">24小时排行</li>
+
+              <li id="btn22">一周排行</li>
+
+            </ul>
+
+          </div>
+
+          <div class="cont_04" id="cont21">
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_03">
+
+              <tr>
+
+                <th scope="col" class="center">排行</th>
+
+                <th scope="col" class="al">标题</th>
+
+                <th scope="col" class="center">点击</th>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">1</td>
+
+                <td class="al"><a href="/?s=threadtid=31042bid=2260" target="_blank" class="f14">下周最有爆发力的四类潜力股!</a></td>
+
+                <td class="center">13351</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">2</td>
+
+                <td class="al"><a href="/?s=threadtid=20566bid=54" target="_blank" class="f14">下周该股特大利好必涨8%以上！</a></td>
+
+                <td class="center">11659</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">3</td>
+
+                <td class="al"><a href="/?s=threadtid=330052bid=9279" target="_blank" class="f14">说说王立军进入美国驻成都总领馆</a></td>
+
+                <td class="center">7799</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">4</td>
+
+                <td class="al"><a href="/?s=threadtid=336382bid=9279" target="_blank" class="f14">舒服死了-----20岁女性肚皮上</a></td>
+
+                <td class="center">7708</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">5</td>
+
+                <td class="al"><a href="/?s=threadtid=101097bid=1066" target="_blank" class="f14">重啤给我们开了个玩笑</a></td>
+
+                <td class="center">7117</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">6</td>
+
+                <td class="al"><a href="/?s=threadtid=30963bid=2260" target="_blank" class="f14">周五大盘极有可能这么走</a></td>
+
+                <td class="center">4591</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">7</td>
+
+                <td class="al"><a href="/?s=threadtid=12451bid=2275" target="_blank" class="f14">三月股市行情展望</a></td>
+
+                <td class="center">4357</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">8</td>
+
+                <td class="al"><a href="/?s=threadtid=338805bid=9279" target="_blank" class="f14">为何说现在不能买蓝筹股？</a></td>
+
+                <td class="center">3859</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">9</td>
+
+                <td class="al"><a href="/?s=threadtid=7755bid=2235" target="_blank" class="f14">短线大盘可能的走势!</a></td>
+
+                <td class="center">3332</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">10</td>
+
+                <td class="al"><a href="/?s=threadtid=10958bid=911" target="_blank" class="f14">电广传媒为什么这么走</a></td>
+
+                <td class="center">3265</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">11</td>
+
+                <td class="al"><a href="/?s=threadtid=52325bid=144" target="_blank" class="f14">不得不说我对兴业的立场</a></td>
+
+                <td class="center">2981</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">12</td>
+
+                <td class="al"><a href="/?s=threadtid=166873bid=447" target="_blank" class="f14">对抗TCL黑主力的最佳办法</a></td>
+
+                <td class="center">2515</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">13</td>
+
+                <td class="al"><a href="/?s=threadtid=18139bid=878" target="_blank" class="f14">天山股份走势浅析</a></td>
+
+                <td class="center">2339</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">14</td>
+
+                <td class="al"><a href="/?s=threadtid=7328bid=10342" target="_blank" class="f14">为什么中国交建上市将处于破发边</a></td>
+
+                <td class="center">2324</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">15</td>
+
+                <td class="al"><a href="/?s=threadtid=20278bid=436" target="_blank" class="f14">揭露中泰化学不为人知的第二面</a></td>
+
+                <td class="center">2156</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">16</td>
+
+                <td class="al"><a href="/?s=threadtid=35421bid=330" target="_blank" class="f14">中恒集团黑庄解密</a></td>
+
+                <td class="center">1814</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">17</td>
+
+                <td class="al"><a href="/?s=threadtid=42508bid=1434" target="_blank" class="f14">长虹变“长绿”的重要原因</a></td>
+
+                <td class="center">1722</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">18</td>
+
+                <td class="al"><a href="/?s=threadtid=7762bid=2235" target="_blank" class="f14">股指继续走强的两个支撑</a></td>
+
+                <td class="center">1651</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">19</td>
+
+                <td class="al"><a href="/?s=threadtid=20035bid=436" target="_blank" class="f14">揭露中泰化学不为人知的第二面</a></td>
+
+                <td class="center">1591</td>
+
+              </tr>
+
+			               <tr>
+
+                <td class="center">20</td>
+
+                <td class="al"><a href="/?s=threadtid=166882bid=447" target="_blank" class="f14">带头主盟希望TCL基本面平静些</a></td>
+
+                <td class="center">1471</td>
+
+              </tr>
+
+			              </table>
+
+          </div>
+
+          <div class="cont_04" id="cont22" style="display:none">
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_03">
+
+              <tr>
+
+                <th scope="col" class="center">排行</th>
+
+                <th scope="col" class="al">标题</th>
+
+                <th scope="col" class="center">点击</th>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">1</td>
+
+                <td class="al"><a href="/?s=threadtid=330052bid=9279" target="_blank" class="f14">说说王立军进入美国驻成都总领馆</a></td>
+
+                <td class="center">47692</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">2</td>
+
+                <td class="al"><a href="/?s=threadtid=17407bid=988" target="_blank" class="f14">周一这两类股短线爆发力度最强!</a></td>
+
+                <td class="center">42961</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">3</td>
+
+                <td class="al"><a href="/?s=threadtid=336382bid=9279" target="_blank" class="f14">舒服死了-----20岁女性肚皮上</a></td>
+
+                <td class="center">42911</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">4</td>
+
+                <td class="al"><a href="/?s=threadtid=165178bid=447" target="_blank" class="f14">TCL集团反向思维想想</a></td>
+
+                <td class="center">17723</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">5</td>
+
+                <td class="al"><a href="/?s=threadtid=7737bid=2235" target="_blank" class="f14">探底回升，周三有望挑战新高</a></td>
+
+                <td class="center">15120</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">6</td>
+
+                <td class="al"><a href="/?s=threadtid=7728bid=2235" target="_blank" class="f14">如何看待大盘的冲高回落</a></td>
+
+                <td class="center">13457</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">7</td>
+
+                <td class="al"><a href="/?s=threadtid=31042bid=2260" target="_blank" class="f14">下周最有爆发力的四类潜力股!</a></td>
+
+                <td class="center">13345</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">8</td>
+
+                <td class="al"><a href="/?s=threadtid=2222bid=2325" target="_blank" class="f14">2.27:收盘：行情基本告一段落</a></td>
+
+                <td class="center">12258</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">9</td>
+
+                <td class="al"><a href="/?s=threadtid=7706bid=2235" target="_blank" class="f14">地产井喷透露出四大效应！</a></td>
+
+                <td class="center">12134</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">10</td>
+
+                <td class="al"><a href="/?s=threadtid=20566bid=54" target="_blank" class="f14">下周该股特大利好必涨8%以上！</a></td>
+
+                <td class="center">11659</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">11</td>
+
+                <td class="al"><a href="/?s=threadtid=7755bid=2235" target="_blank" class="f14">短线大盘可能的走势!</a></td>
+
+                <td class="center">11335</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">12</td>
+
+                <td class="al"><a href="/?s=threadtid=30716bid=2260" target="_blank" class="f14">周四警惕大盘继续下跌</a></td>
+
+                <td class="center">11168</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">13</td>
+
+                <td class="al"><a href="/?s=threadtid=88040bid=485" target="_blank" class="f14">理性谈谈中国宝安</a></td>
+
+                <td class="center">10117</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">14</td>
+
+                <td class="al"><a href="/?s=threadtid=162884bid=447" target="_blank" class="f14">请游资必看：2元的金股未来的苹</a></td>
+
+                <td class="center">9703</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">15</td>
+
+                <td class="al"><a href="/?s=threadtid=322397bid=9279" target="_blank" class="f14">谈企业退休人员涨工资——目前全</a></td>
+
+                <td class="center">9397</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">16</td>
+
+                <td class="al"><a href="/?s=threadtid=97719bid=1066" target="_blank" class="f14">重啤神话翻开新篇章</a></td>
+
+                <td class="center">9303</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">17</td>
+
+                <td class="al"><a href="/?s=threadtid=338805bid=9279" target="_blank" class="f14">为何说现在不能买蓝筹股？</a></td>
+
+                <td class="center">9291</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">18</td>
+
+                <td class="al"><a href="/?s=threadtid=7328bid=10342" target="_blank" class="f14">为什么中国交建上市将处于破发边</a></td>
+
+                <td class="center">8819</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">19</td>
+
+                <td class="al"><a href="/?s=threadtid=34523bid=330" target="_blank" class="f14">中恒集团将要大涨的理由</a></td>
+
+                <td class="center">8041</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">20</td>
+
+                <td class="al"><a href="/?s=threadtid=33442bid=842" target="_blank" class="f14">江淮动力重组失败深层次原因</a></td>
+
+                <td class="center">7945</td>
+
+              </tr>
+
+			              </table>
+
+          </div>
+
+        </div>
+
+        <div class="blk_03">
+
+          <div class="tit_04">
+
+            <h2>回复榜</h2>
+
+            <ul class="menu03">
+
+              <li id="btn31">24小时排行</li>
+
+              <li id="btn32">一周排行</li>
+
+            </ul>
+
+          </div>
+
+          <div class="cont_04" id="cont31">
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_03">
+
+              <tr>
+
+                <th scope="col" class="center">排行</th>
+
+                <th scope="col" class="al">标题</th>
+
+                <th scope="col" class="center">回复</th>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">1</td>
+
+				<td class="al"><a href="/?s=threadtid=52325bid=144" target="_blank" class="f14">不得不说我对兴业的立场</a></td>
+
+                <td class="center">135</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">2</td>
+
+				<td class="al"><a href="/?s=threadtid=25152bid=56" target="_blank" class="f14">金地是强者</a></td>
+
+                <td class="center">101</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">3</td>
+
+				<td class="al"><a href="/?s=threadtid=336382bid=9279" target="_blank" class="f14">舒服死了-----20岁女性肚皮上</a></td>
+
+                <td class="center">75</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">4</td>
+
+				<td class="al"><a href="/?s=threadtid=306431bid=9279" target="_blank" class="f14">给尚主席的贺年卡</a></td>
+
+                <td class="center">69</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">5</td>
+
+				<td class="al"><a href="/?s=threadtid=322397bid=9279" target="_blank" class="f14">谈企业退休人员涨工资——目前全</a></td>
+
+                <td class="center">54</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">6</td>
+
+				<td class="al"><a href="/?s=threadtid=339201bid=9279" target="_blank" class="f14">假冒的我名字很不道德,请你好自</a></td>
+
+                <td class="center">47</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">7</td>
+
+				<td class="al"><a href="/?s=threadtid=70186bid=403" target="_blank" class="f14">论2012年，股价必上23元的原因（</a></td>
+
+                <td class="center">47</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">8</td>
+
+				<td class="al"><a href="/?s=threadtid=59371bid=1615" target="_blank" class="f14">买完紫金矿业，看完这十句话，肯</a></td>
+
+                <td class="center">46</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">9</td>
+
+				<td class="al"><a href="/?s=threadtid=330052bid=9279" target="_blank" class="f14">说说王立军进入美国驻成都总领馆</a></td>
+
+                <td class="center">42</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">10</td>
+
+				<td class="al"><a href="/?s=threadtid=52080bid=144" target="_blank" class="f14">兴业银行炮打司令部--我的一张大</a></td>
+
+                <td class="center">40</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">11</td>
+
+				<td class="al"><a href="/?s=threadtid=338937bid=9279" target="_blank" class="f14">中国八成股民亏损总计七万亿 呼</a></td>
+
+                <td class="center">40</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">12</td>
+
+				<td class="al"><a href="/?s=threadtid=55724bid=1615" target="_blank" class="f14">论紫金矿业  2012年，股价必上6</a></td>
+
+                <td class="center">38</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">13</td>
+
+				<td class="al"><a href="/?s=threadtid=31042bid=2260" target="_blank" class="f14">下周最有爆发力的四类潜力股!</a></td>
+
+                <td class="center">38</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">14</td>
+
+				<td class="al"><a href="/?s=threadtid=338397bid=9279" target="_blank" class="f14">美国已被列入全世界最让人讨厌的</a></td>
+
+                <td class="center">36</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">15</td>
+
+				<td class="al"><a href="/?s=threadtid=101097bid=1066" target="_blank" class="f14">重啤给我们开了个玩笑</a></td>
+
+                <td class="center">36</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">16</td>
+
+				<td class="al"><a href="/?s=threadtid=55256bid=478" target="_blank" class="f14">买完万科Ａ，看完这十句话，肯定</a></td>
+
+                <td class="center">33</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">17</td>
+
+				<td class="al"><a href="/?s=threadtid=22563bid=515" target="_blank" class="f14">5月份股价翻番！！！！</a></td>
+
+                <td class="center">33</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">18</td>
+
+				<td class="al"><a href="/?s=threadtid=3251bid=2318" target="_blank" class="f14">淘气天尊：谨防两会行情“见光死</a></td>
+
+                <td class="center">32</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">19</td>
+
+				<td class="al"><a href="/?s=threadtid=339174bid=9279" target="_blank" class="f14">美国已被列入全世界最让人喜欢的</a></td>
+
+                <td class="center">32</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">20</td>
+
+				<td class="al"><a href="/?s=threadtid=339248bid=9279" target="_blank" class="f14">一个张兴斌搅乱一锅粥的时代，一</a></td>
+
+                <td class="center">32</td>
+
+              </tr>
+
+			              </table>
+
+          </div>
+
+          <div class="cont_04" id="cont32" style="display:none">
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tb_03">
+
+              <tr>
+
+                <th scope="col" class="center">排行</th>
+
+                <th scope="col" class="al">标题</th>
+
+                <th scope="col" class="center">回复</th>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">1</td>
+
+                <td class="al"><a href="/?s=threadtid=336382bid=9279" target="_blank" class="f14">舒服死了-----20岁女性肚皮上</a></td>
+
+                <td class="center">480</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">2</td>
+
+                <td class="al"><a href="/?s=threadtid=330052bid=9279" target="_blank" class="f14">说说王立军进入美国驻成都总领馆</a></td>
+
+                <td class="center">301</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">3</td>
+
+                <td class="al"><a href="/?s=threadtid=322397bid=9279" target="_blank" class="f14">谈企业退休人员涨工资——目前全</a></td>
+
+                <td class="center">294</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">4</td>
+
+                <td class="al"><a href="/?s=threadtid=25152bid=56" target="_blank" class="f14">金地是强者</a></td>
+
+                <td class="center">278</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">5</td>
+
+                <td class="al"><a href="/?s=threadtid=55724bid=1615" target="_blank" class="f14">论紫金矿业  2012年，股价必上6</a></td>
+
+                <td class="center">274</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">6</td>
+
+                <td class="al"><a href="/?s=threadtid=158239bid=447" target="_blank" class="f14">论2012年，股价必上6元的原因（</a></td>
+
+                <td class="center">214</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">7</td>
+
+                <td class="al"><a href="/?s=threadtid=336597bid=9279" target="_blank" class="f14">强烈要求将合肥毁容案凶手绳之以</a></td>
+
+                <td class="center">213</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">8</td>
+
+                <td class="al"><a href="/?s=threadtid=43175bid=8" target="_blank" class="f14">论京东方Ａ，2012年必上5元的10</a></td>
+
+                <td class="center">209</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">9</td>
+
+                <td class="al"><a href="/?s=threadtid=55256bid=478" target="_blank" class="f14">买完万科Ａ，看完这十句话，肯定</a></td>
+
+                <td class="center">169</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">10</td>
+
+                <td class="al"><a href="/?s=threadtid=4522bid=1039" target="_blank" class="f14">青山纸业，4月27日必涨停的100大</a></td>
+
+                <td class="center">165</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">11</td>
+
+                <td class="al"><a href="/?s=threadtid=70097bid=403" target="_blank" class="f14">买完中信证券，看完这十句话，肯</a></td>
+
+                <td class="center">153</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">12</td>
+
+                <td class="al"><a href="/?s=threadtid=32830bid=1432" target="_blank" class="f14">买完海通证券 ，看完这十句话，</a></td>
+
+                <td class="center">148</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">13</td>
+
+                <td class="al"><a href="/?s=threadtid=312559bid=9279" target="_blank" class="f14">拒申购.拒接新股.股民同胞大签名</a></td>
+
+                <td class="center">146</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">14</td>
+
+                <td class="al"><a href="/?s=threadtid=162270bid=447" target="_blank" class="f14">买完TCL集团，看完这十句话，肯</a></td>
+
+                <td class="center">146</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">15</td>
+
+                <td class="al"><a href="/?s=threadtid=2456bid=10336" target="_blank" class="f14">内幕——-环旭电子的深度分析</a></td>
+
+                <td class="center">142</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">16</td>
+
+                <td class="al"><a href="/?s=threadtid=52325bid=144" target="_blank" class="f14">不得不说我对兴业的立场</a></td>
+
+                <td class="center">135</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">17</td>
+
+                <td class="al"><a href="/?s=threadtid=338397bid=9279" target="_blank" class="f14">美国已被列入全世界最让人讨厌的</a></td>
+
+                <td class="center">132</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">18</td>
+
+                <td class="al"><a href="/?s=threadtid=41814bid=1434" target="_blank" class="f14">论2012年，股价必上23元的原因（</a></td>
+
+                <td class="center">127</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">19</td>
+
+                <td class="al"><a href="/?s=threadtid=26197bid=576" target="_blank" class="f14">徐工机械 2月28日开盘必涨停的10</a></td>
+
+                <td class="center">127</td>
+
+              </tr>
+
+			                <tr>
+
+                <td class="center">20</td>
+
+                <td class="al"><a href="/?s=threadtid=54377bid=763" target="_blank" class="f14">论河北钢铁 2012年股价必上36元</a></td>
+
+                <td class="center">127</td>
+
+              </tr>
+
+			              </table>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- left end -->
+
+    </div>
+
+    <div class="p_right">
+
+      <!-- right begin -->
+
+      <div class="tit_02">
+
+        <h2>新浪股吧本周明星</h2>
+
+      </div>
+
+      <div class="pcont06">
+
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" class="tb_03_bak">
+
+          <tr>
+
+            <th class="center" scope="col">排行</th>
+
+            <th class="al" scope="col">用户名</th>
+
+            <th class="center" scope="col">发帖数</th>
+
+          </tr>
+
+          	   	  <tr>
+
+			<td class="center"></td>
+
+			<td class="al"></td>
+
+			<td class="center"></td>
+
+		  </tr>
+
+		  	   	  <tr>
+
+			<td class="center">1</td>
+
+			<td class="al">jhjue88</td>
+
+			<td class="center">1115</td>
+
+		  </tr>
+
+		  	   	  <tr>
+
+			<td class="center">2</td>
+
+			<td class="al">资深套牢者</td>
+
+			<td class="center">937</td>
+
+		  </tr>
+
+		  	   	  <tr>
+
+			<td class="center">3</td>
+
+			<td class="al">云南昭通</td>
+
+			<td class="center">880</td>
+
+		  </tr>
+
+		  	   	  <tr>
+
+			<td class="center">4</td>
+
+			<td class="al">retyuino</td>
+
+			<td class="center">770</td>
+
+		  </tr>
+
+		  	   	  <tr>
+
+			<td class="center">5</td>
+
+			<td class="al">太原市</td>
+
+			<td class="center">665</td>
+
+		  </tr>
+
+		  	   	  <tr>
+
+			<td class="center">6</td>
+
+			<td class="al">山东烟台</td>
+
+			<td class="center">496</td>
+
+		  </tr>
+
+		  	   	  <tr>
+
+			<td class="center">7</td>
+
+			<td class="al">drftydd</td>
+
+			<td class="center">469</td>
+
+		  </tr>
+
+		  	   	  <tr>
+
+			<td class="center">8</td>
+
+			<td class="al">qhmtbwgujfygywqd</td>
+
+			<td class="center">460</td>
+
+		  </tr>
+
+		  	   	  <tr>
+
+			<td class="center">9</td>
+
+			<td class="al">安微合肥</td>
+
+			<td class="center">457</td>
+
+		  </tr>
+
+		  	   	  <tr>
+
+			<td class="center">10</td>
+
+			<td class="al">xgvmfegrwawgdex</td>
+
+			<td class="center">456</td>
+
+		  </tr>
+
+		          </table>
+
+      </div>
+
+      <div class="space"></div>
+
+      <div class="tit_02">
+
+        <h2>吧主招募</h2>
+
+      </div>
+
+      <div class="pcont06">
+
+        <div class="blk_04"> 新浪股吧全面招募吧主中!100个热门吧
+
+          期待您的加入 <a href="/?s=bara=apply_list" target="_blank" class="bazhu">我要做吧主</a> </div>
+
+      </div>
+
+      <div class="space"></div>
+
+      <div class="tit_02">
+
+        <h2><a href="http://weibo.com/gubashi">股吧官方微博</a></h2>
+
+      </div>
+
+      <div class="pcont06 nobg">
+
+        <div class="blk_04"> 您有任何意见和建议，请给我们留言。
+
+          或者给我们致电咨询;
+
+          <div style="margin: 5px 0">TEL:010-62675951/5813<br/>Email:gubavip@sina.com</div>
+
+        </div>
+
+      </div>
+
+      <!-- right end -->
+
+    </div>
+
+    <div class="p_bot"></div>
+
+  </div>
+
+  <!-- Part 03 end -->
+
+  <!-- end main -->
+
+  <!-- Sina standard footer begin -->
+
+<style type="text/css">
+
+	#common_footer{width:950px; text-align:center; line-height:21px; font-size:12px;margin-top:20px;color:#333;margin-left:auto;margin-right:auto;}
+
+	#common_footer ul,li,ol{margin:0;padding:0;line-height:20px;list-style:none;}
+
+
+
+	#common_footer a:link{color:#000099}
+
+	#common_footer a:visited{color:#800080}
+
+	#common_footer a:hover{color:#ff0000;text-decoration:underline;}
+
+	#common_footer a:active {color:#0100A3; text-decoration:none;}
+
+	#common_footer .mianze{color:#AAA; height:189px; }
+
+</style>
+
+<div class="common_footer" id="common_footer">
+
+	  <ul>
+
+	    <li>客户服务热线：4006900000 010-82624499　　欢迎批评指正</li>
+
+	    <li><a target="_blank" href="http://help.sina.com.cn/">常见问题解答</a>  <a target="_blank" href="http://net.china.cn/chinese/index.htm">互联网违法和不良信息举报</a> <a target="_blank" href="http://comment4.news.sina.com.cn/comment/skin/feedback.html?channel=lyamp;newsid=237">新浪财经意见反馈留言板</a></li><li>
+
+	    </li><li><a href="http://corp.sina.com.cn/chn/">新浪简介</a> | <a href="http://corp.sina.com.cn/eng/">About Sina</a> | <a href="http://emarketing.sina.com.cn/">广告服务</a> | <a href="http://www.sina.com.cn/contactus.html">联系我们</a> | <a href="http://corp.sina.com.cn/chn/sina_job.html">招聘信息</a> | <a href="http://www.sina.com.cn/intro/lawfirm.shtml">网站律师</a> | <a href="http://english.sina.com">SINA English</a> | <a href="http://members.sina.com.cn/apply/">会员注册</a> | <a href="http://help.sina.com.cn/">产品答疑</a></li>
+
+
+
+	    <li>Copyright copy; 1996-2012 SINA Corporation, All Rights Reserved</li>
+
+	    <li>新浪公司　<a target="_blank" href="http://www.sina.com.cn/intro/copyright.shtml">版权所有</a></li>
+
+	  </ul>
+
+	  <span class="mianze">新浪财经免费提供股票、基金、债券、外汇等行情数据以及其他资料均来自相关合作方，仅作为用户获取信息之目的，并不构成投资建议。<br />新浪财经以及其合作机构不为本页面提供信息的错误、残缺、延迟或因依靠此信息所采取的任何行动负责。市场有风险，投资需谨慎。</span>
+
+</div>
+
+<!-- Sina standard footer end -->
+
+
+
+</body>
+
+</html>

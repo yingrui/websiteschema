@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="websiteschema.persistence.rdbms.ChannelMapper">
+
+<!--    <cache />-->
+    
+    <select id="getTotalResults" resultType="long" parameterType="java.util.Map">
+        select count(*) from Channel
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                channel like CONCAT('%','${match}','%' )
+            </if>
+            <if test="parentId != null">
+                and parentId = #{parentId}
+            </if>
+            <if test="siteId != null">
+                and siteId like CONCAT('%','${siteId}','%' )
+            </if>
+            <if test="url != null">
+                and url like CONCAT('%','${url}','%' )
+            </if>
+        </trim>
+    </select>
+
+    <select id="getChannels" parameterType="java.util.Map" resultType="websiteschema.model.domain.Channel">
+        select * from Channel
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                channel like CONCAT('%','${match}','%' )
+            </if>
+            <if test="parentId != null">
+                and parentId = #{parentId}
+            </if>
+            <if test="siteId != null">
+                and siteId like CONCAT('%','${siteId}','%' )
+            </if>
+            <if test="url != null">
+                and url like CONCAT('%','${url}','%' )
+            </if>
+        </trim>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        limit #{start}, #{limit}
+    </select>
+
+    <select id="getChildChannels" parameterType="long" resultType="websiteschema.model.domain.Channel">
+        select * from Channel
+        where parentId = #{parentId}
+    </select>
+
+    <select id="getChannelsBySiteId" parameterType="String" resultType="websiteschema.model.domain.Channel">
+        select * from Channel
+        where siteId = #{siteId}
+    </select>
+
+    <select id="getAllChannels" resultType="websiteschema.model.domain.Channel">
+        select * from Channel
+    </select>
+
+    <!-- 查询记录，根据id -->
+    <select id="getById" parameterType="long" resultType="websiteschema.model.domain.Channel">
+        select * from Channel
+        where id = #{id}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="websiteschema.model.domain.Channel"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into Channel (channel, siteId, status, parentId, url, leaf, createTime, createUser)
+        values (#{channel},#{siteId},0,#{parentId},#{url},0,now(),#{createUser})
+    </insert>
+
+    <!-- 更新任务状态记录 -->
+    <update id="update" parameterType="websiteschema.model.domain.Channel">
+        update Channel
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="channel != null">channel=#{channel},</if>
+            <if test="siteId != null">siteId=#{siteId},</if>
+            <if test="parentId != null">parentId=#{parentId},</if>
+            <if test="url != null">url=#{url},</if>
+            <if test="status != null">status=#{status},</if>
+            <if test="leaf != null">leaf=#{leaf},</if>
+            <if test="updateTime != null">updateTime=#{updateTime},</if>
+            <if test="lastUpdateUser != null">lastUpdateUser=#{lastUpdateUser},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <update id="setHasLeaf" parameterType="long">
+        update Channel
+        set leaf = 1
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="websiteschema.model.domain.Channel" >
+        delete from Channel
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteById" parameterType="long" >
+        delete from Channel
+        where id = #{id}
+    </delete>
+    
+</mapper>  

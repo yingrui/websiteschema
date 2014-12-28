@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="websiteschema.persistence.rdbms.FollowMapper">
+
+    <cache />
+
+    <sql id='cweiboColumns'>cw.id id, cw.name name, cw.objectType objectType, cw.title title, cw.siteId siteId, cw.weiboURL weiboURL, cw.org org, cw.fans fans, cw.follow follow, cw.createTime createTime, cw.createUser createUser, cw.updateTime updateTime, cw.lastUpdateUser lastUpdateUser</sql>
+    <sql id='weiboColumns'>w.id id, w.userId userId, w.siteId siteId, w.passwd passwd, w.status status, w.createTime createTime, w.createUser createUser, w.updateTime updateTime, w.lastUpdateUser lastUpdateUser</sql>
+    <sql id='followColumns'>f.id id, f.wid wid, f.cwid cwid, w.userId weibo, cw.name concernedWeibo, w.createTime createTime</sql>
+
+    <select id="getConcernedWeibo" parameterType="websiteschema.model.domain.weibo.Follow" resultType="websiteschema.model.domain.weibo.ConcernedWeibo">
+        select
+        <include refid="cweiboColumns"/>
+        from Follow f
+        left join ConcernedWeibo cw on f.cwid = cw.id
+        where cw.id
+    </select>
+
+    <select id="getWeibo" parameterType="websiteschema.model.domain.weibo.Follow" resultType="websiteschema.model.domain.weibo.Weibo">
+        select
+        <include refid="weiboColumns"/>
+        from Follow f
+        left join Weibo w on f.wid = w.id
+    </select>
+
+    <select id="getTotalResults" resultType="long" parameterType="java.util.Map">
+        select count(*)
+        from Follow f
+        left join ConcernedWeibo cw on f.cwid = cw.id
+        left join Weibo w on f.wid = w.id
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                w.userId like CONCAT('%','${match}','%' )
+            </if>
+        </trim>
+    </select>
+
+    <select id="getResults" parameterType="java.util.Map" resultType="websiteschema.model.domain.weibo.Follow">
+        select
+        <include refid="followColumns"/>
+        from Follow f
+        left join ConcernedWeibo cw on f.cwid = cw.id
+        left join Weibo w on f.wid = w.id
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                w.userId like CONCAT('%','${match}','%' )
+            </if>
+        </trim>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        limit #{start}, #{limit}
+    </select>
+
+    <!-- 查询记录，根据Id -->
+    <select id="getById" parameterType="long" resultType="websiteschema.model.domain.weibo.Follow">
+        select
+        <include refid="followColumns"/>
+        from Follow f
+        left join ConcernedWeibo cw on f.cwid = cw.id
+        left join Weibo w on f.wid = w.id
+        where f.id = #{id}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="websiteschema.model.domain.weibo.Follow"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into Follow (wid, cwid, status, createTime)
+        values (#{wid},#{cwid},#{status},#{createTime})
+    </insert>
+
+    <!-- 更新任务状态记录 -->
+    <update id="update" parameterType="websiteschema.model.domain.weibo.Follow">
+        update Follow set
+        status = #{status},
+        where wid = #{wid} and cwid = #{cwid}
+    </update>
+
+    <delete id="delete" parameterType="websiteschema.model.domain.weibo.Follow" >
+        delete from Follow
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteByWeibo" parameterType="long" >
+        delete from Follow
+        where wid = #{wid}
+    </delete>
+
+    <delete id="deleteByConcernedWeibo" parameterType="long" >
+        delete from Follow
+        where cwid = #{cwid}
+    </delete>
+    
+</mapper>  

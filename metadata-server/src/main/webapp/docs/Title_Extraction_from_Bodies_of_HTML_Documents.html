@@ -1,0 +1,167 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title>Title Extraction from Bodies of HTML Documents and its Application to Web Page Retrieval</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../style/book.css">
+    </head>
+    <body>
+        <h3>HTML文档的标题抽取及其对网页检索的应用</h3>
+        <p>　　微软在Bing上的投入我们大家都是有所耳闻的，那么微软研究院下属的牛人们都在做些什么呢，他们怎么应用Web IE技术并有什么贡献呢？连续的两篇论文将为大家介绍Web IE技术上两类分析方法。</p>
+        <div class="quote">
+            <center id="paper-title"><h3><a href="http://research.microsoft.com/apps/pubs/default.aspx?id=69200">HTML文档的标题抽取及其对网页检索的应用</a></h3></center>
+            <center><span id="author"><b>Yunhua Hu 1</b>, <b>Guomao Xin 2</b>, <b>Ruihua Song</b>, <b>Guoping Hu 3</b>,<br/><b>Shuming Shi</b>,<b>Yunbo Cao</b>,<b>Hang Li</b></span><br/><b>Microsoft Research Asia, 1 Xi'an Jiaotong University, 2 Peking University,  3 University of Science and Technology of China</b></center>
+            <p><b>摘要：</b><span id="abstract">本文主要关注的内容是自动由HTML文档中抽取出正确的标题。HTML标题本应被正确的定义在title字段中，但实际上通常不是这样，所以只能由HTML的body中尝试抽取出标题。这个问题在之前的研究中并没有被很好的研究过，在这篇论文中，我们采用一种有监督的机器学期算法来解决这个问题。论文提出了一种针对HTML标题规范，并综合了字体、位置、大小等格式特征来进行抽取。我们的方法要优于直接使用最大字体作为标题这种方法（实验结果显示F1值提高了20.9%-32.6%）。在应用上，我们结合网页检索技术，并使用TREC的数据来进行评价。我们基于标题抽取提出了一种新的检索方法，实验结果显示：如果同时使用抽取出来的标题和原来的title字段作为标题，则检索结果也提高了23.1%-29%。</span></p>
+            <p><b>关键词：</b><span id="keywords"><b>信息检索</b>，<b>HTML文档</b>，<b>元数据抽取</b></span></p>
+        </div>
+        <p>　　作者们也许都是微软亚洲研究院的实习生，可能是团队合作，所以作者的数量很多。虽然作者和本文关系不大，写完本书之后，还是必须要请第一作者授权与我的。之所以先放下本书的内容却提到作者，是希望我们国内的某些搞学术的人，能尊重别人的学术成果。</p>
+        <p>　　从摘要上我们可以看到，标题抽取技术被应用到了提高搜索结果准确性上面了。看来他们对搜索市场是真的急了，不知道这篇文章上的方法，有没有应用到bing上，我个人觉得没有。但是其使用的方法，确是我们在前面提到的基于概率模型的机器学习算法。</p>
+        <p>　　文章描述的实验过程是这样的：首先人工从一些网页中标记出标题，然后将这些网页作为训练材料进行训练，得到一个分类模型，最终使用这个模型去对其他网页进行标题抽取。</p>
+        <p>　　这篇文章一共定义了245种特征，很多吧！那么他们是怎么选定这种方法的呢？</p>
+        <div class="quote">
+            <p>　　Web IE目前由数据引导着发展。Breuel提出了基于DOM树解析网页的方法。以及Song等人提出了基于Block的方法，他们各人都开发出了各自的实现。</p>
+            <p>　　Web IE可以是与领域相关的，也可以是领域无关的。在某个特殊的领域，可以假设网页的结构是相似的，并且这些页面相似的结构可以被程序学习并用来抽取。Kosala等人观察到在同一个资讯网站的新闻都共享同一个模板，并且他们已经尝试了利用这一特点对新闻进行抽取。</p>
+            <p>　　通常的，信息抽取技术主要有两类，一类是基于规则的方法，一类是基于机器学习的方法，并且现在基于机器学习的方法已经被广泛采用了。</p>
+            <p>　　根据我们目前调研的情况看，并没有人专门针对标题抽取展开过研究，尤其在开放式环境中采用基于格式信息进行抽取的方法。我们的工作使用的方法类似于基于DOM tree信息抽取，不同于基于Block块的抽取方法，因为虽然定位重要的Block很有意义，但对标题抽取的影响有限，因为有的标题可能出现在不起眼的块里面。</p>
+        </div>
+        <p>　　最终他们是要结合字体、大小、排列等格式信息，对网页的DOM树进行抽取。我们再简单的介绍一下他们的思路，也许对大家有所帮助。因为假定标题是出现在普通的标签中的，所以本文使用的方法只基于一些格式信息，来应用在标题抽取中。</p>
+        <p>　　首先要考虑如何定义标题，这篇文章给出了标题是一篇文章中最明显的部分，并给出了一些相关规则</p>
+        <ul>
+            <li>
+                在数量上，一篇文档可以拥有两个标题，一个标题或者没有标题。
+            </li>
+            <li>
+                在位置上，标题只能出现在文档的顶部(处在文档的顶部1/4以内)，标题不能太短(宽度不小于文档的1/4)。
+            </li>
+            <li>
+                在外观上，标题的字体通常是最大或是第二大，并且被标记成注目的格式，例如字体、颜色、背景以及文本的长度
+            </li>
+            <li>
+                在邻居上，标题由连续不断的行组成，标题不可能是章节的标题 (第一章 xxx)，如果存在两个标题，两个标题通常被不同的字体、颜色的标签、链接或图片分隔。
+            </li>
+            <li>
+                在内容上，标题不可能是链接，标题不可能出现某些特定字符 (如：最新更新等)，标题可以直接跟在如下字符之后“标题：”。
+            </li>
+            <li>
+                其他，不考虑标题是图片的情况。
+            </li>
+        </ul>
+        <p>　　在本文中，采用了一种机器学习算法来抽取标题。此方法包括两个步骤：训练和抽取。这两个步骤都使用相同的数据预处理方法。整个数据预处理过程就是将输入文档转换成一个序列，序列中的每个包含有效字符的元素被称为一个单元unit。不包含文字的标签为空单元，在预处理之后将被过滤。例如：</p>
+        <ul class="none">
+            <li>Unit1:[ text="Microsoft Corporation", align="center", bold="false", italic="false", isH1="false",... ]</li>
+            <li>Unit2:[ text="Windows Operating System", align="center", large_font_size="false", italic="false", isH1="false",... ]</li>
+            <li>Unit3:[...]</li>
+            <li>...</li>
+            <li>Unit5:[ text="Overview", align="left", large_font_size="false", italic="false", isH1="false",... ]</li>
+            <li>...</li>
+        </ul>
+        <p>　　一个unit序列其中包含的内容完全来自DOM树的内容，DOM树的内容如下：</p>
+        <div class="figure"><img src="/docs/i/units.png" alt=""><br/><font size="-1">图1：DOM树</font></div>
+        <div class="quote">
+            <p>　　在学习的阶段，程序的输入是一个unit序列，每一个序列对应一篇文档。在训练过程中，已标注好标题和其他的unit，作为训练数据集被用来构建一个分类器模型，这个最终生成的模型将用来决定一个单元是否是标题。</p>
+            <p>　　在抽取阶段，程序的输入仍然是一个unit序列，每一个序列对应一篇文档。我们应用分类模型对每一个unit进行分类，并为每一个分类结果都标记一个类似隶属度的数值。</p>
+            <p>　　在之后的处理中，我们再使用一些启发式方法由分类结果中抽取出标题。程序的最后输出就是一篇文档的标题。更详细一些，就是将隶属度最高的且连续的单元抽取出来做为主标题，如果仍有标签被分类为标题，那就将隶属度次高的连续单元抽取出来做为第二标题，并且这些单元的隶属度都大于0。</p>
+            <p>　　我们将在一个通用的框架内描述模型，模型的输入是一个由多维向量构成的序列X1...Xn，并且每一个Xn对应相应的标记Yn，也即对应有一个标记的序列Y1...Yn。其中每一个多维向量Xn代表原始数据，例如一个unit单元。每一个标记代表是或者不是标题。</p>
+            <p>　　在本文中，我们采用了一种感知机模型作为分类器，Perceptron with Uneven Margin。这种感知机模型能够很好的处理正向训练数据和负向训练数据在数量上极不对等的情况。</p>
+        </div>
+        <p>　　啊哈！我们看到了使用感知机作为分类器，这是一个经典的分类器模型，可以追述到上世纪50年代了，但是Uneven Margin我还不知道该怎么翻译，大概意思他也已经说明白了。因为一篇文章如果只标记“是标题”和“不是标题”两类的话，“不是标题”这一类的样本数据一定大大多于“是标题”的样本。可能Uneven Margin可以翻译为不对等数据集。</p>
+        <p>　　接着我们再介绍一下他是怎么选择特征的就好了，这篇文章主要是介绍训练一个分类器的步骤。我想再介绍一下特征的选择，目的就达到了。</p>
+        <div class="quote">
+            <p>　　虽然我们主要是采用格式信息来进行抽取，但是标题的抽取也并非如此简单，因为标题可以出现在任意标签中，所以要尽可能选择有效的特征。我们最终考虑使用了如下特征：</p>
+            <ol>
+                <li>Rich format information
+                    <ol type="a">
+                        <li>字体大小，并分为7个级别</li>
+                        <li>字体权重，是否加粗</li>
+                        <li>字体来别，新罗马、Arial等</li>
+                        <li>字体风格，普通或者斜体</li>
+                        <li>字体颜色</li>
+                        <li>背景色</li>
+                        <li>位置，居中、靠左、靠右等</li>
+                    </ol>
+                </li>
+                <li>Tag information
+                    <ol type="a">
+                        <li>H1，H2，H3，H4，H5，H6</li>
+                        <li>LI：是否是列表项</li>
+                        <li>DIR：是否是路径列表</li>
+                        <li>A：链接</li>
+                        <li>U：是否下划线</li>
+                        <li>BR：行分隔</li>
+                        <li>HR：水平</li>
+                        <li>IMG：是否图片</li>
+                        <li>Class name：'sectionheader'，'title'，'titling'，'header'</li>
+                    </ol>
+                </li>
+                <li>Position information
+                    <ol type="a">
+                        <li>标题处在Body的开头部分</li>
+                        <li>宽度不能太小</li>
+                    </ol>
+                </li>
+                <li>DOM tree information
+                    <ol type="a">
+                        <li>兄弟节点的数量</li>
+                        <li>相关的父节点、兄弟节点之中，是否包含字体大小的变化</li>
+                        <li>相关的向前叶子节点和向后的叶子节点，没有字体大小的变化</li>
+                    </ol>
+                </li>
+                <li>Linguistic information
+                    <ol type="a">
+                        <li>文本的长度</li>
+                        <li>字母的长度</li>
+                        <li>忽略日期、电话、传真、邮件、作者等字符</li>
+                        <li>位置标记，包含摘要、介绍、简介、标题等字眼</li>
+                    </ol>
+                </li>
+            </ol>
+            <p>　　根据这些信息，我们创建了四类特征，它们分别是：位置特征、外表特征、邻近特征、内容特征。这些特征的总数有245种，下表针对每类特征都显示了一些例子。</p>
+            <center><h4>表1：样例特征</h4></center>
+            <table align="center" border="1">
+                <tr><th>类型</th><th>特征简介</th></tr>
+                <tr><td>位置特征</td><td>单元位于页面上部的20％，40％或其他位置</td></tr>
+                <tr><td>位置特征</td><td>单位的宽度小于页面宽度的10%，20%，30％或者40％</td></tr>
+                <tr><td>位置特征</td><td>是DOM树上的第一个有效单元</td></tr>
+                <tr><td>外表特征</td><td>是H1,...H6，或是其他非H*标签</td></tr>
+                <tr><td>外表特征</td><td>是第一或第二或第三个H*标签</td></tr>
+                <tr><td>外表特征</td><td>是DOM树上的第一级或者第二级节点，并且是H*标签</td></tr>
+                <tr><td>外表特征</td><td>是DOM树上唯一的H*标签</td></tr>
+                <tr><td>外表特征</td><td>字体大小是最大或者第二大</td></tr>
+                <tr><td>外表特征</td><td>单元字体大小的百分比小于0.02等</td></tr>
+                <tr><td>外表特征</td><td>单元居中、靠右、靠左或其他</td></tr>
+                <tr><td>外表特征</td><td>是否粗体</td></tr>
+                <tr><td>外表特征</td><td>是否斜体</td></tr>
+                <tr><td>外表特征</td><td>是否下划线</td></tr>
+                <tr><td>外表特征</td><td>单元内部的颜色对比度</td></tr>
+                <tr><td>外表特征</td><td>单元内部颜色和背景色的对比度</td></tr>
+                <tr><td>外表特征</td><td>单元内部字体设置的统一度</td></tr>
+                <tr><td>外表特征</td><td>在列表元素内</td></tr>
+                <tr><td>外表特征</td><td>开始于新行</td></tr>
+                <tr><td>内容特征</td><td>所有字符大写或者首字符大写</td></tr>
+                <tr><td>内容特征</td><td>数字字符的数量小于8，8到64之间，等等</td></tr>
+                <tr><td>内容特征</td><td>内容开始字符为：subject，introduction，title，overview等等</td></tr>
+                <tr><td>邻近特征</td><td>前一个单元为HR或者BR</td></tr>
+                <tr><td>邻近特征</td><td>字体大小大于父节点、前一个叶子节点、下一个叶子节点和兄弟节点。</td></tr>
+                <tr><td>邻近特征</td><td>前一个节点是靠左，但当前节点居中</td></tr>
+                <tr><td>邻近特征</td><td>和兄弟节点有一样的字体大小等等</td></tr>
+            </table>
+            <p>　　这些特征的数量如下表：</p>
+            <center><h4>表2：特征类型和数量</h4></center>
+            <table align="center" border="1">
+                <tr><th>类型</th><th>特征数量</th></tr>
+                <tr><td>位置特征</td><td>8</td></tr>
+                <tr><td>外表特征</td><td>97</td></tr>
+                <tr><td>邻近特征</td><td>100</td></tr>
+                <tr><td>内容特征</td><td>15</td></tr>
+                <tr><td>其他特征</td><td>25</td></tr>
+            </table>
+        </div>
+        <h3>小结</h3>
+        <p>　　虽然这篇文档的抽取方法很简单，但是这篇文章在格式信息的归类上，做出了很细致的工作，告诉了我们从格式的角度如何看待每一个DOM树上的节点。</p>
+        <center><a href="web_information_extraction.html">返回</a></center>
+    </body>
+</html>

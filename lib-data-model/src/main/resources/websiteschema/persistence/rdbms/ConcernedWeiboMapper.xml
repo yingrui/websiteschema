@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="websiteschema.persistence.rdbms.ConcernedWeiboMapper">
+
+    <cache />
+
+    <sql id='cweiboColumns'>id, name, objectType, title, siteId, weiboURL, org, fans, follow, createTime, createUser, updateTime, lastUpdateUser</sql>
+
+    <select id="getTotalResults" resultType="long">
+        select count(*) from ConcernedWeibo
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                name like CONCAT('%','${match}','%' )
+            </if>
+        </trim>
+    </select>
+
+    <select id="getResults" parameterType="java.util.Map" resultType="websiteschema.model.domain.weibo.ConcernedWeibo">
+        select * from ConcernedWeibo
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                name like CONCAT('%','${match}','%' )
+            </if>
+        </trim>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        limit #{start}, #{limit}
+    </select>
+
+    <!-- 查询记录，根据Id -->
+    <select id="getById" parameterType="long" resultType="websiteschema.model.domain.weibo.ConcernedWeibo">
+        select * from ConcernedWeibo
+        where id = #{id}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="websiteschema.model.domain.weibo.ConcernedWeibo"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into ConcernedWeibo (name, objectType, title, siteId, weiboURL, org, fans, follow, weibo, notes, certification, createTime, createUser, updateTime, lastUpdateUser)
+        values (#{name},#{objectType},#{title},#{siteId},#{weiboURL},#{org},#{fans},#{follow},#{weibo},#{notes},#{certification},#{createTime},#{createUser},#{updateTime},#{lastUpdateUser})
+    </insert>
+
+    <!-- 更新任务状态记录 -->
+    <update id="update" parameterType="websiteschema.model.domain.weibo.ConcernedWeibo">
+        update ConcernedWeibo set
+        name = #{name},
+        objectType = #{objectType},
+        title = #{title},
+        siteId = #{siteId},
+        weiboURL = #{weiboURL},
+        org = #{org},
+        fans = #{fans},
+        follow = #{follow},
+        weibo = #{weibo},
+        notes = #{notes},
+        certification = #{certification},
+        createTime = #{createTime},
+        createUser = #{createUser},
+        updateTime = #{updateTime},
+        lastUpdateUser = #{lastUpdateUser}
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="websiteschema.model.domain.weibo.ConcernedWeibo" >
+        delete from ConcernedWeibo
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteById" parameterType="long" >
+        delete from ConcernedWeibo
+        where id = #{id}
+    </delete>
+    
+</mapper>  

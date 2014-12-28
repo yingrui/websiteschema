@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="websiteschema.persistence.rdbms.WebsiteschemaDBMapper">
+
+    <sql id='websiteschemaColumns'>id,rowKey,valid,dimension,xpathAttr,crawlerSettings,properties,status,createTime,lastUpdateTime</sql>
+
+    <select id="getTotalResults" resultType="long">
+        select count(*) from Websiteschema
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                rowKey like CONCAT('%','${match}','%' )
+            </if>
+            <if test="status != null">
+                and status=#{status}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getResults" parameterType="java.util.Map" resultType="java.util.List">
+        select
+        <include refid="websiteschemaColumns"/>
+        from Websiteschema
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                rowKey like CONCAT('%','${match}','%' )
+            </if>
+            <if test="status != null">
+                and status=#{status}
+            </if>
+        </trim>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        limit #{start}, #{limit}
+    </select>
+
+    <!-- 查询记录，根据Id -->
+    <select id="getById" parameterType="long" resultType="java.util.Map">
+        select
+        <include refid="websiteschemaColumns"/>
+        from Websiteschema
+        where id = #{id}
+    </select>
+
+    <select id="getByRowKey" parameterType="string" resultType="java.util.Map">
+        select
+        <include refid="websiteschemaColumns"/>
+        from Websiteschema
+        where rowKey = #{rowKey}
+    </select>
+
+    <select id="getId" parameterType="string" resultType="long">
+        select id from Websiteschema
+        where rowKey = #{rowKey}
+    </select>
+
+    <select id="exists" parameterType="string" resultType="int">
+        select count(0) from Websiteschema
+        where rowKey = #{rowKey}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="java.util.Map"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into Websiteschema (rowKey, valid, dimension, xpathAttr, crawlerSettings, properties, status, createTime)
+        values (#{rowKey}, #{valid},#{dimension},#{xpathAttr},#{crawlerSettings},#{properties},#{status},now())
+    </insert>
+
+    <!-- 更新任务状态记录 -->
+    <update id="update" parameterType="java.util.Map">
+        update Websiteschema
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="valid != null">valid = #{valid},</if>
+            <if test="dimension != null">dimension = #{dimension},</if>
+            <if test="xpathAttr != null">xpathAttr = #{xpathAttr},</if>
+            <if test="crawlerSettings != null">crawlerSettings = #{crawlerSettings},</if>
+            <if test="properties != null">properties = #{properties},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="lastUpdateTime != null">lastUpdateTime = #{lastUpdateTime}</if>
+        </trim>
+        where rowKey = #{rowKey}
+    </update>
+
+    <delete id="delete" parameterType="java.util.Map" >
+        delete from Websiteschema
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteById" parameterType="long" >
+        delete from Websiteschema
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteByRowKey" parameterType="string" >
+        delete from Websiteschema
+        where rowKey = #{rowKey}
+    </delete>
+    
+</mapper>  

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="websiteschema.persistence.rdbms.CipherMapper">
+
+    <select id="getTotalResults" resultType="long" parameterType="java.util.Map">
+        select count(*) from Cipher
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                siteId like CONCAT('%','${match}','%' )
+            </if>
+            <if test="username != null">
+                and username = #{username}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getCiphers" parameterType="java.util.Map" resultType="websiteschema.model.domain.Cipher">
+        select * from Cipher
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                siteId like CONCAT('%','${match}','%' )
+            </if>
+            <if test="username != null">
+                and username = #{username}
+            </if>
+        </trim>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        limit #{start}, #{limit}
+    </select>
+
+    <!-- 查询记录，根据id -->
+    <select id="getBySiteId" parameterType="String" resultType="websiteschema.model.domain.Cipher">
+        select * from Cipher
+        where siteId = #{siteId}
+    </select>
+
+    <!-- 查询记录，根据Id -->
+    <select id="getById" parameterType="long" resultType="websiteschema.model.domain.Cipher">
+        select * from Cipher
+        where id = #{id}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="websiteschema.model.domain.Cipher"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into Cipher (siteId, username, password, cookie, header, createTime, createUser)
+        values (#{siteId},#{username},#{password},#{cookie},#{header},now(),#{createUser})
+    </insert>
+
+    <!-- 更新任务状态记录 -->
+    <update id="update" parameterType="websiteschema.model.domain.Cipher">
+        update Cipher
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="siteId != null">siteId=#{siteId},</if>
+            <if test="username != null">username=#{username},</if>
+            <if test="password != null">password=#{password},</if>
+            <if test="cookie != null">cookie=#{cookie},</if>
+            <if test="header != null">header=#{header},</if>
+            <if test="updateTime != null">updateTime=#{updateTime},</if>
+            <if test="lastUpdateUser != null">lastUpdateUser=#{lastUpdateUser},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="websiteschema.model.domain.Cipher" >
+        delete from Cipher
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteBySiteId" parameterType="String" >
+        delete from Cipher
+        where siteId = #{siteId}
+    </delete>
+    
+</mapper>  

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="websiteschema.persistence.rdbms.CategoryMapper">
+
+<!--    <cache />-->
+    
+    <select id="getTotalResults" resultType="long" parameterType="java.util.Map">
+        select count(*) from Category
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                category like CONCAT('%','${match}','%' )
+            </if>
+            <if test="parentId != null">
+                and parentId = #{parentId}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getCategories" parameterType="java.util.Map" resultType="websiteschema.model.domain.Category">
+        select * from Category
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                category like CONCAT('%','${match}','%' )
+            </if>
+            <if test="parentId != null">
+                and parentId = #{parentId}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </trim>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        limit #{start}, #{limit}
+    </select>
+
+    <select id="getChildCategories" parameterType="long" resultType="websiteschema.model.domain.Category">
+        select * from Category
+        where parentId = #{parentId}
+    </select>
+
+    <select id="getAllCategories" resultType="websiteschema.model.domain.Category">
+        select * from Category
+    </select>
+
+    <!-- 查询记录，根据id -->
+    <select id="getById" parameterType="long" resultType="websiteschema.model.domain.Category">
+        select * from Category
+        where id = #{id}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="websiteschema.model.domain.Category"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into Category (name, description, parentId, status, leaf, createTime, createUser)
+        values (#{name},#{description},#{parentId},#{status},0,now(),#{createUser})
+    </insert>
+
+    <!-- 更新任务状态记录 -->
+    <update id="update" parameterType="websiteschema.model.domain.Category">
+        update Category
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name=#{name},</if>
+            <if test="description != null">description=#{description},</if>
+            <if test="parentId != null">parentId=#{parentId},</if>
+            <if test="status != null">status=#{status},</if>
+            <if test="leaf != null">leaf=#{leaf},</if>
+            <if test="updateTime != null">updateTime=#{updateTime},</if>
+            <if test="lastUpdateUser != null">lastUpdateUser=#{lastUpdateUser},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <update id="setHasLeaf" parameterType="long">
+        update Category
+        set leaf = 1
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="websiteschema.model.domain.Category" >
+        delete from Category
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteById" parameterType="long" >
+        delete from Category
+        where id = #{id}
+    </delete>
+    
+</mapper>  

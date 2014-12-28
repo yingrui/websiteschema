@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="websiteschema.persistence.rdbms.UrlLinkDBMapper">
+
+    <resultMap type="hashmap" id="rResultMap">
+        <id property="ID" column="ID" />
+    </resultMap>
+
+    <sql id='col'>id,rowKey,content,status,url,lastUpdateTime,createTime,parent,depth,httpStatus,jobname</sql>
+
+    <sql id='colSimple'>id,rowKey,status,url,lastUpdateTime,createTime,parent,depth,httpStatus,jobname</sql>
+
+    <select id="getTotalResults" resultType="long">
+        select count(0) from UrlLink
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                url like CONCAT('%','${match}','%' )
+            </if>
+            <if test="jobname != null">
+                and jobname=#{jobname}
+            </if>
+            <if test="s_date != null">
+                and createTime &gt; #{s_date}
+            </if>
+            <if test="e_date != null">
+                and createTime &lt; #{e_date}
+            </if>
+        </trim>
+    </select>
+
+
+    <select id="getResults" parameterType="java.util.Map" resultType="list" resultMap="rResultMap">
+        select
+        <include refid="col"/>
+        from UrlLink
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                url like CONCAT('%','${match}','%' )
+            </if>
+            <if test="jobname != null">
+                and jobname=#{jobname}
+            </if>
+            <if test="s_date != null">
+                and createTime &gt; #{s_date}
+            </if>
+            <if test="e_date != null">
+                and createTime &lt; #{e_date}
+            </if>
+        </trim>
+        limit #{start}, #{limit}
+    </select>
+    
+    <!-- 查询记录，根据Id -->
+    <select id="getById" parameterType="long" resultType="java.util.Map">
+        select
+        <include refid="col"/>
+        from UrlLink
+        where id = #{id}
+    </select>
+
+    <select id="getByRowKey" parameterType="string" resultType="java.util.Map">
+        select
+        <include refid="col"/>
+        from UrlLink
+        where rowKey = #{rowKey}
+    </select>
+
+    <select id="getSimpleResult" parameterType="string" resultType="java.util.Map">
+        select
+        <include refid="colSimple"/>
+        from UrlLink
+        where rowKey = #{rowKey}
+    </select>
+
+    <select id="getId" parameterType="string" resultType="long">
+        select id from UrlLink
+        where rowKey = #{rowKey}
+    </select>
+
+    <select id="exists" parameterType="string" resultType="int">
+        select count(0) from UrlLink
+        where rowKey = #{rowKey}
+    </select>
+    
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="java.util.Map"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into UrlLink (rowKey, content, status, url, lastUpdateTime, createTime, parent, depth, httpStatus, jobname)
+        values (#{rowKey}, #{content}, #{status}, #{url}, now(), now(), #{parent}, #{depth}, #{httpStatus}, #{jobname})
+    </insert>
+
+    <!-- 更新任务状态记录 -->
+    <update id="update" parameterType="java.util.Map">
+        update UrlLink
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="content != null">content = #{content},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="url != null">url = #{url},</if>
+            <if test="parent != null">parent = #{parent},</if>
+            <if test="depth != null">depth = #{depth},</if>
+            <if test="httpStatus != null">httpStatus = #{httpStatus},</if>
+            <if test="jobname != null">jobname = #{jobname},</if>
+            lastUpdateTime = now()
+        </trim>
+        where rowKey = #{rowKey}
+    </update>
+
+    <delete id="delete" parameterType="java.util.Map" >
+        delete from UrlLink
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteById" parameterType="long" >
+        delete from UrlLink
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteByRowKey" parameterType="string" >
+        delete from UrlLink
+        where rowKey = #{rowKey}
+    </delete>
+    
+</mapper>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.8" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="title" type="java.lang.String" value="&#x7528;&#x4f8b;"/>
+    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+      <Color id="Default Cursor"/>
+    </Property>
+    <Property name="name" type="java.lang.String" value="unitHelpDlg"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="530" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="280" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="jTextArea">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="rows" type="int" value="5"/>
+            <Property name="text" type="java.lang.String" value="1&#x3001;&#x5047;&#x8bbe;&#x60a8;&#x5f53;&#x524d;&#x5206;&#x6790;&#x7684;&#x9875;&#x9762;&#x7684;URL&#x4e3a;&#xff1a;http://guba.sina.com.cn&#xa;&#xa;2&#x3001;&#x5219;&#x5728;Unit Path&#x680f;&#x4e2d;&#x8f93;&#x5165;&#xff08;&#x9700;&#x901a;&#x8fc7;&#x5206;&#x6790;&#x5f85;&#x62bd;&#x53d6;&#x9875;&#x9762;&#x7684;&#x7ed3;&#x6784;&#x5f97;&#x5230;&#xff09;&#xff1a;&#xa;html/body/div/div/div/div/div/div/table/tbody/tr&#xa;&#xa;3&#x3001;&#x5728;&#x4e0a;&#x65b9;&#x6587;&#x672c;&#x533a;&#x4e2d;&#x8f93;&#x5165;&#x8981;&#x62bd;&#x53d6;&#x7684;&#x4fe1;&#x606f;&#x7684;&#x914d;&#x7f6e;&#xff08;&#x9700;&#x901a;&#x8fc7;&#x5206;&#x6790;&#x5f85;&#x62bd;&#x53d6;&#x9875;&#x9762;&#x7684;&#x7ed3;&#x6784;&#x5f97;&#x5230;&#xff09;&#xff1a;&#xa;[{&quot;regex&quot;:&quot;(\u005c\u005cd+)&quot;,&quot;name&quot;:&quot;&#x70b9;&#x51fb;&quot;,&quot;path&quot;:&quot;td[1]/text()&quot;},{&quot;name&quot;:&quot;&#x56de;&#x590d;&quot;,&quot;path&quot;:&quot;td[2]/text()&quot;},{&quot;name&quot;:&quot;&#x6807;&#x9898;&quot;,&quot;path&quot;:&quot;td[3]/a[1]/text()&quot;},{&quot;name&quot;:&quot;&#x94fe;&#x63a5;&quot;,&quot;path&quot;:&quot;td[3]/a[1]/@href&quot;},{&quot;name&quot;:&quot;&#x6765;&#x6e90;&quot;,&quot;path&quot;:&quot;td[3]/a[2]/text()&quot;},{&quot;name&quot;:&quot;&#x4f5c;&#x8005;&quot;,&quot;path&quot;:&quot;td[4]/div/a/text()&quot;}]&#xa;&#xa;4&#x3001;&#x70b9;&#x51fb;&#x6309;&#x94ae;&#x201c;&#x5f00;&#x59cb;&#x62bd;&#x53d6;&#x201d;" containsInvalidXMLChars="true"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

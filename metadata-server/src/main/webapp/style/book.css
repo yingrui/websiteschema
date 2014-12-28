@@ -1,0 +1,39 @@
+/* 
+    Document   : book
+    Created on : Sep 21, 2011, 2:39:46 PM
+    Author     : ray
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.quote {
+    font-style: italic;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 10px;
+    background-color: wheat;
+    /*    border-style: solid;
+        border-width: 1px;*/
+}
+
+.quote tr td {
+    text-align: center;
+}
+
+ul {
+    margin-left: 5%;
+}
+
+ul.none {
+    margin-left: 5%;
+    list-style-type: none;
+}
+
+.figure {
+    text-align: center;
+}

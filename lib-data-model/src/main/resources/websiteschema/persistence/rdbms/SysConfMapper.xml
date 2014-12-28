@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="websiteschema.persistence.rdbms.SysConfMapper">
+
+<!--    <cache />-->
+    
+    <select id="getTotalResults" resultType="long" parameterType="java.util.Map">
+        select count(*) from SysConf
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                name like CONCAT('%','${match}','%' )
+            </if>
+            <if test="field != null">
+                and field = #{field}
+            </if>
+            <if test="value != null">
+                and value like CONCAT('%','${value}','%' )
+            </if>
+        </trim>
+    </select>
+
+    <select id="getCategories" parameterType="java.util.Map" resultType="websiteschema.model.domain.SysConf">
+        select * from SysConf
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                name like CONCAT('%','${match}','%' )
+            </if>
+            <if test="field != null">
+                and field = #{field}
+            </if>
+            <if test="value != null">
+                and value like CONCAT('%','${value}','%' )
+            </if>
+        </trim>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        limit #{start}, #{limit}
+    </select>
+
+    <select id="getRows" resultType="websiteschema.model.domain.SysConf">
+        select * from SysConf
+    </select>
+
+    <!-- 查询记录，根据id -->
+    <select id="getById" parameterType="long" resultType="websiteschema.model.domain.SysConf">
+        select * from SysConf
+        where id = #{id}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="websiteschema.model.domain.SysConf"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into SysConf (field, name, value, description, createTime, createUser)
+        values (#{field},#{name},#{value},#{description},now(),#{createUser})
+    </insert>
+
+    <!-- 更新任务状态记录 -->
+    <update id="update" parameterType="websiteschema.model.domain.SysConf">
+        update SysConf
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="field != null">field=#{field},</if>
+            <if test="name != null">name=#{name},</if>
+            <if test="value != null">value=#{value},</if>
+            <if test="description != null">description=#{description},</if>
+            <if test="updateTime != null">updateTime=#{updateTime},</if>
+            <if test="lastUpdateUser != null">lastUpdateUser=#{lastUpdateUser},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="websiteschema.model.domain.SysConf" >
+        delete from SysConf
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteById" parameterType="long" >
+        delete from SysConf
+        where id = #{id}
+    </delete>
+    
+</mapper>  

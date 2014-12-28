@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="websiteschema.persistence.rdbms.StartURLMapper">
+
+<!--    <cache />-->
+    
+    <select id="getTotalResults" resultType="long" parameterType="java.util.Map">
+        select count(*) from StartURL
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                siteId like CONCAT('%','${match}','%' )
+            </if>
+            <if test="url != null">
+                and startURL like CONCAT('%','${url}','%' )
+            </if>
+            <if test="jobname != null">
+                and jobname like CONCAT('%','${jobname}','%' )
+            </if>
+            <if test="name != null">
+                and name like CONCAT('%','${name}','%' )
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="user != null">
+                and createUser like CONCAT('%','${user}','%' )
+            </if>
+        </trim>
+    </select>
+
+    <select id="getStartURLs" parameterType="java.util.Map" resultType="websiteschema.model.domain.StartURL">
+        select * from StartURL
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                siteId like CONCAT('%','${match}','%' )
+            </if>
+            <if test="url != null">
+                and startURL like CONCAT('%','${url}','%' )
+            </if>
+            <if test="jobname != null">
+                and jobname like CONCAT('%','${jobname}','%' )
+            </if>
+            <if test="name != null">
+                and name like CONCAT('%','${name}','%' )
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="user != null">
+                and createUser like CONCAT('%','${user}','%' )
+            </if>
+        </trim>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        limit #{start}, #{limit}
+    </select>
+
+    <select id="getSitesAndJobnames" resultType="java.util.Map">
+        select u.siteId, u.jobname, u.name, s.id, s.status from StartURL u left join Schedule s on s.startURLId = u.id
+    </select>
+
+    <!-- 查询记录，根据Id -->
+    <select id="getById" parameterType="long" resultType="websiteschema.model.domain.StartURL">
+        select * from StartURL
+        where id = #{id}
+    </select>
+
+    <select id="getByJobname" parameterType="long" resultType="websiteschema.model.domain.StartURL">
+        select * from StartURL
+        where jobname = #{jobname}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="websiteschema.model.domain.StartURL"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into StartURL (siteId, startURL, jobname, name, status, createTime, createUser, updateTime, lastUpdateUser)
+        values (#{siteId},#{startURL},#{jobname},#{name},#{status},#{createTime},#{createUser},#{updateTime},#{lastUpdateUser})
+    </insert>
+
+    <!-- 更新任务状态记录 -->
+    <update id="update" parameterType="websiteschema.model.domain.StartURL">
+        update StartURL
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="siteId != null">siteId = #{siteId},</if>
+            <if test="startURL != null">startURL = #{startURL},</if>
+            <if test="jobname != null">jobname = #{jobname},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="updateTime != null">updateTime = #{updateTime},</if>
+            <if test="lastUpdateUser != null">lastUpdateUser = #{lastUpdateUser}</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <update id="updateStatus" parameterType="websiteschema.model.domain.StartURL">
+        update StartURL set
+        status = #{status}
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="websiteschema.model.domain.StartURL" >
+        delete from StartURL
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteById" parameterType="long" >
+        delete from StartURL
+        where id = #{id}
+    </delete>
+    
+</mapper>  

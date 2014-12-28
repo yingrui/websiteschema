@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="websiteschema.persistence.rdbms.WrapperMapper">
+
+<!--    <cache />-->
+
+    <sql id='wrapperColumns'>id, wrapperType, name, checksum, createTime, createUser, updateTime, lastUpdateUser</sql>
+
+    <select id="getTotalResults" resultType="long">
+        select count(*) from Wrapper
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                name like CONCAT('%','${match}','%' )
+            </if>
+            <if test="type != null">
+                and wrapperType=#{type}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getWrappers" parameterType="java.util.Map" resultType="websiteschema.model.domain.Wrapper">
+        select
+        <include refid="wrapperColumns"/>
+        from Wrapper
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                name like CONCAT('%','${match}','%' )
+            </if>
+            <if test="type != null">
+                and wrapperType=#{type}
+            </if>
+        </trim>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        limit #{start}, #{limit}
+    </select>
+
+    <!-- 查询记录，根据Id -->
+    <select id="getById" parameterType="long" resultType="websiteschema.model.domain.Wrapper">
+        select * from Wrapper
+        where id = #{id}
+    </select>
+
+    <select id="getByName" parameterType="long" resultType="websiteschema.model.domain.Wrapper">
+        select * from Wrapper
+        where name = #{name}
+    </select>
+
+    <!-- 查询更新时间，根据Id -->
+    <select id="getLastUpdateTime" parameterType="long" resultType="java.util.Date">
+        select updateTime from Wrapper
+        where id = #{id}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="websiteschema.model.domain.Wrapper"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into Wrapper (application, name, wrapperType, visualConfig, checksum, createTime, createUser, updateTime, lastUpdateUser)
+        values (#{application}, #{name},#{wrapperType},#{visualConfig},#{checksum},#{createTime},#{createUser},#{updateTime},#{lastUpdateUser})
+    </insert>
+
+    <!-- 更新任务状态记录 -->
+    <update id="update" parameterType="websiteschema.model.domain.Wrapper">
+        update Wrapper
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="application != null">application = #{application},</if>
+            <if test="wrapperType != null">wrapperType = #{wrapperType},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="visualConfig != null">visualConfig = #{visualConfig},</if>
+            <if test="checksum != null">checksum = #{checksum},</if>
+            <if test="createTime != null">createTime = #{createTime},</if>
+            <if test="createUser != null">createUser = #{createUser},</if>
+            <if test="updateTime != null">updateTime = #{updateTime},</if>
+            <if test="lastUpdateUser != null">lastUpdateUser = #{lastUpdateUser}</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="websiteschema.model.domain.Wrapper" >
+        delete from Wrapper
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteById" parameterType="long" >
+        delete from Wrapper
+        where id = #{id}
+    </delete>
+    
+</mapper>  

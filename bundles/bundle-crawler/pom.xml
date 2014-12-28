@@ -1,0 +1,161 @@
+<!-- 
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements. See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership. The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied. See the License for the
+specific language governing permissions and limitations
+under the License. 
+-->
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>websiteschema</groupId>
+    <name>bundle-crawler</name>
+    <artifactId>bundle-crawler</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>bundle</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.osgi.core</artifactId>
+            <version>1.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>websiteschema</groupId>
+            <artifactId>lib-func-blk</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>websiteschema</groupId>
+            <artifactId>lib-conf</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>websiteschema</groupId>
+            <artifactId>lib-crawler</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.ibm.icu</groupId>
+                    <artifactId>icu4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-beans</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-jdbc</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-tx</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.hbase</groupId>
+                    <artifactId>hbase</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.hadoop</groupId>
+                    <artifactId>hadoop-core</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>zookeeper-ant</artifactId>
+                    <groupId>com.cloudera.cdh</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>hadoop-ant</artifactId>
+                    <groupId>com.cloudera.cdh</groupId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.jruby</groupId>
+                    <artifactId>jruby-complete</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>tomcat</groupId>
+                    <artifactId>jasper-compiler</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>1.4.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <instructions>
+                        <Bundle-SymbolicName>bundle-crawler</Bundle-SymbolicName>
+                        <Bundle-Name>bundle-crawler</Bundle-Name>
+                        <Bundle-Vendor>websiteschema</Bundle-Vendor>
+                        <Embed-Dependency>*;artifactId=compile|runtime;inline=true;optional=false</Embed-Dependency>
+                        <Embed-Transitive>true</Embed-Transitive>
+                        <Bundle-Description>Crawler Function Blocks</Bundle-Description>
+                        <Bundle-Activator>websiteschema.crawler.Activator</Bundle-Activator>
+                        <Private-Package>
+                            *;-split-package:=merge-last,
+                            !org.springframework.*
+                        </Private-Package>
+                        <Import-Package>
+                            !*,
+                            org.osgi.framework;version="1.6",
+                            websiteschema.conf,
+                            websiteschema.fb.core,
+                            websiteschema.fb.utils,
+                            websiteschema.fb.factory,
+                            websiteschema.fb.annotation,
+                            websiteschema.fb.osgi,
+                            org.apache.hadoop.hbase;version="0.90.3-cdh3u1",
+                            org.apache.hadoop.hbase.client;version="0.90.3-cdh3u1",
+                            org.apache.hadoop.hbase.util;version="0.90.3-cdh3u1",
+                            org.apache.hadoop.conf;version="0.20.2",
+                            javax.xml.parsers,
+                            org.w3c.dom,
+                            org.xml.sax,
+                            javax.xml.transform,
+                            javax.xml.transform.dom,
+                            javax.xml.transform.stream,
+                            javax.net.ssl,
+                            org.springframework.context;version="3.0.5.RELEASE",
+                            org.springframework.context.support;version="3.0.5.RELEASE"
+                        </Import-Package>
+                        <Export-Package>
+                            !*
+                        </Export-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

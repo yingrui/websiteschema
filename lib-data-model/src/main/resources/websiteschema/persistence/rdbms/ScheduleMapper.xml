@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="websiteschema.persistence.rdbms.ScheduleMapper">
+
+    <sql id='scheduleColumns'>s.id id, s.startURLId startURLId, s.jobId jobId, s.schedule schedule, s.locationId locationId,s.scheduleType scheduleType, s.status status, s.createTime createTime, u.startURL startURL, u.jobname jobname, u.name channelName</sql>
+    <select id="getTotalResults" resultType="long" parameterType="java.util.Map">
+        select count(*) from Schedule s
+        left join StartURL u on s.startURLId = u.id
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+            u.siteId like CONCAT('%','${match}','%' )
+            </if>
+            <if test="url != null">
+            and u.startURL like CONCAT('%','${url}','%' )
+            </if>
+            <if test="channelName != null">
+            and u.name like CONCAT('%','${channelName}','%' )
+            </if>
+            <if test="jobname != null">
+            and u.jobname like CONCAT('%','${jobname}','%' )
+            </if>
+            <if test="locationId != null">
+                and s.locationId =#{locationId}
+            </if>
+            <if test="type != null">
+            and s.scheduleType=#{type}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getSchedules" parameterType="java.util.Map" resultType="websiteschema.model.domain.Schedule">
+        select
+        <include refid="scheduleColumns"/>
+        from Schedule s
+        left join StartURL u on s.startURLId = u.id
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                u.siteId like CONCAT('%','${match}','%' )
+            </if>
+            <if test="url != null">
+                and u.startURL like CONCAT('%','${url}','%' )
+            </if>
+            <if test="channelName != null">
+                and u.name like CONCAT('%','${channelName}','%' )
+            </if>
+            <if test="jobname != null">
+                and u.jobname like CONCAT('%','${jobname}','%' )
+            </if>
+            
+            <if test="locationId != null">
+                and s.locationId =#{locationId}
+            </if>
+            
+            <if test="type != null">
+                and s.scheduleType=#{type}
+            </if>
+        </trim>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        <if test="start != null &amp; limit != null" >
+             limit #{start}, #{limit}
+        </if>       
+    </select>
+
+    <select id="getAll" resultType="websiteschema.model.domain.Schedule">
+        select * from Schedule
+    </select>
+
+    <select id="getSchedulesByStartURL" parameterType="long" resultType="websiteschema.model.domain.Schedule">
+        select
+        <include refid="scheduleColumns"/>
+        from Schedule s
+        left join StartURL u on s.startURLId = u.id
+        where s.startURLId = #{startURLId}
+    </select>
+    <!-- 查询记录，根据locationId -->
+    <select id="getSchedulesByLocationId" parameterType="long" resultType="websiteschema.model.domain.Schedule">
+        select * from Schedule s
+        where s.locationId = #{locationId}
+    </select>
+
+    <!-- 查询记录，根据Id -->
+    <select id="getById" parameterType="long" resultType="websiteschema.model.domain.Schedule">
+        select
+        <include refid="scheduleColumns"/>
+        from Schedule s
+        left join StartURL u on s.startURLId = u.id
+        where s.id = #{id}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="websiteschema.model.domain.Schedule"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into Schedule (startURLId, jobId, schedule, locationId,scheduleType, status, createTime)
+        values (#{startURLId},#{jobId},#{schedule},#{locationId},#{scheduleType},#{status},#{createTime})
+    </insert>
+
+    <!-- 更新任务状态记录 -->
+    <update id="update" parameterType="websiteschema.model.domain.Schedule">
+        update Schedule
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="startURLId != null">startURLId = #{startURLId},</if>
+            <if test="jobId != null">jobId = #{jobId},</if>
+            <if test="schedule != null">schedule = #{schedule},</if>
+            <if test="locationId != null">locationId = #{locationId},</if>
+            <if test="scheduleType != null">scheduleType = #{scheduleType},</if>
+            <if test="status != null">status=#{status}</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="websiteschema.model.domain.Schedule" >
+        delete from Schedule
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteById" parameterType="long" >
+        delete from Schedule
+        where id = #{id}
+    </delete>
+
+</mapper>

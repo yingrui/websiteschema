@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr/dwr20.dtd">
+<!-- 通用dwr配置 -->
+<dwr>
+    <allow>
+        <!-- Exception -->
+        <convert converter="exception" match="java.lang.Exception">
+            <param name="include" value="message"/>
+        </convert>
+        <!-- All JavaBeans should be scan and be converted to JavaScript Object -->
+        <convert converter="bean" match="websiteschema.model.domain.*"/>
+
+        <convert converter="bean" match="com.apc.websiteschema.fms.*"/>
+
+        <convert converter="bean" match="websiteschema.dwr.response.*"/>
+
+        <create creator="spring" javascript="UserService" >
+            <param name="beanName" value="userService"></param>
+        </create>
+
+        <create creator="spring" javascript="SiteService" >
+            <param name="beanName" value="siteService"></param>
+        </create>
+
+        <create creator="spring" javascript="StartURLService" >
+            <param name="beanName" value="startURLService"></param>
+        </create>
+
+        <create creator="spring" javascript="JobService" >
+            <param name="beanName" value="jobService"></param>
+        </create>
+
+        <create creator="spring" javascript="ScheduleService" >
+            <param name="beanName" value="scheduleService"></param>
+        </create>
+
+        <create creator="spring" javascript="WrapperService" >
+            <param name="beanName" value="wrapperService"></param>
+        </create>
+        
+        <create creator="spring" javascript="SchedulerService" >
+            <param name="beanName" value="schedulerService"></param>
+        </create>
+
+        <create creator="spring" javascript="KeywordService" >
+            <param name="beanName" value="keywordService"></param>
+        </create>
+
+        <create creator="spring" javascript="WeiboService" >
+            <param name="beanName" value="weiboService"></param>
+        </create>
+
+        <create creator="spring" javascript="ConcernedWeiboService" >
+            <param name="beanName" value="concernedWeiboService"></param>
+        </create>
+
+        <create creator="spring" javascript="FollowService" >
+            <param name="beanName" value="followService"></param>
+        </create>
+
+        <create creator="spring" javascript="CategoryService" >
+            <param name="beanName" value="categoryService"></param>
+        </create>
+
+        <create creator="spring" javascript="SysConfService" >
+            <param name="beanName" value="sysConfService"></param>
+        </create>
+
+        <create creator="spring" javascript="SystemCheckService" >
+            <param name="beanName" value="systemCheckService"></param>
+        </create>
+
+        <create creator="spring" javascript="UrlLogService" >
+            <param name="beanName" value="urlLogService"></param>
+        </create>
+
+        <create creator="spring" javascript="ChannelService" >
+            <param name="beanName" value="channelService"></param>
+        </create>
+
+        <create creator="spring" javascript="CipherService" >
+            <param name="beanName" value="cipherService"></param>
+        </create>
+
+        <create creator="spring" javascript="ScheduleTaskService" >
+            <param name="beanName" value="scheduleTaskService"></param>
+        </create>
+
+        <create creator="spring" javascript="FMSJobService" >
+            <param name="beanName" value="FMSJobService"></param>
+        </create>
+
+        <create creator="spring" javascript="FMSSiteService" >
+            <param name="beanName" value="FMSSiteService"></param>
+        </create>
+    </allow>
+</dwr>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="websiteschema.persistence.rdbms.SchedulerMapper">
+
+<!--    <cache />-->
+
+    <sql id='schedulerColumns'>id, name, address, createTime, createUser, updateTime, lastUpdateUser</sql>
+
+    <select id="getTotalResults" resultType="long">
+        select count(*) from Location
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                name like CONCAT('%','${match}','%' )
+            </if>
+            <if test="address != null">
+                and address=#{address}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getSchedulers" parameterType="java.util.Map" resultType="websiteschema.model.domain.Scheduler">
+        select
+        <include refid="schedulerColumns"/>
+        
+        from Location       
+        
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                name like CONCAT('%','${match}','%' )
+            </if>
+            <if test="type != null">
+                and address=#{type}
+            </if>
+        </trim>    
+            
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        limit #{start}, #{limit}
+    </select>
+
+    <!-- 查询记录，根据Id -->
+    <select id="getById" parameterType="long" resultType="websiteschema.model.domain.Scheduler">
+        select * from Location
+        where id = #{id}
+    </select>
+
+    <select id="getByName" parameterType="long" resultType="websiteschema.model.domain.Scheduler">
+        select * from Location
+        where name = #{name}
+    </select>
+
+    <!-- 查询更新时间，根据Id -->
+    <select id="getLastUpdateTime" parameterType="long" resultType="java.util.Date">
+        select updateTime from Location
+        where id = #{id}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="websiteschema.model.domain.Scheduler"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into Location (name, address, createTime, createUser, updateTime, lastUpdateUser)
+        values (#{name},#{address},#{createTime},#{createUser},#{updateTime},#{lastUpdateUser})
+    </insert>
+
+    <!-- 更新任务状态记录 -->
+    <update id="update" parameterType="websiteschema.model.domain.Scheduler">
+        update Location
+        <trim prefix="SET" suffixOverrides=",">    
+            <if test="name != null">name = #{name},</if>
+            <if test="address != null">address = #{address},</if>          
+            <if test="createTime != null">createTime = #{createTime},</if>
+            <if test="createUser != null">createUser = #{createUser},</if>
+            <if test="updateTime != null">updateTime = #{updateTime},</if>
+            <if test="lastUpdateUser != null">lastUpdateUser = #{lastUpdateUser}</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="websiteschema.model.domain.Scheduler" >
+        delete from Location
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteById" parameterType="long" >
+        delete from Location
+        where id = #{id}
+    </delete>
+    
+</mapper>  

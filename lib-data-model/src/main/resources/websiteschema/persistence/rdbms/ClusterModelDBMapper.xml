@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="websiteschema.persistence.rdbms.ClusterModelDBMapper">
+
+    <sql id='col'>id,rowKey,clusters,totalSamples,statInfo,clustererType</sql>
+
+    <select id="getTotalResults" resultType="long">
+        select count(*) from ClusterModel
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                rowKey like CONCAT('%','${match}','%' )
+            </if>
+            <if test="clustererType != null">
+                and clustererType=#{clustererType}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getResults" parameterType="java.util.Map" resultType="java.util.List">
+        select
+        <include refid="col"/>
+        from ClusterModel
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="match != null">
+                rowKey like CONCAT('%','${match}','%' )
+            </if>
+            <if test="clustererType != null">
+                and clustererType=#{clustererType}
+            </if>
+        </trim>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        limit #{start}, #{limit}
+    </select>
+
+    <!-- 查询记录，根据Id -->
+    <select id="getById" parameterType="long" resultType="java.util.Map">
+        select
+        <include refid="col"/>
+        from ClusterModel
+        where id = #{id}
+    </select>
+
+    <select id="getByRowKey" parameterType="string" resultType="java.util.Map">
+        select
+        <include refid="col"/>
+        from ClusterModel
+        where rowKey = #{rowKey}
+    </select>
+
+    <select id="getId" parameterType="string" resultType="long">
+        select id from ClusterModel
+        where rowKey = #{rowKey}
+    </select>
+
+    <select id="exists" parameterType="string" resultType="int">
+        select count(0) from ClusterModel
+        where rowKey = #{rowKey}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="java.util.Map"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into ClusterModel (rowKey, clusters, totalSamples, statInfo, clustererType)
+        values (#{rowKey}, #{clusters},#{totalSamples},#{statInfo},#{clustererType})
+    </insert>
+
+    <!-- 更新任务状态记录 -->
+    <update id="update" parameterType="java.util.Map">
+        update ClusterModel
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="clusters != null">clusters = #{clusters},</if>
+            <if test="totalSamples != null">totalSamples = #{totalSamples},</if>
+            <if test="statInfo != null">statInfo = #{statInfo},</if>
+            <if test="clustererType != null">clustererType = #{clustererType}</if>
+        </trim>
+        where rowKey = #{rowKey}
+    </update>
+
+    <delete id="delete" parameterType="java.util.Map" >
+        delete from ClusterModel
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteById" parameterType="long" >
+        delete from ClusterModel
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteByRowKey" parameterType="string" >
+        delete from ClusterModel
+        where rowKey = #{rowKey}
+    </delete>
+    
+</mapper>

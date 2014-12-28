@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../analyzer/analyzer.iml" filepath="$PROJECT_DIR$/../analyzer/analyzer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lib-cluster/lib-cluster.iml" filepath="$PROJECT_DIR$/../lib-cluster/lib-cluster.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lib-conf/lib-conf.iml" filepath="$PROJECT_DIR$/../lib-conf/lib-conf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lib-crawler/lib-crawler.iml" filepath="$PROJECT_DIR$/../lib-crawler/lib-crawler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lib-data-model/lib-data-model.iml" filepath="$PROJECT_DIR$/../lib-data-model/lib-data-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lib-func-blk/lib-func-blk.iml" filepath="$PROJECT_DIR$/../lib-func-blk/lib-func-blk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lib-system-detection/lib-system-detection.iml" filepath="$PROJECT_DIR$/../lib-system-detection/lib-system-detection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../lib-utils/lib-utils.iml" filepath="$PROJECT_DIR$/../lib-utils/lib-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../metadata-server/metadata-server.iml" filepath="$PROJECT_DIR$/../metadata-server/metadata-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reactor.iml" filepath="$PROJECT_DIR$/reactor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../virtual-device/virtual-device.iml" filepath="$PROJECT_DIR$/../virtual-device/virtual-device.iml" />
+    </modules>
+  </component>
+</project>
+

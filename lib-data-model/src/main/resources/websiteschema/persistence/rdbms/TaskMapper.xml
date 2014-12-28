@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="websiteschema.persistence.rdbms.TaskMapper">
+
+    <sql id='taskColumns'>id, scheId scheduleId, message, status, taskType, createTime, updateTime</sql>
+    
+    <select id="getTotalResults" resultType="long" parameterType="java.util.Map">
+        select count(*) from ScheduleTask
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="scheduleId != null">
+                scheId = #{scheduleId}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="updateTime != null">
+                and updateTime &lt; #{updateTime}
+            </if>
+        </trim>
+    </select>
+
+    <select id="getTasks" parameterType="java.util.Map" resultType="websiteschema.model.domain.Task">
+        select
+        <include refid="taskColumns"/>
+        from ScheduleTask
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="scheduleId != null">
+                scheId = #{scheduleId}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="updateTime != null">
+                and updateTime &lt; #{updateTime}
+            </if>
+        </trim>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        <if test="start != null">
+            limit #{start}, #{limit}
+        </if>
+    </select>
+
+    <select id="getScheduleStatus" resultType="java.util.Map">
+        select scheId, taskType, status, count(*) count from ScheduleTask group by scheId, taskType, status
+    </select>
+
+    <!-- 查询记录，根据Id -->
+    <select id="getById" parameterType="String" resultType="websiteschema.model.domain.Task">
+        select
+        <include refid="taskColumns"/>
+        from ScheduleTask
+        where id = #{id}
+    </select>
+
+    <!-- 插入记录 -->
+    <insert id="insert" parameterType="websiteschema.model.domain.Task"
+        useGeneratedKeys="true" keyProperty="id">
+        insert into ScheduleTask (id, scheId, status, taskType, message, createTime, updateTime)
+        values (#{id},#{scheduleId},#{status},#{taskType},#{message},now(),#{updateTime})
+    </insert>
+
+    <!-- 更新任务状态记录 -->
+    <update id="update" parameterType="websiteschema.model.domain.Task">
+        update ScheduleTask
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="status != null">status=#{status},</if>
+            <if test="taskType != null">taskType=#{taskType},</if>
+            <if test="message != null">message=#{message},</if>
+            updateTime=now()
+        </trim>
+        where id = #{id}
+    </update>
+
+    <!-- 更新任务状态记录 -->
+    <update id="updateStatus">
+        UPDATE ScheduleTask
+        SET status = #{status}, updateTime=now()
+        WHERE id IN
+        <foreach item="list" index="index" collection="list" open="(" separator="," close=")">
+            #{list}
+        </foreach>
+    </update>
+
+    <delete id="delete" parameterType="websiteschema.model.domain.Task" >
+        delete from ScheduleTask
+        where id = #{id}
+    </delete>
+
+    <delete id="batchDelete" parameterType="java.util.Date" >
+        delete from ScheduleTask
+        where createTime &lt;= #{before}
+    </delete>
+
+    <delete id="batchDeleteArchive" parameterType="java.util.Date" >
+        delete from ScheduleTaskArchive
+        where createTime &lt;= #{before}
+    </delete>
+
+    <insert id="archive" parameterType="java.util.Date">
+        insert into ScheduleTaskArchive (id, scheId, status, taskType, message, createTime, updateTime)
+        select id, scheId, status, taskType, message, createTime, updateTime from ScheduleTask s
+        where s.createTime &lt;= #{before}
+    </insert>
+
+</mapper>

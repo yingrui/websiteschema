@@ -67,7 +67,7 @@ import websiteschema.persistence.rdbms.SiteMapper;
  */
 public class SimpleBrowser extends javax.swing.JFrame {
 
-    IMozillaBrowserCanvas browser = null;
+//    IMozillaBrowserCanvas browser = null;
     WebEngine engine = null;
     WebEngine webEngine = null;
     Console console;
@@ -914,16 +914,16 @@ public class SimpleBrowser extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
-        if (browser.canGoBack()) {
-            browser.goBack();
-        }
+//        if (browser.canGoBack()) {
+//            browser.goBack();
+//        }
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void forwardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forwardButtonActionPerformed
         // TODO add your handling code here:
-        if (browser.canGoForward()) {
-            browser.goForward();
-        }
+//        if (browser.canGoForward()) {
+//            browser.goForward();
+//        }
     }//GEN-LAST:event_forwardButtonActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
@@ -947,12 +947,13 @@ public class SimpleBrowser extends javax.swing.JFrame {
 
     private void stopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopButtonActionPerformed
         // TODO add your handling code here:
-        browser.stopLoad();
+//        browser.stopLoad();
     }//GEN-LAST:event_stopButtonActionPerformed
 
     private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
         // TODO add your handling code here:
-        browser.reload(IBrowserCanvas.RELOAD_NORMAL);
+//        browser.reload(IBrowserCanvas.RELOAD_NORMAL);
+        engine.reload();
     }//GEN-LAST:event_refreshButtonActionPerformed
 
     private void hideAnalysisMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hideAnalysisMenuActionPerformed
@@ -1179,7 +1180,12 @@ public class SimpleBrowser extends javax.swing.JFrame {
         context.getURLAndMIME().clear();
         context.setReference(url);
         getAnalyzerFrame().setTitle("");
-        browser.loadURL(url);
+        final String newUrl = url;
+        Platform.runLater(new Runnable() {
+            public void run() {
+                engine.load(newUrl);
+            }
+        });
     }
 
     public XPathAttributes getXPathAttr() {

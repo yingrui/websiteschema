@@ -4,11 +4,13 @@
  */
 package websiteschema.analyzer.browser.listener;
 
+import com.sun.webkit.dom.HTMLElementImpl;
 import com.webrenderer.swing.IMozillaBrowserCanvas;
 import com.webrenderer.swing.dom.IElement;
 import com.webrenderer.swing.dom.IElementCollection;
 import com.webrenderer.swing.event.MouseEvent;
 import com.webrenderer.swing.event.MouseListener;
+import netscape.javascript.JSObject;
 import org.apache.log4j.Logger;
 import websiteschema.analyzer.browser.SimpleBrowser;
 import websiteschema.analyzer.context.BrowserContext;
@@ -18,7 +20,7 @@ import websiteschema.utils.ElementUtil;
  *
  * @author ray
  */
-public class AnalyzeEventListener implements MouseListener {
+public class AnalyzeEventListener {
 
     Logger l = Logger.getRootLogger();
     IMozillaBrowserCanvas browser;
@@ -26,21 +28,18 @@ public class AnalyzeEventListener implements MouseListener {
     String urlAnalyzerTips = BrowserContext.getConfigure().getProperty("URLAnalyzerTips");
     SimpleBrowser simpleBrowser;
 
-    public AnalyzeEventListener(IMozillaBrowserCanvas browser) {
-        this.browser = browser;
-    }
-
-    public void setSimpleBrowser(SimpleBrowser simpleBrowser) {
+    public AnalyzeEventListener(SimpleBrowser simpleBrowser) {
         this.simpleBrowser = simpleBrowser;
     }
 
-    @Override
-    public void onClick(MouseEvent me) {
-//        l.trace("mouse onclick");
-//        IElement ele = me.getTargetElement();
-//        String innerHTML = ele.toString();
-//        System.out.println(innerHTML);
-//
+    public void onClick(JSObject event) {
+        String siteId = ((JSObject)event.getMember("data")).getMember("siteId").toString();
+        String url = ((JSObject)event.getMember("data")).getMember("url").toString();
+        simpleBrowser.setFocusTab(1);
+        System.out.println(siteId + " -> " + url);
+        simpleBrowser.startAnalysis(siteId, url);
+
+
 //        String nodeType = ElementUtil.getInstance().getNodeType(ele);
 //        l.trace("node type: " + nodeType + " node name: " + ele.getTagName());
 //        String[] attrs = ele.getAttributes();
@@ -76,17 +75,5 @@ public class AnalyzeEventListener implements MouseListener {
 //
 //            }
 //        }
-    }
-
-    @Override
-    public void onDoubleClick(MouseEvent me) {
-    }
-
-    @Override
-    public void onMouseDown(MouseEvent me) {
-    }
-
-    @Override
-    public void onMouseUp(MouseEvent me) {
     }
 }

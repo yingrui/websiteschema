@@ -269,6 +269,16 @@ public class SimpleBrowser extends javax.swing.JFrame {
                 WebView view = new WebView();
                 webEngine = view.getEngine();
                 jfxPanel.setScene(new Scene(view));
+
+                webEngine.getLoadWorker().workDoneProperty().addListener(new ChangeListener<Number>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, final Number newValue) {
+                        if(newValue.intValue() == 100) {
+                            JSObject window = (JSObject) webEngine.executeScript("window");
+                            window.setMember("evtHandler", new AnalyzeEventListener(thiz));
+                        }
+                    }
+                });
             }
         });
         Platform.runLater(new Runnable() {

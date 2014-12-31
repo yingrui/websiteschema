@@ -4,10 +4,14 @@
  */
 package websiteschema.analyzer.browser.bottom.domtree;
 
+import com.sun.webkit.dom.HTMLElementImpl;
 import com.webrenderer.swing.dom.IElement;
 import com.webrenderer.swing.dom.IElementCollection;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.html.HTMLCollection;
 import websiteschema.element.W3CDOMUtil;
 import org.w3c.dom.Node;
 import websiteschema.utils.ElementUtil;
@@ -19,20 +23,20 @@ import websiteschema.utils.StringUtil;
  */
 public class DOMTreeNode {
 
-    IElement ele = null;
+    HTMLElementImpl ele = null;
     DOMTreeNode parent;
     List<DOMTreeNode> children;
 
-    public DOMTreeNode(IElement ele) {
+    public DOMTreeNode(HTMLElementImpl ele) {
         this.ele = ele;
         if (null != ele) {
-            IElementCollection childElements = ele.getChildElements();
+            HTMLCollection childElements = ele.getChildren();
             if (null != childElements) {
                 children = new ArrayList<DOMTreeNode>();
-                for (int i = 0; i < childElements.length(); i++) {
-                    IElement e = childElements.item(i);
-                    if ("ELEMENT_NODE".equals(ElementUtil.getInstance().getNodeType(e))) {
-                        DOMTreeNode node = new DOMTreeNode(e);
+                for (int i = 0; i < childElements.getLength(); i++) {
+                    Node e = childElements.item(i);
+                    if (e instanceof HTMLElementImpl) {
+                        DOMTreeNode node = new DOMTreeNode((HTMLElementImpl) e);
                         node.setParent(this);
                         children.add(node);
                     }
@@ -41,7 +45,7 @@ public class DOMTreeNode {
         }
     }
 
-    public IElement getEle() {
+    public HTMLElementImpl getEle() {
         return ele;
     }
 
@@ -90,10 +94,11 @@ public class DOMTreeNode {
     @Override
     public String toString() {
         String tagName = ele.getTagName();
-        String[] attrs = ele.getAttributes();
+        NamedNodeMap attrs = ele.getAttributes();
         StringBuilder attr = new StringBuilder();
-        if (null != attrs && attrs.length > 0) {
-            for (String key : attrs) {
+        if (null != attrs && attrs.getLength() > 0) {
+            for (int i = 0; i < attrs.getLength(); i++) {
+                String key = attrs.item(i).getNodeName();
                 if (StringUtil.isNotEmpty(key.trim())) {
                     attr.append(" ").append(key);
                 }

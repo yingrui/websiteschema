@@ -8,6 +8,8 @@ import com.webrenderer.swing.IMozillaBrowserCanvas;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import javafx.scene.web.WebEngine;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import websiteschema.analyzer.browser.SimpleBrowser;
@@ -22,6 +24,7 @@ import websiteschema.utils.Console;
 public class BrowserContext {
 
     IMozillaBrowserCanvas browser = null;
+    WebEngine engine = null;
     Map<String, Map<String, String>> urlAndMIME = new LinkedHashMap<String, Map<String, String>>();
 //    AnalysisPanel analysisPanel;
     private static final ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-beans.xml");
@@ -42,6 +45,18 @@ public class BrowserContext {
 
     public IMozillaBrowserCanvas getBrowser() {
         return browser;
+    }
+
+    public String getLocation() {
+        return getWebEngine().getLocation();
+    }
+
+    public WebEngine getWebEngine() {
+        return engine;
+    }
+
+    public void setWebEngine(WebEngine engine) {
+         this.engine = engine;
     }
 
     public void setBrowser(IMozillaBrowserCanvas browser) {

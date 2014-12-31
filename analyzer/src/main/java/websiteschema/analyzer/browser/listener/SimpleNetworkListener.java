@@ -13,6 +13,7 @@ import java.util.TimerTask;
 import javax.swing.JProgressBar;
 import javax.swing.JTextField;
 import org.apache.log4j.Logger;
+import org.w3c.dom.Document;
 import websiteschema.analyzer.context.BrowserContext;
 
 /**
@@ -33,7 +34,7 @@ public class SimpleNetworkListener {
 
     public SimpleNetworkListener(BrowserContext context) {
         this.context = context;
-        this.browser = context.getBrowser();
+//        this.browser = context.getBrowser();
     }
 
     public JTextField getAddressTextField() {
@@ -79,7 +80,7 @@ public class SimpleNetworkListener {
     }
 
     private void process() {
-        context.getConsole().log("Referrer: " + context.getBrowser().getDocument().getReferrer());
+        context.getConsole().log("Referrer: " + context.getReference());
 //        VIPSImpl vips = new VIPSImpl(context);
 //        vips.segment(context.getBrowser().getDocument());
     }
@@ -91,16 +92,16 @@ public class SimpleNetworkListener {
             progress.setValue(progress.getMaximum());
             progress.setVisible(false);
             addressTextField.setText(ne.getURL());
-            String title = null != context.getBrowser().getDocument() ? context.getBrowser().getDocument().getTitle() : "";
+            String title = null != context.getWebEngine().getDocument() ? context.getWebEngine().getTitle() : "";
             context.getConsole().log("title: " + title);
             context.getSimpleBrowser().getAnalyzerFrame().setTitle(title);
             // 更新页面信息
             context.getSimpleBrowser().getPageInfoPanel().update();
 
             // 显示源代码
-            IDocument doc = context.getBrowser().getDocument();
+            Document doc = context.getWebEngine().getDocument();
             if (null != doc) {
-                context.getSimpleBrowser().setSource(doc.getBody().getParentElement().getInnerHTML());
+                context.getSimpleBrowser().setSource(doc.getTextContent());
             }
 
             timer.cancel();

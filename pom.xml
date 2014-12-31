@@ -31,11 +31,11 @@
         <hbase.zookeeper.quorum>hadoop1,hadoop2,hadoop3,hadoop4,hadoop5</hbase.zookeeper.quorum>
         <jdbc-url>jdbc:mysql://172.16.100.162:3306/websiteschema</jdbc-url>-->
 
-        <rabbitmq-server>localhost</rabbitmq-server>
-        <metadata-deploy-host>localhost</metadata-deploy-host>
+        <rabbitmq-server>123.57.67.131</rabbitmq-server>
+        <metadata-deploy-host>123.57.67.131</metadata-deploy-host>
         <hbase.master>localhost</hbase.master>
         <hbase.zookeeper.quorum>localhost</hbase.zookeeper.quorum>
-        <jdbc-url>jdbc:mysql://localhost:3306/websiteschema?useUnicode=true&amp;amp;characterEncoding=utf8</jdbc-url>
+        <jdbc-url>jdbc:mysql://123.57.67.131:3306/websiteschema?useUnicode=true&amp;amp;characterEncoding=utf8</jdbc-url>
         <jdbc-username>websiteschema</jdbc-username>
         <jdbc-passwd>websiteschema</jdbc-passwd>
         <webrenderer.classifier>osx64</webrenderer.classifier>

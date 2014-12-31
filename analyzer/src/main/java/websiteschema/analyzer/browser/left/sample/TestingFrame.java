@@ -172,7 +172,7 @@ public class TestingFrame extends javax.swing.JFrame {
 
     public void setContext(BrowserContext context) {
         this.context = context;
-        setUrl(context.getBrowser().getURL());
+        setUrl(context.getWebEngine().getLocation());
     }
 
     public String getSiteId() {
@@ -280,7 +280,7 @@ public class TestingFrame extends javax.swing.JFrame {
 
             if (null != page) {
                 //为采集到的文档进行分类
-                Document source = null != page ? page.getDocs()[0] : (Document) (context.getBrowser().getW3CDocument());
+                Document source = null != page ? page.getDocs()[0] : (context.getWebEngine().getDocument());
                 String clusterName = getDocumentBelongToCluster(source);
                 //抽取文档
                 Doc result = extractDocument(websiteschema, clusterName, page, pagingCheckBox.isSelected());

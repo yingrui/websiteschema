@@ -29,6 +29,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import org.apache.log4j.Logger;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import websiteschema.analyzer.browser.SimpleBrowser;
 import websiteschema.analyzer.browser.left.sample.ClusterFrame;
 import websiteschema.analyzer.browser.left.sample.ClustererFrame;
@@ -48,6 +50,8 @@ import websiteschema.persistence.Mapper;
 import websiteschema.persistence.hbase.SampleMapper;
 import websiteschema.persistence.rdbms.SiteMapper;
 import websiteschema.utils.UrlLinkUtil;
+
+import static websiteschema.element.DocumentUtil.getByXPath;
 
 /**
  *
@@ -520,19 +524,19 @@ public class AnalysisPanel extends javax.swing.JPanel implements IConfigureHandl
         }
     };
 
-    private int sampleUrls(IDocument doc) {
+    private int sampleUrls(Document doc) {
         int count = 0; // 返回采样到了多少URL
-        IElementCollection links = doc.getLinks();
+        List<Node> links = getByXPath(doc, "//a");
         String pageUrl = context.getReference();
-        String charset = doc.getCharSet();
+        String charset = doc.getXmlEncoding();
         String siteId = getSiteId();
         if (null != links && null != siteId && !"".equals(siteId)) {
             List<URI> urls = new ArrayList<URI>();
             Set<String> uniqSet = new HashSet<String>(); // URL排重使用
             //收集所有的链接
-            for (int i = 0; i < links.length(); i++) {
-                IElement ele = links.item(i);
-                String href = ele.getAttribute("href", 0);
+            for (int i = 0; i < links.size(); i++) {
+                Node ele = links.get(i);
+                String href = ele.getAttributes().getNamedItem("href").getNodeValue();
                 String def = BrowserContext.getConfigure().getProperty("URLCharset", "DefaultCharset");
                 Map<String, String> charsetMap = BrowserContext.getConfigure().getMapProperty("URLCharset", "CharsetMap");
                 URI uri = UrlLinkUtil.getInstance().getURI(pageUrl, href, charset, charsetMap, def);
@@ -569,16 +573,16 @@ public class AnalysisPanel extends javax.swing.JPanel implements IConfigureHandl
     private void sampleUrls() {
         String siteId = getSiteId();
         if (null != siteId && !"".equals(siteId)) {
-            IMozillaBrowserCanvas browser = context.getBrowser();
-            int url_count = sampleUrls(browser.getDocument());
+//            IMozillaBrowserCanvas browser = context.getBrowser();
+            int url_count = sampleUrls(context.getWebEngine().getDocument());
             if (url_count < 50) {
                 //主页面没有多少链接，可能是iframe的框架，所以需要采集嵌入iframe内的链接。
-                IDocument frames[] = browser.getDocument().getChildFrames();
-                if (null != frames) {
-                    for (IDocument frame : frames) {
-                        url_count += sampleUrls(frame);
-                    }
-                }
+//                IDocument frames[] = browser.getDocument().getChildFrames();
+//                if (null != frames) {
+//                    for (IDocument frame : frames) {
+//                        url_count += sampleUrls(frame);
+//                    }
+//                }
             }
             JOptionPane.showMessageDialog(this, "添加完毕，链接数目为：" + url_count);
         } else {
@@ -713,7 +717,7 @@ public class AnalysisPanel extends javax.swing.JPanel implements IConfigureHandl
         final JFrame popup = new JFrame("查看采集结果");
         popup.setSize(800, 600);
         ResultViewPanel panel = new ResultViewPanel();
-        panel.setUrl(context.getBrowser().getURL());
+        panel.setUrl(context.getWebEngine().getLocation());
         popup.getContentPane().add(BorderLayout.CENTER, panel);
         popup.setVisible(true);
     }//GEN-LAST:event_checkResultButtonActionPerformed

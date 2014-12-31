@@ -231,7 +231,7 @@ public class TestUnitFrame extends javax.swing.JFrame {
             long t2 = System.currentTimeMillis();
             context.getConsole().log("采集结束，耗时：" + (t2 - t1));
             this.resultArea.append("采集结束，耗时：" + (t2 - t1) + "\n");
-            source = null != docs ? docs[0] : (Document) context.getBrowser().getW3CDocument();
+            source = null != docs ? docs[0] : context.getWebEngine().getDocument();
             return source;
         } else {
             return null;
@@ -258,7 +258,7 @@ public class TestUnitFrame extends javax.swing.JFrame {
     private void start() {
         this.startButton.setEnabled(false);
         try {
-            String url = context.getBrowser().getURL();
+            String url = context.getLocation();
             Document source = crawl(url);
             if (null != source) {
                 FBUnitExtractor ue = new FBUnitExtractor();

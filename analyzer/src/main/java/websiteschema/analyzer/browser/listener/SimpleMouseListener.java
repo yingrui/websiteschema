@@ -70,7 +70,7 @@ public class SimpleMouseListener {
                 if ("A".equals(element.getTagName())) {
                     //如果所选节点是A，则将URL显示在UI上
                     String href = element.getAttribute("href");
-                    URL url = UrlLinkUtil.getInstance().getURL(context.getBrowser().getURL(), href);
+                    URL url = UrlLinkUtil.getInstance().getURL(context.getLocation(), href);
                     if (null != url) {
                         simpleBrowser.displaySelectedAnchor(url.toString());
                     }

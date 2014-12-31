@@ -10,8 +10,11 @@
  */
 package websiteschema.analyzer.browser.bottom.domtree;
 
+import com.sun.webkit.dom.HTMLElementImpl;
 import com.webrenderer.swing.dom.IDocument;
 import com.webrenderer.swing.dom.IElement;
+import org.w3c.dom.Document;
+
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 
@@ -51,15 +54,15 @@ public class DOMPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setupDOMTree(IDocument block) {
+    public void setupDOMTree(Document block) {
         if (null == block) {
             return;
         }
         if (null != domTree) {
             domTree.removeAll();
-            domTree.setModel(new DOMTreeModel(new DOMTreeNode(block.getBody().getParentElement())));
+            domTree.setModel(new DOMTreeModel(new DOMTreeNode((com.sun.webkit.dom.HTMLElementImpl) block.getDocumentElement())));
         } else {
-            domTree = new DOMTree(block.getBody().getParentElement());
+            domTree = new DOMTree((com.sun.webkit.dom.HTMLElementImpl) block.getDocumentElement());
             getScrollPane().setViewportView(domTree);
             domTree.addTreeSelectionListener((TreeSelectionListener) new TreeSelectionListener() {
 
@@ -89,23 +92,23 @@ public class DOMPanel extends javax.swing.JPanel {
                     }
                 }
 
-                private void draw(IElement ele) {
+                private void draw(HTMLElementImpl ele) {
                     if (null != ele) {
-                        String oldStyle = ele.getAttribute("style", 0);
+                        String oldStyle = ele.getAttribute("style");
                         if (null != oldStyle && !"".equals(oldStyle)) {
-                            ele.setAttribute("style", oldStyle + ";" + style, 0);
+                            ele.setAttribute("style", oldStyle + ";" + style);
                         } else {
-                            ele.setAttribute("style", style, 0);
+                            ele.setAttribute("style", style);
                         }
                     }
                 }
 
-                private void undraw(IElement ele) {
+                private void undraw(HTMLElementImpl ele) {
                     if (null != ele) {
-                        String oldStyle = ele.getAttribute("style", 0);
+                        String oldStyle = ele.getAttribute("style");
                         if (null != oldStyle && !"".equals(oldStyle)) {
                             String s = oldStyle.replaceAll(style, "");
-                            ele.setAttribute("style", s, 0);
+                            ele.setAttribute("style", s);
                         }
                     }
                 }

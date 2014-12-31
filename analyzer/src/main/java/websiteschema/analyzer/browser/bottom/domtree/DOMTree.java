@@ -4,6 +4,7 @@
  */
 package websiteschema.analyzer.browser.bottom.domtree;
 
+import com.sun.webkit.dom.HTMLElementImpl;
 import com.webrenderer.swing.dom.IElement;
 import javax.swing.Icon;
 import javax.swing.JTree;
@@ -17,7 +18,7 @@ import javax.swing.tree.TreeSelectionModel;
  */
 public class DOMTree extends JTree {
 
-    public DOMTree(IElement graphNode) {
+    public DOMTree(HTMLElementImpl graphNode) {
         super(new DOMTreeModel(new DOMTreeNode(graphNode)));
         getSelectionModel().setSelectionMode(
                 TreeSelectionModel.SINGLE_TREE_SELECTION);

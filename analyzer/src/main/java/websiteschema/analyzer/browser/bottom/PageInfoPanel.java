@@ -296,35 +296,35 @@ public class PageInfoPanel extends javax.swing.JPanel {
 
     public void update() {
         clean();
-        IDocument doc = context.getBrowser().getDocument();
-        String charset = doc.getCharSet();
-        this.charsetField.setText(charset);
-
-        Set<String> urls = context.getURLAndMIME().keySet();
-
-        String contentTypeFilter = this.contentTypeFilterField.getText();
-        for (String url : urls) {
-            boolean append = true;
-            if (!"".equals(contentTypeFilter)) {
-                if (url.indexOf(contentTypeFilter) < 0) {
-                    append = false;
-                }
-            }
-            if (append) {
-                this.urlArea.append(url);
-                this.urlArea.append("\n");
-            }
-        }
-        String url = getLine(urlArea, 0);
-        if (responseRadioButton.isSelected()) {
-            this.MIMEArea.setText(context.getResponseHeader(url));
-        } else {
-            this.MIMEArea.setText(context.getRequestHeader(url));
-        }
-        updateCookie(url);
-        this.cookieArea.setCaretPosition(0);
-        this.urlArea.setCaretPosition(0);
-        this.MIMEArea.setCaretPosition(0);
+//        IDocument doc = context.getBrowser().getDocument();
+//        String charset = doc.getCharSet();
+//        this.charsetField.setText(charset);
+//
+//        Set<String> urls = context.getURLAndMIME().keySet();
+//
+//        String contentTypeFilter = this.contentTypeFilterField.getText();
+//        for (String url : urls) {
+//            boolean append = true;
+//            if (!"".equals(contentTypeFilter)) {
+//                if (url.indexOf(contentTypeFilter) < 0) {
+//                    append = false;
+//                }
+//            }
+//            if (append) {
+//                this.urlArea.append(url);
+//                this.urlArea.append("\n");
+//            }
+//        }
+//        String url = getLine(urlArea, 0);
+//        if (responseRadioButton.isSelected()) {
+//            this.MIMEArea.setText(context.getResponseHeader(url));
+//        } else {
+//            this.MIMEArea.setText(context.getRequestHeader(url));
+//        }
+//        updateCookie(url);
+//        this.cookieArea.setCaretPosition(0);
+//        this.urlArea.setCaretPosition(0);
+//        this.MIMEArea.setCaretPosition(0);
     }
 
     private void updateCookie(String url) {

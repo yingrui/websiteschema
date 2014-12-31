@@ -965,12 +965,12 @@ public class GubaParamPanel extends javax.swing.JPanel implements ISiteAnalyzer 
     }
 
     private Document getDocument() {
-        Document doc = (Document) context.getBrowser().getW3CDocument();
+        Document doc = context.getWebEngine().getDocument();
         return doc;
     }
 
     private String getDocumentSource() {
-        return context.getBrowser().getDocument().getDocumentSource();
+        return context.getWebEngine().getDocument().getTextContent();
     }
 
     /**

@@ -251,7 +251,7 @@ public class SimpleBrowser extends javax.swing.JFrame {
         });
 
         //初始化BrowerContext
-//        context.setBrowser(browser);
+        context.setWebEngine(engine);
 //        vips = new VIPSImpl(context);
 
         //添加Listener
@@ -976,7 +976,7 @@ public class SimpleBrowser extends javax.swing.JFrame {
     private void XQueryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_XQueryButtonActionPerformed
         // TODO add your handling code here:
         String xpathExpr = this.xpathField.getText();
-        Document doc1 = (Document) context.getBrowser().getW3CDocument();
+        Document doc1 = context.getWebEngine().getDocument();
         try {
             List<Node> nodes = getByXPath(doc1, xpathExpr);
             if (null != nodes && !nodes.isEmpty()) {
@@ -987,23 +987,23 @@ public class SimpleBrowser extends javax.swing.JFrame {
                     this.nodeValueTextArea.append("\n");
                 }
             } else {
-                IDocument frames[] = context.getBrowser().getDocument().getChildFrames();
-                if (null != frames) {
-                    for (IDocument frame : frames) {
-                        Document iframe = frame.getBody().convertToW3CNode().getOwnerDocument();
-                        nodes = getByXPath(iframe, xpathExpr);
-                        if (null != nodes && !nodes.isEmpty()) {
-                            this.nodeValueTextArea.setText("");
-                            for (Node node : nodes) {
-                                this.nodeValueTextArea.append(node.getNodeName());
-                                this.nodeValueTextArea.append(node.getNodeValue());
-                                this.nodeValueTextArea.append("\n");
-                            }
-                            this.nodeValueTextArea.append("----注意：这些节点从FRAME中获得\n");
-                            break;
-                        }
-                    }
-                }
+//                IDocument frames[] = context.getBrowser().getDocument().getChildFrames();
+//                if (null != frames) {
+//                    for (IDocument frame : frames) {
+//                        Document iframe = frame.getBody().convertToW3CNode().getOwnerDocument();
+//                        nodes = getByXPath(iframe, xpathExpr);
+//                        if (null != nodes && !nodes.isEmpty()) {
+//                            this.nodeValueTextArea.setText("");
+//                            for (Node node : nodes) {
+//                                this.nodeValueTextArea.append(node.getNodeName());
+//                                this.nodeValueTextArea.append(node.getNodeValue());
+//                                this.nodeValueTextArea.append("\n");
+//                            }
+//                            this.nodeValueTextArea.append("----注意：这些节点从FRAME中获得\n");
+//                            break;
+//                        }
+//                    }
+//                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1119,7 +1119,7 @@ public class SimpleBrowser extends javax.swing.JFrame {
     private void crawlerTestMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crawlerTestMenuActionPerformed
         // TODO add your handling code here:
         CrawlerTestFrame frame = new CrawlerTestFrame();
-        frame.setUrl(context.getBrowser().getURL());
+        frame.setUrl(context.getWebEngine().getLocation());
         frame.setXPathAttr(getXPathAttr());
         frame.setVisible(true);
     }//GEN-LAST:event_crawlerTestMenuActionPerformed
@@ -1127,7 +1127,7 @@ public class SimpleBrowser extends javax.swing.JFrame {
     private void domTreeMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_domTreeMenuActionPerformed
         // TODO add your handling code here:
         consolePane.setSelectedComponent(getDOMPanel());
-        getDOMPanel().setupDOMTree(context.getBrowser().getDocument());
+        getDOMPanel().setupDOMTree(context.getWebEngine().getDocument());
     }//GEN-LAST:event_domTreeMenuActionPerformed
 
     private void crawlerTestMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crawlerTestMenu1ActionPerformed

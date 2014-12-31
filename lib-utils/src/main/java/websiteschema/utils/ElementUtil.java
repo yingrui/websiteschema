@@ -5,10 +5,12 @@
 package websiteschema.utils;
 
 import com.sun.webkit.dom.ElementImpl;
+import com.sun.webkit.dom.TextImpl;
 import com.webrenderer.swing.dom.IDocument;
 import com.webrenderer.swing.dom.IElement;
 import com.webrenderer.swing.dom.IElementCollection;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import websiteschema.element.Rectangle;
 import websiteschema.element.factory.RectangleFactory;
 
@@ -74,16 +76,16 @@ public class ElementUtil {
         }
     }
 
-    public String getText(IElement ele) {
+    public String getText(ElementImpl ele) {
         StringBuilder sb = new StringBuilder();
 
-        IElementCollection children = ele.getChildElements();
-        for (int i = 0; i < children.length(); i++) {
-            IElement child = children.item(i);
-            if (child.isTextNode()) {
-                sb.append(child.getTextNodeText());
+        NodeList children = ele.getChildNodes();
+        for (int i = 0; i < children.getLength(); i++) {
+            Node child = children.item(i);
+            if (child instanceof TextImpl) {
+                sb.append(((TextImpl)child).getWholeText());
             } else {
-                sb.append(getText(child));
+                sb.append(getText((ElementImpl)child));
             }
         }
 

@@ -68,7 +68,7 @@ public class LinkTestFrame extends javax.swing.JFrame {
         this.resultArea.setLineWrap(this.wrapLineCheckBox.isSelected());
         this.setTitle("测试链接抽取");
 
-        this.fidURl.setText(context.getBrowser().getURL());
+        this.fidURl.setText(context.getLocation());
         this.btnSaveToChannel.setEnabled(false);
     }
 

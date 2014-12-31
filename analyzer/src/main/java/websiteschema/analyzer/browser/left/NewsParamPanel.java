@@ -423,12 +423,12 @@ public class NewsParamPanel extends javax.swing.JPanel implements ISiteAnalyzer 
     private Sample getCurrentDocument() {
         Sample sample = null;
 
-        Node doc = getDocument(context.getBrowser().getURL());
+        Node doc = getDocument(context.getWebEngine().getLocation());
         if (null != doc && doc.getNodeType() == Node.DOCUMENT_NODE) {
             DocumentConvertor dc = new DocumentConvertor();
             dc.setXpathAttr(schema.getXpathAttr());
             sample = new Sample();
-            sample.setUrl(context.getBrowser().getURL());
+            sample.setUrl(context.getWebEngine().getLocation());
             sample.setSiteId(getSiteId());
             sample.setContent(dc.convertDocument((Document) doc));
         }
@@ -460,12 +460,12 @@ public class NewsParamPanel extends javax.swing.JPanel implements ISiteAnalyzer 
     }
 
     private Document getDocument() {
-        Document doc = (Document) context.getBrowser().getW3CDocument();
+        Document doc = context.getWebEngine().getDocument();
         return doc;
     }
 
     private String getDocumentSource() {
-        return context.getBrowser().getDocument().getDocumentSource();
+        return context.getWebEngine().getDocument().getTextContent();
     }
 
     @Override

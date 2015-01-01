@@ -10,6 +10,7 @@
  */
 package websiteschema.analyzer.browser.left;
 
+import com.sun.webkit.dom.HTMLDocumentImpl;
 import com.webrenderer.swing.IMozillaBrowserCanvas;
 import com.webrenderer.swing.dom.IDocument;
 import com.webrenderer.swing.dom.IElement;
@@ -528,7 +529,7 @@ public class AnalysisPanel extends javax.swing.JPanel implements IConfigureHandl
         int count = 0; // 返回采样到了多少URL
         List<Node> links = getByXPath(doc, "//a");
         String pageUrl = context.getReference();
-        String charset = doc.getXmlEncoding();
+        String charset = ((HTMLDocumentImpl) doc).getCharset();
         String siteId = getSiteId();
         if (null != links && null != siteId && !"".equals(siteId)) {
             List<URI> urls = new ArrayList<URI>();
@@ -536,16 +537,19 @@ public class AnalysisPanel extends javax.swing.JPanel implements IConfigureHandl
             //收集所有的链接
             for (int i = 0; i < links.size(); i++) {
                 Node ele = links.get(i);
-                String href = ele.getAttributes().getNamedItem("href").getNodeValue();
-                String def = BrowserContext.getConfigure().getProperty("URLCharset", "DefaultCharset");
-                Map<String, String> charsetMap = BrowserContext.getConfigure().getMapProperty("URLCharset", "CharsetMap");
-                URI uri = UrlLinkUtil.getInstance().getURI(pageUrl, href, charset, charsetMap, def);
-                if (null != uri && legalUrl(uri)) {
-                    //URI不为空，并且是有效的
-                    String url = uri.toString();
-                    if (!uniqSet.contains(url)) {
-                        urls.add(uri);
-                        uniqSet.add(uri.toString());
+                Node attrHref = ele.getAttributes().getNamedItem("href");
+                if(attrHref != null) {
+                    String href = attrHref.getNodeValue();
+                    String def = BrowserContext.getConfigure().getProperty("URLCharset", "DefaultCharset");
+                    Map<String, String> charsetMap = BrowserContext.getConfigure().getMapProperty("URLCharset", "CharsetMap");
+                    URI uri = UrlLinkUtil.getInstance().getURI(pageUrl, href, charset, charsetMap, def);
+                    if (null != uri && legalUrl(uri)) {
+                        //URI不为空，并且是有效的
+                        String url = uri.toString();
+                        if (!uniqSet.contains(url)) {
+                            urls.add(uri);
+                            uniqSet.add(uri.toString());
+                        }
                     }
                 }
             }
@@ -695,11 +699,10 @@ public class AnalysisPanel extends javax.swing.JPanel implements IConfigureHandl
 
     private void analyzeParamButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_analyzeParamButtonActionPerformed
         // TODO add your handling code here:
-        final JFrame popup = new JFrame("参数分析");
-        popup.setSize(800, 700);
-        JPanel panel = createPageAnalysisGUI();
-        popup.getContentPane().add(BorderLayout.CENTER, panel);
-        popup.setVisible(true);
+//        final JFrame popup = new JFrame("参数分析");
+        final JFrame panel = createPageAnalysisGUI();
+//        panel.setSize(800, 700);
+        panel.setVisible(true);
     }//GEN-LAST:event_analyzeParamButtonActionPerformed
 
     private void delPropButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delPropButtonActionPerformed
@@ -722,7 +725,7 @@ public class AnalysisPanel extends javax.swing.JPanel implements IConfigureHandl
         popup.setVisible(true);
     }//GEN-LAST:event_checkResultButtonActionPerformed
 
-    private JPanel createPageAnalysisGUI() {
+    private JFrame createPageAnalysisGUI() {
         String siteId = this.getSiteId();
         SiteMapper siteMapper = BrowserContext.getSpringContext().getBean("siteMapper", SiteMapper.class);
         Site site = siteMapper.getBySiteId(siteId);
@@ -732,7 +735,7 @@ public class AnalysisPanel extends javax.swing.JPanel implements IConfigureHandl
             if (null != panelClazz) {
                 try {
                     Class clazz = Class.forName(panelClazz);
-                    JPanel panel = (JPanel) clazz.newInstance();
+                    JFrame panel = (JFrame) clazz.newInstance();
                     // 为创建的分析器添加SiteId
                     ISiteAnalyzer analyzer = (ISiteAnalyzer) panel;
                     analyzer.setConfigureHandler(this);

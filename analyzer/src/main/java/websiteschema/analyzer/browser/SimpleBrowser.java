@@ -242,6 +242,8 @@ public class SimpleBrowser extends javax.swing.JFrame {
                 });
 
                 jfxBrowserPanel.setScene(new Scene(view));
+                //初始化BrowerContext
+                context.setWebEngine(engine);
             }
         });
         Platform.runLater(new Runnable() {
@@ -250,8 +252,6 @@ public class SimpleBrowser extends javax.swing.JFrame {
             }
         });
 
-        //初始化BrowerContext
-        context.setWebEngine(engine);
 //        vips = new VIPSImpl(context);
 
         //添加Listener

@@ -32,7 +32,7 @@ import websiteschema.utils.CollectionUtil;
  *
  * @author ray
  */
-public class GubaParamPanel extends javax.swing.JPanel implements ISiteAnalyzer {
+public class GubaParamPanel extends javax.swing.JFrame implements ISiteAnalyzer {
 
     BrowserContext context;
     IConfigureHandler confHandler;

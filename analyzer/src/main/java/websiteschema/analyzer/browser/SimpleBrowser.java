@@ -96,8 +96,6 @@ public class SimpleBrowser extends javax.swing.JFrame {
 
         //初始化Webrenderer
         initBrowser();
-        //初始化VIPS Tree控件
-        initVipsTree();
         //初始化分析栏
         initAnalysisPanel();
         //初始化页面信息分析栏
@@ -156,18 +154,7 @@ public class SimpleBrowser extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
                 jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(analysisPanel));
     }
-
-    private void initVipsTree() {
-        vipsTreePane = new javax.swing.JScrollPane();
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(vipsTreePane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE));
-        jPanel4Layout.setVerticalGroup(
-                jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addComponent(vipsTreePane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE));
-
-    }
-
+    
     private void initBottomPagePanels() {
         pageInfoPanel = new PageInfoPanel();
         pageInfoPanel.setContext(context);
@@ -332,11 +319,9 @@ public class SimpleBrowser extends javax.swing.JFrame {
         urlTextField = new javax.swing.JTextField();
         stopButton = new javax.swing.JButton();
         goButton = new javax.swing.JButton();
-        vipsButton = new javax.swing.JButton();
         browserProgress = new javax.swing.JProgressBar();
         analysisPane = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
         consolePane = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -484,18 +469,6 @@ public class SimpleBrowser extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(goButton);
-
-        vipsButton.setText("VIPS");
-        vipsButton.setToolTipText("Start VIPS");
-        vipsButton.setFocusable(false);
-        vipsButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        vipsButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        vipsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vipsButtonActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(vipsButton);
         jToolBar1.add(browserProgress);
 
         analysisPane.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -512,19 +485,6 @@ public class SimpleBrowser extends javax.swing.JFrame {
         );
 
         analysisPane.addTab("基本分析", jPanel1);
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 214, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 588, Short.MAX_VALUE)
-        );
-
-        analysisPane.addTab("VB树", jPanel4);
 
         consolePane.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -881,7 +841,7 @@ public class SimpleBrowser extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1087, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(analysisPane, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -940,15 +900,6 @@ public class SimpleBrowser extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.consoleTextArea.setText("");
     }//GEN-LAST:event_clearButtonActionPerformed
-
-    private void vipsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vipsButtonActionPerformed
-        // TODO add your handling code here:
-//        vips = null;
-//        vips = new VIPSImpl(context);
-//        HTMLDocumentImpl document = (HTMLDocumentImpl)engine.getDocument();
-//        VisionBlock block = vips.segment(document, context.getReference());
-//        setupVipsTree(block);
-    }//GEN-LAST:event_vipsButtonActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         // TODO add your handling code here:
@@ -1311,7 +1262,6 @@ public class SimpleBrowser extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1331,7 +1281,6 @@ public class SimpleBrowser extends javax.swing.JFrame {
     private javax.swing.JMenuItem utf8Menu;
     private javax.swing.JToggleButton viewAllButton;
     private javax.swing.JCheckBoxMenuItem viewAllMenu;
-    private javax.swing.JButton vipsButton;
     private javax.swing.JTextField xpathField;
     // End of variables declaration//GEN-END:variables
 }

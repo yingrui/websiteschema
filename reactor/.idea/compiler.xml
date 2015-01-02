@@ -36,7 +36,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="analyzer" target="1.6" />
+      <module name="analyzer" target="1.8" />
       <module name="lib-additional-plugins" target="1.6" />
       <module name="lib-cluster" target="1.5" />
       <module name="lib-conf" target="1.6" />

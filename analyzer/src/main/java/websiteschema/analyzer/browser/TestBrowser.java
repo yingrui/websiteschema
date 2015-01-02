@@ -31,8 +31,12 @@ public final class TestBrowser {
         frame.setVisible(true);
     }
 
-    public void load(String url) {
-        engine.load(url);
+    public void load(final String url) {
+        Platform.runLater(new Runnable() {
+            public void run() {
+                engine.load(url);
+            }
+        });
     }
 
     public void createScene() {

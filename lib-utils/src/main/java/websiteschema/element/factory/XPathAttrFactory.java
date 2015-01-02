@@ -136,7 +136,8 @@ public class XPathAttrFactory {
                 }
             } else {
                 NamedNodeMap attrs = ele.getAttributes();
-                if (attrs != null) {
+                boolean isHtmlOrBody = tagName.equalsIgnoreCase("html") || tagName.equalsIgnoreCase("body");
+                if (attrs != null && !isHtmlOrBody) {
                     if (attr.isUsingClass()) {
                         //将class属性增加到XPath中
                         Node n = attrs.getNamedItem("class");

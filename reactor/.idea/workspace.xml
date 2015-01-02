@@ -46,8 +46,8 @@
       <file leaf-file-name="XPathAttrFactory.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../lib-utils/src/main/java/websiteschema/element/factory/XPathAttrFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1650" max-vertical-offset="2505">
-              <caret line="132" column="64" selection-start-line="132" selection-start-column="64" selection-end-line="132" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.25615764" vertical-offset="1636" max-vertical-offset="2520">
+              <caret line="138" column="32" selection-start-line="138" selection-start-column="32" selection-end-line="138" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -180,6 +180,7 @@
         <option value="$PROJECT_DIR$/../metadata-server/src/main/webapp/WEB-INF/views/metadata/url.jsp" />
         <option value="$PROJECT_DIR$/../analyzer/src/main/java/websiteschema/analyzer/browser/TestBrowser.java" />
         <option value="$PROJECT_DIR$/../analyzer/src/main/java/websiteschema/analyzer/browser/listener/AnalyzeEventListener.java" />
+        <option value="$PROJECT_DIR$/../lib-utils/src/main/java/websiteschema/element/factory/XPathAttrFactory.java" />
       </list>
     </option>
   </component>
@@ -715,8 +716,14 @@
           <properties />
           <option name="timeStamp" value="28" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../lib-utils/src/main/java/websiteschema/element/factory/XPathAttrFactory.java</url>
+          <line>138</line>
+          <properties />
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="30" />
+      <option name="time" value="31" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1092,8 +1099,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../lib-utils/src/main/java/websiteschema/element/factory/XPathAttrFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1364" max-vertical-offset="2505">
-          <caret line="132" column="64" selection-start-line="132" selection-start-column="64" selection-end-line="132" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.25615764" vertical-offset="1636" max-vertical-offset="2520">
+          <caret line="138" column="32" selection-start-line="138" selection-start-column="32" selection-end-line="138" selection-end-column="32" />
           <folding />
         </state>
       </provider>

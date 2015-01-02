@@ -23,9 +23,6 @@ import websiteschema.utils.ElementUtil;
 public class AnalyzeEventListener {
 
     Logger l = Logger.getRootLogger();
-    IMozillaBrowserCanvas browser;
-    String analyzerTips = BrowserContext.getConfigure().getProperty("AnalyzerTips");
-    String urlAnalyzerTips = BrowserContext.getConfigure().getProperty("URLAnalyzerTips");
     SimpleBrowser simpleBrowser;
 
     public AnalyzeEventListener(SimpleBrowser simpleBrowser) {
@@ -35,45 +32,13 @@ public class AnalyzeEventListener {
     public void onClick(JSObject event) {
         String siteId = ((JSObject)event.getMember("data")).getMember("siteId").toString();
         String url = ((JSObject)event.getMember("data")).getMember("url").toString();
+
+        if("undefined".equals(url)) {
+            url = ((JSObject)event.getMember("data")).getMember("startURL").toString();
+        }
+
         simpleBrowser.setFocusTab(1);
-        System.out.println(siteId + " -> " + url);
+        l.debug(siteId + " -> " + url);
         simpleBrowser.startAnalysis(siteId, url);
-
-
-//        String nodeType = ElementUtil.getInstance().getNodeType(ele);
-//        l.trace("node type: " + nodeType + " node name: " + ele.getTagName());
-//        String[] attrs = ele.getAttributes();
-//        boolean containAnalyzerTips = false;
-//        boolean containUrlAnalyzerTips = false;
-//        if (null != attrs) {
-//            for (String attr : attrs) {
-//                l.trace(attr);
-//                if (attr.contains(analyzerTips)) {
-//                    containAnalyzerTips = true;
-//                } else if (attr.contains(urlAnalyzerTips)) {
-//                    containUrlAnalyzerTips = true;
-//                }
-//            }
-//            if (containAnalyzerTips) {
-//                // receive analyze command.
-//                IElement tr = ele.getParentElement().getParentElement().getParentElement();
-//                IElementCollection children = tr.getChildElements();
-//                String siteId = ElementUtil.getInstance().getText(children.item(2));
-//                String url = ElementUtil.getInstance().getText(children.item(7));
-//                l.info("Starting analysis site: " + siteId);
-//                simpleBrowser.startAnalysis(siteId, url);
-//                simpleBrowser.setFocusTab(1);
-//            } else if (containUrlAnalyzerTips) {
-//                // receive analyze command.
-//                IElement tr = ele.getParentElement().getParentElement().getParentElement();
-//                IElementCollection children = tr.getChildElements();
-//                String siteId = ElementUtil.getInstance().getText(children.item(3));
-//                String url = ElementUtil.getInstance().getText(children.item(2));
-//                l.info("Starting analysis url: " + url);
-//                simpleBrowser.startAnalysis(siteId, url);
-//                simpleBrowser.setFocusTab(1);
-//
-//            }
-//        }
     }
 }

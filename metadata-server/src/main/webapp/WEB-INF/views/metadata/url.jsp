@@ -148,9 +148,11 @@
                                 icon   : 'resources/icons/fam/accept.gif',  // Use a URL in the icon config
                                 tooltip: '<%=analyzerTips%>',
                                 handler: function(grid, rowIndex, colIndex) {
-                                    var cookie = getCookie("websiteschema");
-                                    if("analyzer" != cookie) {
-                                        MsgTip.msg("", "您使用的浏览器不是websiteschema analyzer！", true, 5);
+                                    var evtHandler = window.parent.window.evtHandler;
+                                    if(!!evtHandler) {
+                                        evtHandler.onClick(grid.store.getAt(rowIndex));
+                                    } else {
+                                        MsgTip.msg("", "您使用的浏览器不是websiteschema analyzer!" + evtHandler, true, 5);
                                     }
                                 }
                             },

@@ -196,7 +196,7 @@ public class SimpleBrowser extends javax.swing.JFrame {
                 engine.getLoadWorker().workDoneProperty().addListener(new ChangeListener<Number>() {
                     @Override
                     public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, final Number newValue) {
-                        if(newValue.intValue() == 100) {
+                        if(newValue.intValue() >= 80) {
                             JSObject window = (JSObject) engine.executeScript("window");
                             window.setMember("evt", new SimpleMouseListener(context, thiz));
                             engine.executeScript("document.onclick=function(e){evt.onClick(e);}");

@@ -378,7 +378,7 @@ public class AnalysisPanel extends javax.swing.JPanel implements IConfigureHandl
                         .addComponent(testButton)
                         .addGap(18, 18, 18)
                         .addComponent(checkResultButton)))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

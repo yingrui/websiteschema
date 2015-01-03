@@ -1,4 +1,5 @@
-*/target
 *.log
+*.pid
+*/target
 */.idea
 */*.iml

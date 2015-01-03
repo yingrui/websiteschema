@@ -24,6 +24,8 @@ public class RabbitQueue<T> {
     private Connection connection;
     private String queueName;
     private String host = "localhost";
+    private String username = "websiteschema";
+    private String password = "websiteschema";
     private int port = -1;
     private boolean connStateOk = false;
     private String charset = "UTF-8";
@@ -33,7 +35,13 @@ public class RabbitQueue<T> {
         this(host, -1, queueName);
     }
 
-    public RabbitQueue(String host, int port, String queueName) {
+    public RabbitQueue(String host, int port, String queueName, String username, String password) {
+        this(host, port, queueName);
+        this.username = username;
+        this.password = password;
+    }
+
+    private RabbitQueue(String host, int port, String queueName) {
         this.host = host;
         this.port = port;
         this.queueName = queueName;
@@ -51,6 +59,8 @@ public class RabbitQueue<T> {
         connection = null;
 
         factory.setHost(host);
+        factory.setUsername(username);
+        factory.setPassword(password);
         /**
          * If heartbeats are enabled on a connection, the server periodically sends
          * heartbeat frames to the client and waits for its response.  The heartbeat

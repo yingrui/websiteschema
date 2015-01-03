@@ -14,6 +14,7 @@ import org.mortbay.jetty.Handler;
 import org.mortbay.jetty.Request;
 import org.mortbay.jetty.Server;
 import org.mortbay.jetty.handler.AbstractHandler;
+import websiteschema.common.amqp.QueueFactory;
 import websiteschema.device.job.JobWorker;
 import websiteschema.device.schedule.DeviceScheduler;
 import websiteschema.device.schedule.LocalSchedulerLoader;
@@ -62,6 +63,8 @@ public class VirtualDevice {
      * 多线程接收和处理任务
      */
     public void startWorker() {
+        InitRabbitQueue();
+
         jobWorkers = new JobWorker[poolSize];
         threads = new Thread[poolSize];
         for (int i = 0; i < poolSize; i++) {
@@ -74,6 +77,10 @@ public class VirtualDevice {
             threads[i] = t;
         }
         initTimer();
+    }
+
+    private void InitRabbitQueue() {
+        QueueFactory.getInstance().setConfig(DeviceContext.getInstance().getConf());
     }
 
     /**

@@ -26,14 +26,18 @@ public class TaskHandler {
     private RabbitQueue<Message> queue;
     private Map<String, RabbitQueue<Message>> queueRepos = new HashMap<String, RabbitQueue<Message>>();
     private Logger l = Logger.getLogger(TaskHandler.class);
+    private String username = null;
+    private String password = null;
 
     TaskHandler() {
         String host = MetadataServerContext.getInstance().getConf().
                 getProperty("URLQueue", "ServerHost", "localhost");
         String queueName = MetadataServerContext.getInstance().getConf().
                 getProperty("URLQueue", "PriorQueueName", "url_queue");
+        username = MetadataServerContext.getInstance().getConf().getProperty("URLQueue", "Username", "websiteschema");
+        password = MetadataServerContext.getInstance().getConf().getProperty("URLQueue", "Password", "websiteschema");
         l.debug("create a new RabbitQueue instance with host: " + host + " and queue name: " + queueName);
-        queue = new RabbitQueue<Message>(host, queueName);
+        queue = new RabbitQueue<Message>(host, -1, queueName, username, password);
         queueRepos.put(queueName, queue);
     }
 
@@ -48,7 +52,7 @@ public class TaskHandler {
             String host = MetadataServerContext.getInstance().getConf().
                     getProperty("URLQueue", "ServerHost", "localhost");
             l.debug("create a new RabbitQueue instance with host: " + host + " and queue name: " + queueName);
-            RabbitQueue<Message> q = new RabbitQueue<Message>(host, queueName);
+            RabbitQueue<Message> q = new RabbitQueue<Message>(host, -1, queueName, username, password);
             queueRepos.put(queueName, q);
             return q;
         }

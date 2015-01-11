@@ -19,7 +19,7 @@ import javafx.application.Platform;
  */
 public final class TestBrowser {
 
-    JFXPanel jfxPanel = new JFXPanel();
+    private JFXPanel jfxPanel = new JFXPanel();
     private WebEngine engine;
     JTextField textfield;
 

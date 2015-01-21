@@ -24,7 +24,6 @@ public class TableExtractorTest {
 
         FBTableExtractor extractor = new FBTableExtractor();
         extractor.tableXPath = "//table[@id='dbtable']";
-        extractor.primaryKey = "基金代码";
 
         extractor.document = crawler.out;
         extractor.extract();

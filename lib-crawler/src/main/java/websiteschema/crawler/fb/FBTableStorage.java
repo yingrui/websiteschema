@@ -1,6 +1,5 @@
 package websiteschema.crawler.fb;
 
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import websiteschema.fb.annotation.*;
 import websiteschema.fb.core.FunctionBlock;
 import websiteschema.utils.DateUtil;
@@ -43,7 +42,7 @@ public class FBTableStorage extends FunctionBlock {
     @DI(name = "COLUMNS")
     public Map<String, String> columns = null;
 
-    private DriverManagerDataSource dataSource = null;
+    private javax.sql.DataSource dataSource = null;
 
     @Algorithm(name = "SAVE")
     public void save() {
@@ -55,9 +54,10 @@ public class FBTableStorage extends FunctionBlock {
 
         try {
             Statement statement = conn.createStatement();
-
+            String createdAt = DateUtil.format(new Date(), "yyyy-MM-dd HH:mm:ss");
             for(Map<String,String> row: table) {
-                String sql = "INSERT INTO " + tableName + " " + getInsertSQL(row);
+                String sql = "INSERT INTO " + tableName + " " + getInsertSQL(row, createdAt);
+                l.debug(sql);
                 statement.execute(sql);
             }
             statement.close();
@@ -77,7 +77,7 @@ public class FBTableStorage extends FunctionBlock {
         try {
             Connection connection = null;
             if(beanName != null) {
-                dataSource = getContext().getSpringBean(beanName, DriverManagerDataSource.class);
+                dataSource = getContext().getSpringBean(beanName, javax.sql.DataSource.class);
                 connection = dataSource.getConnection();
             } else {
                 Class.forName(jdbcDriver).newInstance();
@@ -94,8 +94,10 @@ public class FBTableStorage extends FunctionBlock {
     private void initiateTable(Connection connection) throws SQLException {
         Statement statement = connection.createStatement();
         try {
-            statement.execute("CREATE TABLE IF NOT EXISTS " + tableName + " " +
-                    "(" + getTableFieldDescription() + ")");
+            String createTableSQL = "CREATE TABLE IF NOT EXISTS " + tableName + " " +
+                                    "(" + getTableFieldDescription() + ")";
+            l.debug(createTableSQL);
+            statement.execute(createTableSQL);
         } finally {
             statement.close();
         }
@@ -106,7 +108,7 @@ public class FBTableStorage extends FunctionBlock {
 
         for (String columnName : columns.keySet()) {
             String column = columns.get(columnName);
-            str.append(column).append(" VARCHAR(10000) NULL,");
+            str.append(column).append(" VARCHAR(1024) NULL,");
         }
 
         str.append("CREATED_AT VARCHAR(100) NOT NULL");
@@ -114,11 +116,9 @@ public class FBTableStorage extends FunctionBlock {
         return str.toString();
     }
 
-    private String getInsertSQL(Map<String, String> row) {
+    private String getInsertSQL(Map<String, String> row, String createdAt) {
         StringBuilder columnNames = new StringBuilder();
         StringBuilder values = new StringBuilder();
-
-        String createdAt = DateUtil.format(new Date(), "yyyy-MM-dd HH:mm:ss");
 
         for (String field : row.keySet()) {
             String columnName = columns.get(field);

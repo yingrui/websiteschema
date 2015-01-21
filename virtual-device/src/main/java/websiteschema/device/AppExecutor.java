@@ -13,7 +13,7 @@ import websiteschema.fb.core.app.Application;
 public class AppExecutor {
 
     public static void main(String args[]) throws Exception {
-        String arg = args.length > 0 ? args[0] : "fb/weibo_db_extractor.app";
+        String arg = args.length > 0 ? args[0] : "fb/eastmoney_fund.app";
         Application app = new Application();
         app.getContext().loadConfigure(arg);
         app.call();

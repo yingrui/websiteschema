@@ -26,8 +26,6 @@ public class FBTableExtractor extends FunctionBlock {
     public String headerXPath = null;
     @DI(name = "CONTENT_XPATH")
     public String contentXPath = null;
-    @DI(name = "PK")
-    public String primaryKey;
     @DO(name = "OUT", relativeEvents = {"EO"})
     public List<Map<String, String>> table = new ArrayList<>();
 
@@ -67,6 +65,7 @@ public class FBTableExtractor extends FunctionBlock {
     }
 
     private void extractHeaders() {
+        l.debug("extract table header");
         if (null != document && null != headerXPath) {
             List<Node> nodes = DocumentUtil.getByXPath(document, headerXPath.trim());
             for(Node th : nodes) {
@@ -77,6 +76,7 @@ public class FBTableExtractor extends FunctionBlock {
     }
 
     private void extractContent() {
+        l.debug("extract table content");
         if (null != document && null != contentXPath) {
             List<Node> nodes = DocumentUtil.getByXPath(document, contentXPath.trim());
             for(Node tr : nodes) {
@@ -98,34 +98,6 @@ public class FBTableExtractor extends FunctionBlock {
 
     private String getTextContent(Node item) {
         return item.getTextContent().replaceAll("[\\s\\r\\n]", "");
-    }
-
-    private List<String> getContents(Node root) {
-        if (null == root) {
-            return null;
-        }
-        Queue<Node> q = new LinkedList<Node>();
-        q.add(root);
-        List<String> ret = new ArrayList<String>();
-        Node iter_node = null;
-        while (q.isEmpty()) {
-            iter_node = q.poll();
-            if (iter_node.getNodeType() == Node.TEXT_NODE) {
-                String cont_str = iter_node.getTextContent();
-                if (null != cont_str) {
-                    ret.add(cont_str);
-                }
-            } else {
-                NodeList children = iter_node.getChildNodes();
-                if (null != children) {
-                    for (int i = 0; i < children.getLength(); i++) {
-                        q.add(children.item(i));
-                    }
-                }
-            }
-        }
-
-        return ret;
     }
 }
 

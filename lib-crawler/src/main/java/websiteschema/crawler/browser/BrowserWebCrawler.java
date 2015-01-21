@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package websiteschema.crawler.browser;
 
 import java.awt.*;
@@ -31,9 +27,6 @@ import websiteschema.crawler.WebPage;
 import websiteschema.model.domain.cralwer.CrawlerSettings;
 import websiteschema.utils.UrlLinkUtil;
 
-/**
- * @author ray
- */
 public class BrowserWebCrawler implements Crawler {
 
     Logger l = Logger.getLogger(BrowserWebCrawler.class);
@@ -87,6 +80,7 @@ public class BrowserWebCrawler implements Crawler {
     }
 
     private void destroy() {
+        browser.destroy();
     }
 
     @Override
@@ -210,6 +204,7 @@ public class BrowserWebCrawler implements Crawler {
             synchronized (lock) {
                 l.debug("wait");
                 lock.wait(delay);
+                Thread.sleep(1000);
             }
         } catch (InterruptedException ex) {
             l.error(ex.getMessage(), ex);
@@ -219,27 +214,7 @@ public class BrowserWebCrawler implements Crawler {
             l.debug("after wait, elaspe: " + (endTime - startTime) + " ms");
             document = browser.engine.getDocument();
             this.url = browser.engine.getLocation();
-//            org.w3c.dom.Element frames = document.getDocumentElement();
-//            Document[] docs = null;
-//            String[] sources = null;
-//            if (null != document) {
-//                int len = null != frames ? frames.length + 1 : 1;
-//                docs = new Document[len];
-//                sources = new String[len];
-//                docs[0] = (Document) browser.getW3CDocument();
-//                sources[0] = document.getDocumentSource();
-//                for (int i = 1; i < len; i++) {
-//                    IElement body = frames[i - 1].getBody();
-//                    sources[i] = frames[i - 1].getDocumentSource();
-//                    try {
-//                        if (null != body) {
-//                            docs[i] = body.convertToW3CNode().getOwnerDocument();
-//                        }
-//                    } catch (Exception ex) {
-//                        l.error(ex.getMessage(), ex);
-//                    }
-//                }
-//            }
+
             WebPage ret = new WebPage(this);
             ret.setDocs(new Document[]{document});
             ret.setHtmlSource(new String[]{document.getTextContent()});
@@ -256,10 +231,10 @@ public class BrowserWebCrawler implements Crawler {
         private JFXPanel jfxPanel = new JFXPanel();
         public WebEngine engine;
         JTextField textfield;
+        JFrame frame = new JFrame();
 
         public InnerBrowser() {
-            JFrame frame = new JFrame();
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.setContentPane(content());
             frame.setSize(750, 450);
             frame.setVisible(true);
@@ -332,15 +307,11 @@ public class BrowserWebCrawler implements Crawler {
             return panel;
         }
 
+        public void destroy() {
+            frame.dispose();
+        }
     }
 
-//    public static void main(String args[]) throws InterruptedException {
-//        String url = "http://www.baidu.com/";
-//        BrowserWebCrawler crawler = new BrowserWebCrawler();
-//        Document[] docs = crawler.crawl(url);
-//        System.out.println("----" + System.currentTimeMillis());
-//        crawler = null;
-//    }
 }
 
 

@@ -81,11 +81,17 @@ public class FBWebCrawler extends FunctionBlock {
             try {
                 Class clazz = Class.forName(crawlerType);
                 crawler = (Crawler) clazz.newInstance();
-                crawler.setCrawlerSettings(schema.getCrawlerSettings());
+                setCrawlerSettings();
             } catch (Exception ex) {
                 l.error(ex.getMessage(), ex);
             }
         }
         return crawler;
+    }
+
+    private void setCrawlerSettings() {
+        if(schema != null && schema.getCrawlerSettings() != null) {
+            crawler.setCrawlerSettings(schema.getCrawlerSettings());
+        }
     }
 }

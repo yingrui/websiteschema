@@ -293,6 +293,19 @@ public class BrowserWebCrawler implements Crawler {
                         }
                     });
 
+                    engine.locationProperty().addListener(new ChangeListener<String>() {
+                        @Override
+                        public void changed(ObservableValue<? extends String> ov, String oldValue, final String newValue) {
+                            SwingUtilities.invokeLater(new Runnable() {
+                                @Override
+                                public void run() {
+                                    setUrl(newValue);
+                                    textfield.setText(newValue);
+                                }
+                            });
+                        }
+                    });
+
                     jfxPanel.setScene(new Scene(view));
                 }
             });
